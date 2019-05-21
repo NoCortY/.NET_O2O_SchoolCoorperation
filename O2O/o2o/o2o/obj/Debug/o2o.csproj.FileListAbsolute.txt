@@ -1,0 +1,6 @@
+E:\Github\o2o\O2O\o2o\o2o\bin\o2o.dll.config
+E:\Github\o2o\O2O\o2o\o2o\bin\o2o.dll
+E:\Github\o2o\O2O\o2o\o2o\bin\o2o.pdb
+E:\Github\o2o\O2O\o2o\o2o\obj\Debug\o2o.csprojResolveAssemblyReference.cache
+E:\Github\o2o\O2O\o2o\o2o\obj\Debug\o2o.dll
+E:\Github\o2o\O2O\o2o\o2o\obj\Debug\o2o.pdb
