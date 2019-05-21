@@ -4,3 +4,9 @@ E:\Github\o2o\O2O\o2o\o2o\bin\o2o.pdb
 E:\Github\o2o\O2O\o2o\o2o\obj\Debug\o2o.csprojResolveAssemblyReference.cache
 E:\Github\o2o\O2O\o2o\o2o\obj\Debug\o2o.dll
 E:\Github\o2o\O2O\o2o\o2o\obj\Debug\o2o.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\o2o\obj\Debug\o2o.csprojResolveAssemblyReference.cache
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\o2o\obj\Debug\o2o.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\o2o\obj\Debug\o2o.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\o2o\bin\o2o.dll.config
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\o2o\bin\o2o.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\o2o\bin\o2o.pdb
