@@ -10,3 +10,9 @@ C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\o2o\obj\Debug\o2o
 C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\o2o\bin\o2o.dll.config
 C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\o2o\bin\o2o.dll
 C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\o2o\bin\o2o.pdb
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\bin\o2o.dll.config
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\bin\o2o.dll
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\bin\o2o.pdb
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\obj\Debug\o2o.csprojResolveAssemblyReference.cache
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\obj\Debug\o2o.dll
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\obj\Debug\o2o.pdb

@@ -61,10 +61,13 @@
     <Content Include="Resources\css\bootstrap-theme.min.css.map" />
     <Content Include="Resources\css\bootstrap.css.map" />
     <Content Include="Resources\css\bootstrap.min.css.map" />
+    <Content Include="Resources\css\index.css" />
+    <Content Include="Resources\css\register.css" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Controller\register.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -82,18 +85,29 @@
     <Content Include="Resources\css\bootstrap.css" />
     <Content Include="Resources\css\bootstrap.min.css" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Resources\images\01.jpg" />
+    <Content Include="Resources\images\book.png" />
+    <Content Include="Resources\images\carrier.png" />
+    <Content Include="Resources\images\game.png" />
     <Content Include="Resources\js\bootstrap.js" />
     <Content Include="Resources\js\bootstrap.min.js" />
     <Content Include="Resources\js\jquery-3.4.1.min.js" />
     <Content Include="Resources\js\npm.js" />
+    <Content Include="Views\index.html" />
+    <Content Include="Views\register.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\register.ashx.cs">
+      <DependentUpon>register.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Views\" />
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{f0ddd412-984f-4b24-b553-62faf584eb01}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
