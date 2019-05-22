@@ -16,3 +16,9 @@ G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\bin\o2o.pdb
 G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\obj\Debug\o2o.csprojResolveAssemblyReference.cache
 G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\obj\Debug\o2o.dll
 G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\obj\Debug\o2o.pdb
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\bin\Model.dll
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\bin\Service.dll
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\bin\Dao.dll
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\bin\Model.pdb
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\bin\Service.pdb
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\o2o\bin\Dao.pdb

@@ -17,12 +17,23 @@ namespace Dao
         public User queryUserById(int id)
         {
             User user = new User();
-            String sql = "SELECT * FROM tb_user WHERE id = @id and username = @username";
+            String sql = "SELECT * FROM tb_user WHERE id = @id";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@id",id));
             SqlDataReader sdr =cmd.ExecuteReader();
-            user.Id = sdr.GetInt32(1);
-            user.Username = sdr.GetString(2);
+            sdr.Read();
+            if (sdr.NextResult() != null) {
+                user.Id = sdr.GetInt32(0);
+                user.Username = sdr.GetString(1);
+                user.Password = sdr.GetString(2);
+                user.UserHeader = sdr.GetString(3);
+                user.Gender = sdr.GetString(4);
+                user.UserStatus = sdr.GetInt32(5);
+                user.RegisterTime = sdr.GetDateTime(6);
+                user.RealName = sdr.GetString(7);
+                user.TeleNumber = sdr.GetString(8);
+
+            }
             DbUtil.close();
             return user;
 
@@ -49,7 +60,7 @@ namespace Dao
         //插入
         public Boolean insertUser(User user)
         {
-            String sql = "INSERT INTO tb_user VALUES username = @username,password=@password,userheader = @userheader, gender = @gender, usrestaus = @userstaus, registertime = @registertime, realname = @realname, telenumber = @telenumber WHERE id = @id ";
+            String sql = "INSERT INTO tb_user(username,password,userheader,gender,userstatus,registertime,realname,telenumber) VALUES(@username,@password,@userheader,@gender, @userstaus,@registertime,@realname,@telenumber)";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@username", user.Username));
             cmd.Parameters.Add(new SqlParameter("@password", user.Password));
@@ -66,7 +77,7 @@ namespace Dao
                 return false;
         }
         //删除
-        public Boolean deleteUser(User user)
+        /*public Boolean deleteUser(User user)
         {
             String sql = "DELETE FROM tb_user WHERE id = @id and username = @username";
             SqlCommand cmd = DbUtil.getCommand(sql);
@@ -77,6 +88,6 @@ namespace Dao
                 return true;
             else
                 return false;
-        }
+        }*/
     }
 }

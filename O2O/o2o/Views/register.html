@@ -61,7 +61,7 @@
             <div class="jumbotron" >
                 <h2>用户注册</h2>
                 <div >
-                    <form action="../Controller/register.ashx" method="post">
+                    <form id="registerform">
                         <div class="form-group ">
                             <label for="exampleInputEmail1">邮箱</label>
                             <input type="email" name="username" class="form-control" id="exampleInputEmail1" placeholder="请输入您的邮箱地址">
@@ -74,6 +74,19 @@
                             <label for="exampleInputEmail1">昵称</label>
                             <input type="text" name="nickname" class="form-control" id="exampleInputEmail1" placeholder="请输入您的昵称">
                         </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1">真实姓名</label>
+                            <input type="text" name="realname" class="form-control" id="exampleInputEmail1" placeholder="请输入您的真实姓名">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1">手机</label>
+                            <input type="tel" name="telenumber" class="form-control" id="exampleInputEmail1" placeholder="请输入您的电话号码">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">性别</label>
+                            <input type="radio" name="gender" value="M"checked>男
+                            <input type="radio" name="gender" value="F">女
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputFile">头像</label>
                             <input type="file" name="header" id="exampleInputFile">
@@ -85,8 +98,8 @@
                             </label>
                         </div>
                         <p>
-                            <input type="submit" class="btn btn-primary" value="&nbsp;&nbsp;&nbsp;注册&nbsp;&nbsp;&nbsp;" />
-                            <input type="button" class="btn btn-danger" value="&nbsp;&nbsp;&nbsp;取消&nbsp;&nbsp;&nbsp;">
+                            <input type="button" id="submit" class="btn btn-primary" value="&nbsp;&nbsp;&nbsp;注册&nbsp;&nbsp;&nbsp;" />
+                            <input type="button" id="back" class="btn btn-danger" value="&nbsp;&nbsp;&nbsp;返回&nbsp;&nbsp;&nbsp;">
                         </p>
                     </form>
                 </div>
@@ -96,5 +109,6 @@
     </div>
     <script type="text/javascript" src="../Resources/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="../Resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../Resources/js/register.js"></script>
 </body>
 </html>

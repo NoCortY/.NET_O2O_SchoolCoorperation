@@ -15,6 +15,7 @@ namespace Dao.Utils
         {
             String connStr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             conn = new SqlConnection(connStr);
+            conn.Open();
             SqlCommand myCmd = new SqlCommand(sql, conn);
             return myCmd;
         }

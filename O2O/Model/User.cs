@@ -36,12 +36,14 @@ namespace o2o.entity
             set { userHeader = value; }
         }
 
-        private char gender;
-        public char Gender
+        private String gender;
+
+        public String Gender
         {
             get { return gender; }
             set { gender = value; }
         }
+       
 
         private int userStatus;
         public int UserStatus

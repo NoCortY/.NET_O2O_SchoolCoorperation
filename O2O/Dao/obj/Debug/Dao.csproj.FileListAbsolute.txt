@@ -1,0 +1,7 @@
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Dao\bin\Debug\Dao.dll
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Dao\bin\Debug\Dao.pdb
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Dao\bin\Debug\Model.dll
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Dao\bin\Debug\Model.pdb
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Dao\obj\Debug\Dao.csprojResolveAssemblyReference.cache
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Dao\obj\Debug\Dao.dll
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Dao\obj\Debug\Dao.pdb

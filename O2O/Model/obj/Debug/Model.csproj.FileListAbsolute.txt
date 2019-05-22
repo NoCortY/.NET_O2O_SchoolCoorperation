@@ -1,0 +1,4 @@
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Model\bin\Debug\Model.dll
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Model\bin\Debug\Model.pdb
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Model\obj\Debug\Model.dll
+G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Model\obj\Debug\Model.pdb
