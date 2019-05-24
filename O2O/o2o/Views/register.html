@@ -21,14 +21,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">校园O2O互助平台</a>
+                <a class="navbar-brand" href="index.html">校园O2O互助平台</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <!--class="active"-->
-                    <li ><a href="#">注册 <span class="sr-only">(current)</span></a></li>
+                    <li ><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
@@ -39,26 +39,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="mailto:610063090@qq.com">联系我们</a></li>
                     <li><a href="#">登录</a></li>
-                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <!--=========================================导航条=========================================-->
     <div class="container">
-        <div class="row col-lg-12 col-sm-10" style="text-align:center">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <h1>用来放图片</h1>
-        </div>
-
-    </div>
-    <div class="container">
-        <div class="row col-lg-12 col-sm-10 ">
+        <div class="row col-lg-12 col-sm-10 " style="padding-top:60px;">
             <div class="jumbotron" >
                 <h2>用户注册</h2>
                 <div >
@@ -72,6 +59,10 @@
                             <input type="password" name="password" class="form-control" id="InputPassword" placeholder="请输入您的密码">
                         </div>
                         <div class="form-group ">
+                            <label for="exampleInputPassword1">确认密码<span id="alertconfirmpassword" style="color:red"></span></label>
+                            <input type="password" class="form-control" id="ConfirmPassword" placeholder="请确认您的密码">
+                        </div>
+                        <div class="form-group ">
                             <label for="exampleInputEmail1">昵称<span id="alertnickname" style="color:red"></span></label>
                             <input type="text" name="nickname" class="form-control" id="InputNickname" placeholder="请输入您的昵称">
                         </div>
@@ -80,8 +71,8 @@
                             <input type="text" name="realname" class="form-control" id="exampleInputEmail1" placeholder="请输入您的真实姓名">
                         </div>
                         <div class="form-group ">
-                            <label for="exampleInputEmail1">手机</label>
-                            <input type="tel" name="telenumber" class="form-control" id="exampleInputEmail1" placeholder="请输入您的电话号码">
+                            <label for="exampleInputEmail1">手机<span id="alerttelenum" style="color:red"></span></label>
+                            <input type="tel" name="telenumber" class="form-control" id="InputTeleNumber" placeholder="请输入您的电话号码">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">性别</label>
@@ -90,13 +81,8 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile">头像</label>
-                            <input type="file" name="header" id="exampleInputFile">
-                            <p class="help-block">在这里上传您的头像</p>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> 注册后直接登录
-                            </label>
+                            <input type="file" name="userheader" id="exampleInputFile">
+                            <p class="help-block" id="alertregisterresult" style="color:red"></p>
                         </div>
                         <p>
                             <input type="button" id="submit" class="btn btn-primary" value="&nbsp;&nbsp;&nbsp;注册&nbsp;&nbsp;&nbsp;" />
@@ -108,8 +94,14 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="../Resources/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="../Resources/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../Resources/js/register.js"></script>
+    <div class="container">
+        <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>© 2016 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+        </footer>
+    </div>
+        <script type="text/javascript" src="../Resources/js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../Resources/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Resources/js/register.js"></script>
 </body>
 </html>

@@ -28,6 +28,13 @@ namespace o2o.entity
             get { return password; }
             set { password = value; }
         }
+        private String nickName;
+
+        public String NickName
+        {
+            get { return nickName; }
+            set { nickName = value; }
+        }
 
         private String userHeader;
         public String UserHeader

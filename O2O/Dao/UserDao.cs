@@ -21,8 +21,9 @@ namespace Dao
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@id",id));
             SqlDataReader sdr =cmd.ExecuteReader();
-            sdr.Read();
-            if (sdr.NextResult() != null) {
+            /*HasRows是看结果集中是否有数据,nextResult是跳转到结果集的下一行*/
+            if (sdr.HasRows) {
+                sdr.Read();
                 user.Id = sdr.GetInt32(0);
                 user.Username = sdr.GetString(1);
                 user.Password = sdr.GetString(2);
@@ -32,16 +33,57 @@ namespace Dao
                 user.RegisterTime = sdr.GetDateTime(6);
                 user.RealName = sdr.GetString(7);
                 user.TeleNumber = sdr.GetString(8);
-
+                user.NickName = sdr.GetString(9);
             }
             DbUtil.close();
             return user;
+        }
+        //查找用户是否存在
+        public Boolean userExist(String username)
+        {
+            String sql = "SELECT * FROM tb_user WHERE username = @username";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            cmd.Parameters.Add(new SqlParameter("@username", username));
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.HasRows)
+            {
+                DbUtil.close();
+                return true;
+            }
+            else
+            {
+                DbUtil.close();
+                return false;
+            }
+        }
+        //根据用户名查找用户
+        public User queryUserByUsername(String username)
+        {
+            User user = new User();
+            StringBuilder password = new StringBuilder();
+            String sql = "SELECT id,password,nickname FROM tb_user WHERE username = @username";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            cmd.Parameters.Add(new SqlParameter("@username", username));
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.HasRows)
+            {
+                sdr.Read();
+                user.Id = sdr.GetInt32(0);
+                user.Password = sdr.GetString(1);
+                user.NickName = sdr.GetString(2);
 
+                DbUtil.close();
+                return user;
+            }
+            else
+            {
+                return null;
+            }
         }
         //更新
         public Boolean updateUser(User user)
         {
-            String sql = "UPDATE tb_user SET username = @username,password=@password,userheader = @userheader, gender = @gender, usrestaus = @userstaus, registertime = @registertime, realname = @realname, telenumber = @telenumber where id = @id ";
+            String sql = "UPDATE tb_user SET username = @username,password=@password,userheader = @userheader, gender = @gender, usrestaus = @userstaus, registertime = @registertime, realname = @realname, telenumber = @telenumber nickname = @nickname where id = @id ";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@username", user.Username));
             cmd.Parameters.Add(new SqlParameter("@password",user.Password));
@@ -51,7 +93,9 @@ namespace Dao
             cmd.Parameters.Add(new SqlParameter("@registertime", user.RegisterTime));
             cmd.Parameters.Add(new SqlParameter("@realname", user.RealName));
             cmd.Parameters.Add(new SqlParameter("@telenumber", user.TeleNumber));
+            cmd.Parameters.Add(new SqlParameter("@nickname", user.NickName));
             int i = cmd.ExecuteNonQuery();
+            DbUtil.close();
             if (i > 0)
                 return true;
             else
@@ -60,17 +104,19 @@ namespace Dao
         //插入
         public Boolean insertUser(User user)
         {
-            String sql = "INSERT INTO tb_user(username,password,userheader,gender,userstatus,registertime,realname,telenumber) VALUES(@username,@password,@userheader,@gender, @userstaus,@registertime,@realname,@telenumber)";
+            String sql = "INSERT INTO tb_user(username,password,userheader,gender,userstatus,registertime,realname,telenumber,nickname) VALUES(@username,@password,@userheader,@gender, @userstaus,@registertime,@realname,@telenumber,@nickname)";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@username", user.Username));
             cmd.Parameters.Add(new SqlParameter("@password", user.Password));
             cmd.Parameters.Add(new SqlParameter("@userheader", user.UserHeader));
             cmd.Parameters.Add(new SqlParameter("@gender", user.Gender));
-            cmd.Parameters.Add(new SqlParameter("@usrestaus", user.UserStatus));
+            cmd.Parameters.Add(new SqlParameter("@userstaus", user.UserStatus));
             cmd.Parameters.Add(new SqlParameter("@registertime", user.RegisterTime));
             cmd.Parameters.Add(new SqlParameter("@realname", user.RealName));
             cmd.Parameters.Add(new SqlParameter("@telenumber", user.TeleNumber));
+            cmd.Parameters.Add(new SqlParameter("@nickname", user.NickName));
             int i = cmd.ExecuteNonQuery();
+            DbUtil.close();
             if (i > 0)
                 return true;
             else

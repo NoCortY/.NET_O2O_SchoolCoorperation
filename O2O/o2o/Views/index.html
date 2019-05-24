@@ -4,10 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>校园O2O互助平台</title>
     <link rel="stylesheet" href="../Resources/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../Resources/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="../Resources/css/index.css" />
+    <link rel="stylesheet" href="../Resources/css/carousel.css" />
+    <link rel="stylesheet" href="../Resources/css/workaround.css" />
 </head>
 <body>
     <!--=========================================导航条=========================================-->
@@ -21,13 +24,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">校园O2O互助平台</a>
+                <a class="navbar-brand" href="index.html">校园O2O互助平台</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">互助广场</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -51,13 +54,16 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="mailto:610063090@qq.com">联系我们</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <a href="#" id="useritem" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">用户<span class="caret"></span></a>
+                        <ul id="dropdownhaslogin" class="dropdown-menu">
+                            <li><a href="" data-toggle="modal" data-target="#login">登录</a></li>
+                            <!--
                             <li><a href="#">账户管理</a></li>
                             <li><a href="#">我的发布</a></li>
                             <li><a href="#">我的评价</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">退出登录</a></li>
+                            -->
                         </ul>
                     </li>
                 </ul>
@@ -65,10 +71,6 @@
         </div><!-- /.container-fluid -->
     </nav>
     <!--=========================================导航条=========================================-->
-
-
-
-
     <!--=========================================轮播图=========================================-->
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -80,12 +82,27 @@
 
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="../Resources/images/01.jpg" alt="1">
-                <div class="carousel-caption">
-                    <a class="btn btn-lg btn-primary" role="button" href="#">&nbsp;&nbsp;&nbsp;加入我们&nbsp;&nbsp;&nbsp;</a>
+                <img class="first-slide" src="../Resources/images/carousel_01.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <a class="btn btn-lg btn-primary" role="button" href="register.html">&nbsp;&nbsp;&nbsp;加入我们&nbsp;&nbsp;&nbsp;</a>
+                    </div>
                 </div>
             </div>
-            ...
+            <div class="item">
+                <img class="first-slide" src="../Resources/images/carousel_02.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="first-slide" src="../Resources/images/carousel_03.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Controls -->
@@ -99,40 +116,36 @@
         </a>
     </div>
     <!--=========================================轮播图=========================================-->
-    
-    
     <!--=========================================分类简介=========================================-->
     <div id="container" class="container marketing">
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-            <div class="col-lg-4">
-                <img width="140" height="140" class="img-circle" alt="Generic placeholder image" src="../Resources/images/book.png">
-                <h2>二手图书</h2>
-                <p>我<br />要毕业了<br />转专业了<br />但是留下了一堆书<br />不知道怎么处理<br/>加入我们吧!</p>
-                <p><a class="btn btn-default" role="button" href="#">查看详情 »</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <img width="140" height="140" class="img-circle" alt="Generic placeholder image" src="../Resources/images/game.png">
-                <h2>游戏代练</h2>
-                <p>我是<br/>游戏大咖兼职业选手<br/>带妹子上分的热心老学长<br/>或者<br />我想体验一把高端局的快感<br/>加入我们吧！<br/></p>
-                <p><a class="btn btn-default" role="button" href="#">查看详情 »</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <img width="140" height="140" class="img-circle" alt="Generic placeholder image" src="../Resources/images/carrier.png">
-                <h2>跑腿服务</h2>
-                <p>我懒<br />可以食堂帮带饭吗？<br />可以帮我取快递吗?<br />可以帮我给女朋友一份惊喜吗?<br />想集中精力做大事<br/>加入我们吧！<br /></p>
-                <p><a class="btn btn-default" role="button" href="#">查看详情 »</a></p>
-            </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
+        <div class="col-lg-4">
+            <img width="140" height="140" class="img-circle" alt="Generic placeholder image" src="../Resources/images/book.png">
+            <h2>二手图书</h2>
+            <p>我<br />要毕业了<br />转专业了<br />但是留下了一堆书<br />不知道怎么处理<br />加入我们吧!</p>
+            <p><a class="btn btn-default" role="button" href="#">查看详情 »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img width="140" height="140" class="img-circle" alt="Generic placeholder image" src="../Resources/images/game.png">
+            <h2>游戏代练</h2>
+            <p>我是<br />游戏大咖兼职业选手<br />带妹子上分的热心老学长<br />或者<br />我想体验一把高端局的快感<br />加入我们吧！<br /></p>
+            <p><a class="btn btn-default" role="button" href="#">查看详情 »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img width="140" height="140" class="img-circle" alt="Generic placeholder image" src="../Resources/images/carrier.png">
+            <h2>跑腿服务</h2>
+            <p>我懒<br />可以食堂帮带饭吗？<br />可以帮我取快递吗?<br />可以帮我给女朋友一份惊喜吗?<br />想集中精力做大事<br />加入我们吧！<br /></p>
+            <p><a class="btn btn-default" role="button" href="#">查看详情 »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <!-- /.row -->
         <!-- START THE FEATURETTES -->
         <hr class="featurette-divider">
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">【简单便利】 <span class="text-muted">Simple and convenient </span></h2>
+                <h2 class="featurette-heading">【简单便利】<span class="text-muted">Simple and convenient </span></h2>
                 <p class="lead">“校园O2O互助平台”提供帮带饭，快递上门，夜宵上门，校内超市代购等校园服务，让学生用户的大学生活更便利。</p>
             </div>
             <div class="col-md-5">
-                <img class="featurette-image img-responsive center-block" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNTAweDUwMC9hdXRvCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPiNob2xkZXJfMTZhZGUzZTk3ODEgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToyNXB0IH0gPC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNmFkZTNlOTc4MSI+PHJlY3QgZmlsbD0iI2VlZWVlZSIgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIC8+PGc+PHRleHQgeD0iMTg1LjExIiB5PSIyNjEuNDk5Ij41MDB4NTAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-src="holder.js/500x500/auto" data-holder-rendered="true">
+                <img class="featurette-image img-responsive center-block" alt="500x500" src="../Resources/images/item01.jpg" data-src="holder.js/500x500/auto" data-holder-rendered="true">
             </div>
         </div>
         <hr class="featurette-divider">
@@ -142,7 +155,7 @@
                 <p class="lead">“校园O2O互助平台”将在产品内增加互助社区，用户可以在社区内发布校园需求，学生间相互帮助，相互解决问题。</p>
             </div>
             <div class="col-md-5 col-md-pull-7">
-                <img class="featurette-image img-responsive center-block" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNTAweDUwMC9hdXRvCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPiNob2xkZXJfMTZhZGUzZTkxNzEgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToyNXB0IH0gPC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNmFkZTNlOTE3MSI+PHJlY3QgZmlsbD0iI2VlZWVlZSIgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIC8+PGc+PHRleHQgeD0iMTg1LjExIiB5PSIyNjEuNDk5Ij41MDB4NTAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-src="holder.js/500x500/auto" data-holder-rendered="true">
+                <img class="featurette-image img-responsive center-block" alt="500x500" src="../Resources/images/item02.jpg" data-src="holder.js/500x500/auto" data-holder-rendered="true">
             </div>
         </div>
         <hr class="featurette-divider">
@@ -152,7 +165,7 @@
                 <p class="lead">“校园O2O互助平台”主打学生自主服务，可以利用自身专业技能，无偿或有偿服务，包括但不限于修电脑，跑腿，游戏代练，借物应急，可到用户宿舍，服务更贴心。</p>
             </div>
             <div class="col-md-5">
-                <img class="featurette-image img-responsive center-block" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNTAweDUwMC9hdXRvCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPiNob2xkZXJfMTZhZGUzZTk4NjcgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToyNXB0IH0gPC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNmFkZTNlOTg2NyI+PHJlY3QgZmlsbD0iI2VlZWVlZSIgd2lkdGg9IjUwMCIgaGVpZ2h0PSI1MDAiIC8+PGc+PHRleHQgeD0iMTg1LjExIiB5PSIyNjEuNDk5Ij41MDB4NTAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-src="holder.js/500x500/auto" data-holder-rendered="true">
+                <img class="featurette-image img-responsive center-block" alt="500x500" src="../Resources/images/item03.jpg" data-src="holder.js/500x500/auto" data-holder-rendered="true">
             </div>
         </div>
         <hr class="featurette-divider">
@@ -163,7 +176,41 @@
             <p>© 2016 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
         </footer>
     </div>
-    <script type="text/javascript"  src="../Resources/js/jquery-3.4.1.min.js"></script>
+    <!--=========================================================登录界面===========================================================-->
+    <div id="login" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-title">
+                    <h2 class="text-center">登录</h2>
+                </div>
+                <div class="modal-body">
+                    <form class="form-group" id="loginform">
+                        <div class="form-group">
+                            <label for="">邮箱</label><span id="alertloginfail" style="color:red"></span>
+                            <input name="username" class="form-control" id="inputEmail" autofocus="" required="" type="email" placeholder="请输入邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label for="">密码</label>
+                            <input name="password" class="form-control" id="inputPassword" required="" type="password" placeholder="请输入密码">
+                        </div>
+                        <div class="text-right">
+                            <button class="btn btn-primary" type="button" id="loginsubmit">&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</button>
+                            <button class="btn btn-danger" data-dismiss="modal">&nbsp;&nbsp;&nbsp;取消&nbsp;&nbsp;&nbsp;</button>
+                        </div>
+                        <a href="register.html">还没有账号？点我注册</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=========================================================登录===========================================================-->
+    <script type="text/javascript" src="../Resources/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="../Resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../Resources/js/index.js"></script>
 </body>
 </html>

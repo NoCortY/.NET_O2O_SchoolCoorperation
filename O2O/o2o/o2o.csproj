@@ -61,13 +61,17 @@
     <Content Include="Resources\css\bootstrap-theme.min.css.map" />
     <Content Include="Resources\css\bootstrap.css.map" />
     <Content Include="Resources\css\bootstrap.min.css.map" />
+    <Content Include="Resources\css\carousel.css" />
     <Content Include="Resources\css\index.css" />
     <Content Include="Resources\css\register.css" />
+    <Content Include="Resources\css\workaround.css" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Controller\register.ashx" />
+    <Content Include="Controller\login.ashx" />
+    <Content Include="Controller\loginstatus.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -85,12 +89,18 @@
     <Content Include="Resources\css\bootstrap.css" />
     <Content Include="Resources\css\bootstrap.min.css" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Resources\images\01.jpg" />
+    <Content Include="Resources\images\carousel_01.jpg" />
+    <Content Include="Resources\images\carousel_02.jpg" />
+    <Content Include="Resources\images\carousel_03.jpg" />
     <Content Include="Resources\images\book.png" />
     <Content Include="Resources\images\carrier.png" />
     <Content Include="Resources\images\game.png" />
+    <Content Include="Resources\images\item01.jpg" />
+    <Content Include="Resources\images\item03.jpg" />
+    <Content Include="Resources\images\item02.jpg" />
     <Content Include="Resources\js\bootstrap.js" />
     <Content Include="Resources\js\bootstrap.min.js" />
+    <Content Include="Resources\js\index.js" />
     <Content Include="Resources\js\jquery-3.4.1.min.js" />
     <Content Include="Resources\js\npm.js" />
     <Content Include="Resources\js\register.js" />
@@ -99,6 +109,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\login.ashx.cs">
+      <DependentUpon>login.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\loginstatus.ashx.cs">
+      <DependentUpon>loginstatus.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Controller\register.ashx.cs">
       <DependentUpon>register.ashx</DependentUpon>
     </Compile>

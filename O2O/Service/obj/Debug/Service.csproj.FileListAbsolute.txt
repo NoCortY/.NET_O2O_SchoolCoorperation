@@ -7,3 +7,12 @@ G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Service\bin\Debug\Model.pdb
 G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
 G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Service\obj\Debug\Service.dll
 G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Service\obj\Debug\Service.pdb
+G:\Program\WebSite.NET\O2O\Service\bin\Debug\Service.dll
+G:\Program\WebSite.NET\O2O\Service\bin\Debug\Service.pdb
+G:\Program\WebSite.NET\O2O\Service\bin\Debug\Dao.dll
+G:\Program\WebSite.NET\O2O\Service\bin\Debug\Model.dll
+G:\Program\WebSite.NET\O2O\Service\bin\Debug\Dao.pdb
+G:\Program\WebSite.NET\O2O\Service\bin\Debug\Model.pdb
+G:\Program\WebSite.NET\O2O\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+G:\Program\WebSite.NET\O2O\Service\obj\Debug\Service.dll
+G:\Program\WebSite.NET\O2O\Service\obj\Debug\Service.pdb
