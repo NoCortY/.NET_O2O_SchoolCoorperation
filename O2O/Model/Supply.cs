@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Requirement
+    class Supply
     {
         private int id;
 
@@ -14,23 +15,27 @@ namespace Model
             get { return id; }
             set { id = value; }
         }
+        private String supplyName;
 
-        private String requirementName;
-
-        public String RequirementName
+        public String SupplyName
         {
-            get { return requirementName; }
-            set { requirementName = value; }
+            get { return supplyName; }
+            set { supplyName = value; }
         }
+        private Category supplyCategory;
 
-        private String requirementDesc;
-
-        public String RequirementDesc
+        public Category SupplyCategory
         {
-            get { return requirementDesc; }
-            set { requirementDesc = value; }
+            get { return supplyCategory; }
+            set { supplyCategory = value; }
         }
+        private String supplyDesc;
 
+        public String SupplyDesc
+        {
+            get { return supplyDesc; }
+            set { supplyDesc = value; }
+        }
         private int priority;
 
         public int Priority
@@ -38,7 +43,6 @@ namespace Model
             get { return priority; }
             set { priority = value; }
         }
-
         private User user;
 
         public User User
@@ -46,14 +50,6 @@ namespace Model
             get { return user; }
             set { user = value; }
         }
-        private Category requirementCategory;
-
-        public Category RequirementCategory
-        {
-            get { return requirementCategory; }
-            set { requirementCategory = value; }
-        }
-
         private DateTime createTime;
 
         public DateTime CreateTime
@@ -61,7 +57,6 @@ namespace Model
             get { return createTime; }
             set { createTime = value; }
         }
-
         private DateTime modifyTime;
 
         public DateTime ModifyTime
@@ -69,14 +64,12 @@ namespace Model
             get { return modifyTime; }
             set { modifyTime = value; }
         }
+        private int supplyStatus;
 
-        private int requirementStatus;
-
-        public int RequirementStatus
+        public int SupplyStatus
         {
-            get { return requirementStatus; }
-            set { requirementStatus = value; }
+            get { return supplyStatus; }
+            set { supplyStatus = value; }
         }
-
     }
 }

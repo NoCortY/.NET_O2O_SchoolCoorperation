@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace o2o.entity
+namespace Model
 {
-    public class RequirementCategory
+    public class Category
     {
         private int id;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace o2o.entity
+namespace Model
 {
     public class User
     {
