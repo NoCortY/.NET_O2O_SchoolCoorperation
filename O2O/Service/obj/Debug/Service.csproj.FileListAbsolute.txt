@@ -16,3 +16,12 @@ G:\Program\WebSite.NET\O2O\Service\bin\Debug\Model.pdb
 G:\Program\WebSite.NET\O2O\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
 G:\Program\WebSite.NET\O2O\Service\obj\Debug\Service.dll
 G:\Program\WebSite.NET\O2O\Service\obj\Debug\Service.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Service\obj\Debug\Service.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Service\obj\Debug\Service.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Service\bin\Debug\Service.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Service\bin\Debug\Service.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Service\bin\Debug\Dao.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Service\bin\Debug\Model.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Service\bin\Debug\Dao.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Service\bin\Debug\Model.pdb

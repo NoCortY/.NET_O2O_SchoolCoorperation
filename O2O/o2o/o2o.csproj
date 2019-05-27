@@ -57,13 +57,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\css\all.min.css" />
+    <Content Include="Resources\css\animate.css" />
+    <Content Include="Resources\css\app.css" />
     <Content Include="Resources\css\bootstrap-theme.css.map" />
     <Content Include="Resources\css\bootstrap-theme.min.css.map" />
     <Content Include="Resources\css\bootstrap.css.map" />
     <Content Include="Resources\css\bootstrap.min.css.map" />
     <Content Include="Resources\css\carousel.css" />
+    <Content Include="Resources\css\dashboard.css" />
+    <Content Include="Resources\css\fontawesome.min.css" />
+    <Content Include="Resources\css\getfund-nav.min.css" />
+    <Content Include="Resources\css\global.css" />
     <Content Include="Resources\css\index.css" />
+    <Content Include="Resources\css\list.css" />
+    <Content Include="Resources\css\owl.carousel.css" />
+    <Content Include="Resources\css\owl.theme.default.min.css" />
     <Content Include="Resources\css\register.css" />
+    <Content Include="Resources\css\responsive.css" />
+    <Content Include="Resources\css\slick-theme.css" />
+    <Content Include="Resources\css\slick.css" />
+    <Content Include="Resources\css\style.css" />
+    <Content Include="Resources\css\swiper.min.css" />
     <Content Include="Resources\css\workaround.css" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.ttf" />
@@ -72,6 +87,7 @@
     <Content Include="Controller\register.ashx" />
     <Content Include="Controller\login.ashx" />
     <Content Include="Controller\loginstatus.ashx" />
+    <Content Include="Controller\requirement.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -89,23 +105,47 @@
     <Content Include="Resources\css\bootstrap.css" />
     <Content Include="Resources\css\bootstrap.min.css" />
     <Content Include="Resources\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Resources\images\apple-touch-icon-114x114.png" />
+    <Content Include="Resources\images\apple-touch-icon-144x144.png" />
+    <Content Include="Resources\images\apple-touch-icon-72x72.png" />
+    <Content Include="Resources\images\apple-touch-icon.png" />
+    <Content Include="Resources\images\restaurant-details.jpg" />
     <Content Include="Resources\images\carousel_01.jpg" />
     <Content Include="Resources\images\carousel_02.jpg" />
     <Content Include="Resources\images\carousel_03.jpg" />
     <Content Include="Resources\images\book.png" />
     <Content Include="Resources\images\carrier.png" />
+    <Content Include="Resources\images\favicon.png" />
     <Content Include="Resources\images\game.png" />
     <Content Include="Resources\images\item01.jpg" />
     <Content Include="Resources\images\item03.jpg" />
     <Content Include="Resources\images\item02.jpg" />
-    <Content Include="Resources\js\bootstrap.js" />
-    <Content Include="Resources\js\bootstrap.min.js" />
-    <Content Include="Resources\js\index.js" />
-    <Content Include="Resources\js\jquery-3.4.1.min.js" />
-    <Content Include="Resources\js\npm.js" />
-    <Content Include="Resources\js\register.js" />
+    <Content Include="Resources\js\configjs\bootstrap.js" />
+    <Content Include="Resources\js\configjs\bootstrap.min.js" />
+    <Content Include="Resources\js\configjs\custom.js" />
+    <Content Include="Resources\js\configjs\getfund-nav.min.js" />
+    <Content Include="Resources\js\configjs\holder.min.js" />
+    <Content Include="Resources\js\configjs\ie10-warning.js" />
+    <Content Include="Resources\js\myjs\index.js" />
+    <Content Include="Resources\js\configjs\jquery-3.4.1.min.js" />
+    <Content Include="Resources\js\configjs\jquery.counterup.min.js" />
+    <Content Include="Resources\js\configjs\maps.js" />
+    <Content Include="Resources\js\configjs\map_infobox.js" />
+    <Content Include="Resources\js\configjs\markerclusterer.js" />
+    <Content Include="Resources\js\configjs\npm.js" />
+    <Content Include="Resources\js\configjs\owl.carousel.min.js" />
+    <Content Include="Resources\js\myjs\common.js" />
+    <Content Include="Resources\js\configjs\popper.min.js" />
+    <Content Include="Resources\js\myjs\list.js" />
+    <Content Include="Resources\js\myjs\register.js" />
+    <Content Include="Resources\js\configjs\swiper.min.js" />
+    <Content Include="Resources\js\configjs\waypoints.min.js" />
+    <Content Include="Resources\js\configjs\workaround.js" />
+    <Content Include="Views\detail.html" />
     <Content Include="Views\index.html" />
+    <Content Include="Views\manage.html" />
     <Content Include="Views\register.html" />
+    <Content Include="Views\list.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +157,9 @@
     </Compile>
     <Compile Include="Controller\register.ashx.cs">
       <DependentUpon>register.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\requirement.ashx.cs">
+      <DependentUpon>requirement.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\JsonUtil.cs" />

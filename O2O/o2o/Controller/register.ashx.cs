@@ -1,4 +1,4 @@
-﻿using o2o.entity;
+﻿using Model;
 using o2o.Utils;
 using Service;
 using System;

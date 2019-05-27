@@ -34,3 +34,15 @@ G:\Program\WebSite.NET\O2O\o2o\bin\Dao.pdb
 G:\Program\WebSite.NET\O2O\o2o\obj\Debug\o2o.csprojResolveAssemblyReference.cache
 G:\Program\WebSite.NET\O2O\o2o\obj\Debug\o2o.dll
 G:\Program\WebSite.NET\O2O\o2o\obj\Debug\o2o.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\obj\Debug\o2o.csprojResolveAssemblyReference.cache
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\obj\Debug\o2o.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\obj\Debug\o2o.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\o2o.dll.config
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\o2o.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\o2o.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\Model.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\Service.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\Dao.dll
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\Model.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\Service.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\Dao.pdb
