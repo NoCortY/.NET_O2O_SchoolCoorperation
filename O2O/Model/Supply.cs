@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Supply
+    public class Supply
     {
         private int id;
 
@@ -22,7 +22,7 @@ namespace Model
             get { return supplyName; }
             set { supplyName = value; }
         }
-        private Category supplyCategory;
+        private Category supplyCategory = new Category();
 
         public Category SupplyCategory
         {
@@ -43,7 +43,7 @@ namespace Model
             get { return priority; }
             set { priority = value; }
         }
-        private User user;
+        private User user = new User();
 
         public User User
         {

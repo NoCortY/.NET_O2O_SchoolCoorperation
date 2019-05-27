@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class RequirementImg
+    public class RequirementImg
     {
         private int id;
 
@@ -29,7 +29,7 @@ namespace Model
             get { return imgStatus; }
             set { imgStatus = value; }
         }
-        private Requirement requirement;
+        private Requirement requirement = new Requirement();
 
         public Requirement Requirement
         {

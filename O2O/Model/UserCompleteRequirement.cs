@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class UserCompleteRequirement
+    public class UserCompleteRequirement
     {
         private int id;
 
@@ -15,14 +15,14 @@ namespace Model
             get { return id; }
             set { id = value; }
         }
-        private User user;
+        private User user = new User();
 
         public User User
         {
             get { return user; }
             set { user = value; }
         }
-        private Requirement requirement;
+        private Requirement requirement = new Requirement();
 
         public Requirement Requirement
         {

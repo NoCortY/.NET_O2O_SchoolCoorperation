@@ -39,14 +39,14 @@ namespace Model
             set { priority = value; }
         }
 
-        private User user;
+        private User user = new User();
 
         public User User
         {
             get { return user; }
             set { user = value; }
         }
-        private Category requirementCategory;
+        private Category requirementCategory = new Category();
 
         public Category RequirementCategory
         {

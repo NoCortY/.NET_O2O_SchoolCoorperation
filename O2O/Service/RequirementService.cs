@@ -9,7 +9,7 @@ namespace Service
 {
     public class RequirementService
     {
-        RequirementDao requirementDao = new RequirementDao();
+        /*RequirementDao requirementDao = new RequirementDao();
         public List<Requirement> getAllRequirement()
         {
             List<Requirement> list = new List<Requirement>();
@@ -48,7 +48,7 @@ namespace Service
             {
                 return null;
             }
-        }
+        }*/
 
     }
 }

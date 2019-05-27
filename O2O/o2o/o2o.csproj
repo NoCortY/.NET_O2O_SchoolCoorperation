@@ -88,6 +88,7 @@
     <Content Include="Controller\login.ashx" />
     <Content Include="Controller\loginstatus.ashx" />
     <Content Include="Controller\requirement.ashx" />
+    <Content Include="Controller\supply.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -160,6 +161,9 @@
     </Compile>
     <Compile Include="Controller\requirement.ashx.cs">
       <DependentUpon>requirement.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\supply.ashx.cs">
+      <DependentUpon>supply.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\JsonUtil.cs" />

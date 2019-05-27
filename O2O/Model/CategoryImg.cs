@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class CategoryImg
+    public class CategoryImg
     {
         private int id;
 
@@ -22,7 +22,7 @@ namespace Model
             get { return imgPath; }
             set { imgPath = value; }
         }
-        private Category category;
+        private Category category = new Category();
 
         public Category Category
         {
