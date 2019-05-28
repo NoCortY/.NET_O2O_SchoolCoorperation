@@ -26,5 +26,27 @@ namespace Service
             }
             return listSupply;
         }
+        public List<Supply> getSupplyListByCategory(int categoryId)
+        {
+            List<Supply> listSupply = supplyDao.querySupplyByCategory(categoryId);
+            for (int i = 0; i < listSupply.Count; i++)
+            {
+                User user = userDao.queryUserById(listSupply[i].User.Id);
+                listSupply[i].User.NickName = user.NickName;
+                listSupply[i].User.TeleNumber = user.TeleNumber;
+            }
+            return listSupply;
+        }
+        public List<Supply> getSupplyListByName(String name)
+        {
+            List<Supply> listSupply = supplyDao.querySupplyByName(name);
+            for (int i = 0; i < listSupply.Count; i++)
+            {
+                User user = userDao.queryUserById(listSupply[i].User.Id);
+                listSupply[i].User.NickName = user.TeleNumber;
+                listSupply[i].User.TeleNumber = user.TeleNumber;
+            }
+            return listSupply;
+        }
     }
 }
