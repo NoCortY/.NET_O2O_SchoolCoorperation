@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RequirementDao.cs" />
     <Compile Include="SupplyDao.cs" />
+    <Compile Include="UserCompleteRequirementDao.cs" />
     <Compile Include="UserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\DbUtil.cs" />

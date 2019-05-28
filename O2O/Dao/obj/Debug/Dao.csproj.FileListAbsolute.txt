@@ -19,3 +19,10 @@ G:\Program\WebSite.NET\O2O\Dao\bin\Debug\Model.pdb
 G:\Program\WebSite.NET\O2O\Dao\obj\Debug\Dao.csprojResolveAssemblyReference.cache
 G:\Program\WebSite.NET\O2O\Dao\obj\Debug\Dao.dll
 G:\Program\WebSite.NET\O2O\Dao\obj\Debug\Dao.pdb
+E:\Github\o2o\O2O\Dao\bin\Debug\Dao.dll
+E:\Github\o2o\O2O\Dao\bin\Debug\Dao.pdb
+E:\Github\o2o\O2O\Dao\bin\Debug\Model.dll
+E:\Github\o2o\O2O\Dao\bin\Debug\Model.pdb
+E:\Github\o2o\O2O\Dao\obj\Debug\Dao.csprojResolveAssemblyReference.cache
+E:\Github\o2o\O2O\Dao\obj\Debug\Dao.dll
+E:\Github\o2o\O2O\Dao\obj\Debug\Dao.pdb

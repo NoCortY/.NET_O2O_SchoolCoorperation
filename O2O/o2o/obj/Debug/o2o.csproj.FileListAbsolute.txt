@@ -46,3 +46,15 @@ C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\Dao.dll
 C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\Model.pdb
 C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\Service.pdb
 C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\o2o\bin\Dao.pdb
+E:\Github\o2o\O2O\o2o\bin\o2o.dll.config
+E:\Github\o2o\O2O\o2o\bin\o2o.dll
+E:\Github\o2o\O2O\o2o\bin\o2o.pdb
+E:\Github\o2o\O2O\o2o\bin\Model.dll
+E:\Github\o2o\O2O\o2o\bin\Service.dll
+E:\Github\o2o\O2O\o2o\bin\Dao.dll
+E:\Github\o2o\O2O\o2o\bin\Model.pdb
+E:\Github\o2o\O2O\o2o\bin\Service.pdb
+E:\Github\o2o\O2O\o2o\bin\Dao.pdb
+E:\Github\o2o\O2O\o2o\obj\Debug\o2o.csprojResolveAssemblyReference.cache
+E:\Github\o2o\O2O\o2o\obj\Debug\o2o.dll
+E:\Github\o2o\O2O\o2o\obj\Debug\o2o.pdb
