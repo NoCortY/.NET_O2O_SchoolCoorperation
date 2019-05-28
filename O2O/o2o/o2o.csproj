@@ -142,6 +142,7 @@
     <Content Include="Resources\js\configjs\swiper.min.js" />
     <Content Include="Resources\js\configjs\waypoints.min.js" />
     <Content Include="Resources\js\configjs\workaround.js" />
+    <Content Include="Views\addlist.html" />
     <Content Include="Views\detail.html" />
     <Content Include="Views\index.html" />
     <Content Include="Views\manage.html" />
