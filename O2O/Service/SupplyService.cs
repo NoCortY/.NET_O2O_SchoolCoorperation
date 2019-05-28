@@ -11,10 +11,20 @@ namespace Service
     public class SupplyService
     {
         SupplyDao supplyDao = new SupplyDao();
+        UserDao userDao = new UserDao();
         public List<Supply> getAllSupplyList()
         {
-            List<Supply> list = supplyDao.queryAllSupply();
-            return list;
+            
+            List<Supply> listSupply = supplyDao.queryAllSupply();
+            
+            for (int i = 0; i < listSupply.Count; i++)
+            {
+                User user = userDao.queryUserById(listSupply[i].User.Id);
+                listSupply[i].User.NickName = user.NickName;
+                listSupply[i].User.TeleNumber = user.TeleNumber;
+                
+            }
+            return listSupply;
         }
     }
 }

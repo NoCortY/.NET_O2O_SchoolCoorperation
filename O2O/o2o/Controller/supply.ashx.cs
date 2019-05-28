@@ -42,6 +42,8 @@ namespace o2o.Controller
                 dictionary.Add("categoryId", supply.SupplyCategory.Id);
                 dictionary.Add("priority", supply.Priority);
                 dictionary.Add("userId",supply.User.Id);
+                dictionary.Add("nickName", supply.User.NickName);
+                dictionary.Add("teleNumber", supply.User.TeleNumber);
                 dictionary.Add("createTime",supply.CreateTime);
                 dictionary.Add("modifyTime", supply.ModifyTime);
                 dictionary.Add("supplyStatus", supply.SupplyStatus);

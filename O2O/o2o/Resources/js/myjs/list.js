@@ -18,8 +18,8 @@
                                                     + "<div class='ListriBoxmain'>"
                                                         + "<h3><a href='listings-single-page-3.html'>"+item.supplyName+"</a></h3>"
                                                         + "<p>"+item.supplyDesc+"</p>"
-                                                        + "<a class='address' href=''>联系方式</a>"
-                                                    + "<ul><li><span class='Ropen'>打开</span></li></ul></div></div></div>";
+                                                        + ""
+                                                    + "<ul><li><a class='address' href=''>发布人:" + item.nickName + "&nbsp;&nbsp;Tel:" + item.teleNumber + "</a></li></ul></div></div></div>";
 
                 $("#RequirementAndSupplyList").html(htmlStr);
             });
