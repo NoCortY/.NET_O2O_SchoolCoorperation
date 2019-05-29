@@ -21,14 +21,15 @@ namespace o2o.Controller
             string action = context.Request["action"].ToString();            
             switch (action)            
             {                
-                case "all":AllSupplyList(context);break;
+                case "all":allSupplyList(context);break;
                 case "category": listByCategory(context); break;
                 case "name": listByName(context); break;
+                case "listcategory": listCategory(context); break;
                 default:break;            
             }
 
         }
-        public void AllSupplyList(HttpContext context)
+        public void allSupplyList(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
             List<Supply> list = supplyService.getAllSupplyList();
@@ -137,6 +138,32 @@ namespace o2o.Controller
             jsonString.Append("]");
             context.Response.Write(jsonString.ToString());
 
+        }
+        public void listCategory(HttpContext context)
+        {
+            context.Response.ContentType = "text/plain";
+            context.Request.ContentEncoding = Encoding.UTF8;
+            context.Response.ContentEncoding = Encoding.UTF8;
+            List<Category> list = supplyService.getAllCategory();
+            StringBuilder jsonString = new StringBuilder();
+            Dictionary<String,Object> dictionary = new Dictionary<string,object>();
+            jsonString.Append("[");
+            int i = 1;
+            foreach (Category category in list)
+            {
+                dictionary.Add("categoryId", category.Id);
+                dictionary.Add("categoryName", category.CategoryName);
+                jsonString.Append(JsonUtil.toJson(dictionary));
+                if (i < list.Count)
+                {
+                    jsonString.Append(",");
+                }
+                i++;
+                dictionary.Clear();
+            }
+            jsonString.Append("]");
+            context.Response.Write(jsonString.ToString());
+            
         }
         public bool IsReusable
         {

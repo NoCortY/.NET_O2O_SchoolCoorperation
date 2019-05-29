@@ -11,6 +11,7 @@ namespace Service
     public class SupplyService
     {
         SupplyDao supplyDao = new SupplyDao();
+        CategoryDao categoryDao = new CategoryDao();
         UserDao userDao = new UserDao();
         public List<Supply> getAllSupplyList()
         {
@@ -47,6 +48,17 @@ namespace Service
                 listSupply[i].User.TeleNumber = user.TeleNumber;
             }
             return listSupply;
+        }
+        public List<Category> getAllCategory()
+        {
+            List<Category> list = categoryDao.queryAllCategory();
+            if (list.Count > 0) {
+                return list;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

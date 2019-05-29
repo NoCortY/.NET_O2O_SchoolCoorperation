@@ -117,12 +117,8 @@
                             </div>
                             <div class="col-lg-3 d-flex align-items-center form-group no-divider">
                                 <div class=" bootstrap-select">
-                                    <select id="category" title="categories" data-style="btn-form-control" class="selectpicker" tabindex="-98">
-                                        <option class="bs-title-option" value="1">求职招聘</option>
-                                        <option value="2">二手书籍</option>
-                                        <option value="3">Logo设计</option>
-                                        <option value="4">快递跑腿</option>
-                                        <option value="5">游戏代练</option>
+                                    <select id="categoryselect" title="categories" data-style="btn-form-control" class="selectpicker" tabindex="-98">
+                                        
                                     </select>
                                     <div class="dropdown-menu " role="combobox">
                                         <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
@@ -149,7 +145,7 @@
 
                             <div class="col-md-12">
                                 <div class="resultBar barSpaceAdjust">
-                                    <h2>我们为您找到 <span>7</span>条结果 </h2>
+                                    <h2>我们为您找到 <span id="count"></span>条结果 </h2>
                                     <ul class="list-inline">
                                         <li class="active"><a href="listing-grid-right-sidebar.html"><i class="fa fa-th" aria-hidden="true"></i></a></li>
                                         <li><a href="listing-list-right-sidebar.html"><i class="fa fa-th-list" aria-hidden="true"></i></a></li>

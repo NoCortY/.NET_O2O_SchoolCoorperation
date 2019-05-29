@@ -166,6 +166,7 @@
       <DependentUpon>supply.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\FileUtil.cs" />
     <Compile Include="Utils\JsonUtil.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +178,9 @@
       <Project>{f0ddd412-984f-4b24-b553-62faf584eb01}</Project>
       <Name>Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="header\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -35,6 +35,8 @@ namespace Dao
                 user.TeleNumber = sdr.GetString(8);
                 user.NickName = sdr.GetString(9);
             }
+
+            sdr.Close();
             DbUtil.close();
             return user;
         }
@@ -47,11 +49,13 @@ namespace Dao
             SqlDataReader sdr = cmd.ExecuteReader();
             if (sdr.HasRows)
             {
+                sdr.Close();
                 DbUtil.close();
                 return true;
             }
             else
             {
+                sdr.Close();
                 DbUtil.close();
                 return false;
             }
@@ -72,11 +76,14 @@ namespace Dao
                 user.Password = sdr.GetString(1);
                 user.NickName = sdr.GetString(2);
 
+                sdr.Close();
                 DbUtil.close();
                 return user;
             }
             else
             {
+                sdr.Close();
+                DbUtil.close();
                 return null;
             }
         }

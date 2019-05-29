@@ -2,13 +2,28 @@
     var allListUrl = "../../Controller/supply.ashx?action=all";
     var categoryListUrl = "../../Controller/supply.ashx?action=category";
     var nameListUrl = "../../Controller/supply.ashx?action=name";
+    var listCategoryUrl = "../../Controller/supply.ashx?action=listcategory";
     var htmlStr = "";
+    $.ajax({
+        type: 'POST',
+        url: listCategoryUrl,
+        dataType: 'json',
+        success: function (data) {
+            $.each(data, function (index, item) {
+                htmlStr+="<option class='bs-title-option' value='"+item.categoryId+"'>"+item.categoryName+"</option>"
+            });
+            $("#categoryselect").html(htmlStr);
+            htmlStr = "";
+        }
+    });
     $.ajax({
         type: 'POST',
         url: allListUrl,
         dataType: 'json',
         success: function (data) {
+            var count = 0;
             $.each(data, function (index, item) {
+                count++;
                 htmlStr+="<div class='col-md-12 col-sm-12 col-xs-12'>"
                                             + "<div class='row ListriBox'>"
                                                 + "<div class='col-md-5 col-sm-6 col-xs-12 Nopadding'>"
@@ -25,11 +40,13 @@
 
                 $("#RequirementAndSupplyList").html(htmlStr);
             });
+            $("#count").text(count);
         }
     });
-    $("#category").change(function () {
+    $("#categoryselect").change(function () {
+        var count = 0;
         htmlStr = "";
-        var categoryId = $("#category option:selected").val();
+        var categoryId = $("#categoryselect option:selected").val();
         $.ajax({
             type: 'POST',
             url: categoryListUrl,
@@ -38,6 +55,7 @@
             success: function (data) {
                 if (data.success != "false") {
                     $.each(data, function (index, item) {
+                        count++;
                         htmlStr += "<div class='col-md-12 col-sm-12 col-xs-12'>"
                                                     + "<div class='row ListriBox'>"
                                                         + "<div class='col-md-5 col-sm-6 col-xs-12 Nopadding'>"
@@ -57,10 +75,12 @@
                 } else {
                     $("#RequirementAndSupplyList").html(htmlStr);
                 }
+                $("#count").text(count);
             }
         });
     });
     $("#search").click(function () {
+        var count = 0;
         htmlStr = "";
         $.ajax({
             type: 'POST',
@@ -70,6 +90,7 @@
             success: function (data) {
                 if (data.success != "false") {
                     $.each(data, function (index, item) {
+                        count++;
                         htmlStr += "<div class='col-md-12 col-sm-12 col-xs-12'>"
                                                     + "<div class='row ListriBox'>"
                                                         + "<div class='col-md-5 col-sm-6 col-xs-12 Nopadding'>"
@@ -89,6 +110,7 @@
                 } else {
                     $("#RequirementAndSupplyList").html(htmlStr);
                 }
+                $("#count").text(count);
             }
         });
     });

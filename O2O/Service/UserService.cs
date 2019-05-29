@@ -50,5 +50,11 @@ namespace Service
             Boolean userFlag = userDao.userExist(username);
             return userFlag;
         }
+        /*获取用户id*/
+        public int getUserIdByUsername(String username)
+        {
+            User user = userDao.queryUserByUsername(username);
+            return user.Id;
+        }
     }
 }
