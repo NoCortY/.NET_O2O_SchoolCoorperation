@@ -4,6 +4,12 @@ G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Model\obj\Debug\Model.dll
 G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Model\obj\Debug\Model.pdb
 C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Model\bin\Debug\Model.dll
 C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Model\bin\Debug\Model.pdb
+C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Model\obj\Debug\Model.dll
 C:\NoCortY_Pad\WorkSpace\github\O2O_SchoolCoorperation\O2O\Model\obj\Debug\Model.pdb
 G:\Program\gitHub\SchoolCoorperation-o2o\O2O\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Model\bin\Debug\Model.dll
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Model\bin\Debug\Model.pdb
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Model\obj\Debug\Model.dll
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Model\obj\Debug\Model.pdb

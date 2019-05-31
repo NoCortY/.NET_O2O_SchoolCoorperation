@@ -19,3 +19,10 @@ G:\Program\WebSite.NET\O2O\Dao\bin\Debug\Model.pdb
 G:\Program\WebSite.NET\O2O\Dao\obj\Debug\Dao.csprojResolveAssemblyReference.cache
 G:\Program\WebSite.NET\O2O\Dao\obj\Debug\Dao.dll
 G:\Program\WebSite.NET\O2O\Dao\obj\Debug\Dao.pdb
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Dao\bin\Debug\Dao.dll
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Dao\bin\Debug\Dao.pdb
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Dao\bin\Debug\Model.dll
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Dao\bin\Debug\Model.pdb
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Dao\obj\Debug\Dao.csprojResolveAssemblyReference.cache
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Dao\obj\Debug\Dao.dll
+C:\NoCortY_Pad\WorkSpace\github\.NET_O2O_SchoolCoorperation-master\.NET_O2O_SchoolCoorperation-master\O2O\Dao\obj\Debug\Dao.pdb
