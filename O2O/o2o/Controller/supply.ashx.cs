@@ -32,10 +32,9 @@ namespace o2o.Controller
         public void allSupplyList(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            List<Supply> list = supplyService.getAllSupplyList();
+            List<Supply> list = supplyService.getAllSupplyListWithoutBanned();
             StringBuilder jsonString = new StringBuilder();
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
-            //jsonString.Append("\"supply\":");
             jsonString.Append("[");
             int i = 1;
             foreach(Supply supply in list){

@@ -36,7 +36,7 @@ namespace Dao
             }
 
             sdr.Close();
-            DbUtil.close();
+            DbUtil.close(cmd);
             return list;
         }
     }

@@ -24,8 +24,10 @@ namespace Dao.Utils
             SqlCommand myCmd = new SqlCommand(sql, conn);
             return myCmd;
         }
-        public static void close()
+        public static void close(SqlCommand cmd)
         {
+            
+            cmd.Connection.Close();
         }
     }
 }

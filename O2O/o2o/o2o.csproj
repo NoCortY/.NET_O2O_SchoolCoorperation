@@ -89,6 +89,8 @@
     <Content Include="Controller\loginstatus.ashx" />
     <Content Include="Controller\requirement.ashx" />
     <Content Include="Controller\supply.ashx" />
+    <Content Include="Controller\SupplyManagementController.ashx" />
+    <Content Include="Controller\UserManagementController.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,13 +140,14 @@
     <Content Include="Resources\js\myjs\common.js" />
     <Content Include="Resources\js\configjs\popper.min.js" />
     <Content Include="Resources\js\myjs\list.js" />
+    <Content Include="Resources\js\myjs\management.js" />
     <Content Include="Resources\js\myjs\register.js" />
     <Content Include="Resources\js\configjs\swiper.min.js" />
     <Content Include="Resources\js\configjs\waypoints.min.js" />
     <Content Include="Resources\js\configjs\workaround.js" />
     <Content Include="Views\detail.html" />
     <Content Include="Views\index.html" />
-    <Content Include="Views\manage.html" />
+    <Content Include="Views\management.html" />
     <Content Include="Views\register.html" />
     <Content Include="Views\list.html" />
     <Content Include="Web.config" />
@@ -164,6 +167,12 @@
     </Compile>
     <Compile Include="Controller\supply.ashx.cs">
       <DependentUpon>supply.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\SupplyManagementController.ashx.cs">
+      <DependentUpon>SupplyManagementController.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\UserManagementController.ashx.cs">
+      <DependentUpon>UserManagementController.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\FileUtil.cs" />
