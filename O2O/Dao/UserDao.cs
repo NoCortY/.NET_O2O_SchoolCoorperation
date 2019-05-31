@@ -12,7 +12,34 @@ namespace Dao
 {
     public class UserDao
     {
-       
+
+        public List<User> queryAllUser()
+        {
+            List<User> list = new List<User>();
+            String sql = "SELECT * FROM tb_user";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    User user = new User();
+                    user.Id = sdr.GetInt32(0);
+                    user.Username = sdr.GetString(1);
+                    user.Password = sdr.GetString(2);
+                    user.UserHeader = sdr.GetString(3);
+                    user.Gender = sdr.GetString(4);
+                    user.UserStatus = sdr.GetInt32(5);
+                    user.RegisterTime = sdr.GetDateTime(6);
+                    user.RealName = sdr.GetString(7);
+                    user.TeleNumber = sdr.GetString(8);
+                    user.NickName = sdr.GetString(9);
+                    list.Add(user);
+                }
+            }
+            DbUtil.close(cmd);
+            return list;
+        }
         //查询
         public User queryUserById(int id)
         {
@@ -35,7 +62,9 @@ namespace Dao
                 user.TeleNumber = sdr.GetString(8);
                 user.NickName = sdr.GetString(9);
             }
-            DbUtil.close();
+
+            sdr.Close();
+            DbUtil.close(cmd);
             return user;
         }
         //查找用户是否存在
@@ -47,12 +76,14 @@ namespace Dao
             SqlDataReader sdr = cmd.ExecuteReader();
             if (sdr.HasRows)
             {
-                DbUtil.close();
+                sdr.Close();
+                DbUtil.close(cmd);
                 return true;
             }
             else
             {
-                DbUtil.close();
+                sdr.Close();
+                DbUtil.close(cmd);
                 return false;
             }
         }
@@ -72,11 +103,14 @@ namespace Dao
                 user.Password = sdr.GetString(1);
                 user.NickName = sdr.GetString(2);
 
-                DbUtil.close();
+                sdr.Close();
+                DbUtil.close(cmd);
                 return user;
             }
             else
             {
+                sdr.Close();
+                DbUtil.close(cmd);
                 return null;
             }
         }
@@ -95,7 +129,7 @@ namespace Dao
             cmd.Parameters.Add(new SqlParameter("@telenumber", user.TeleNumber));
             cmd.Parameters.Add(new SqlParameter("@nickname", user.NickName));
             int i = cmd.ExecuteNonQuery();
-            DbUtil.close();
+            DbUtil.close(cmd);
             if (i > 0)
                 return true;
             else
@@ -116,7 +150,7 @@ namespace Dao
             cmd.Parameters.Add(new SqlParameter("@telenumber", user.TeleNumber));
             cmd.Parameters.Add(new SqlParameter("@nickname", user.NickName));
             int i = cmd.ExecuteNonQuery();
-            DbUtil.close();
+            DbUtil.close(cmd);
             if (i > 0)
                 return true;
             else

@@ -11,6 +11,19 @@ namespace Service
     public class UserService
     {
         UserDao userDao = new UserDao();
+        /*查询所有用户*/
+        public List<User> listAllUsers()
+        {
+            List<User> list = userDao.queryAllUser();
+            if (list.Count > 0)
+            {
+                return list;
+            }
+            else
+            {
+                return null;
+            }
+        }
         /*注册用户*/
         public Boolean register(User user)
         {
@@ -49,6 +62,12 @@ namespace Service
         {
             Boolean userFlag = userDao.userExist(username);
             return userFlag;
+        }
+        /*获取用户id*/
+        public int getUserIdByUsername(String username)
+        {
+            User user = userDao.queryUserByUsername(username);
+            return user.Id;
         }
     }
 }

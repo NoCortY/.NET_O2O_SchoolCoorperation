@@ -1,5 +1,6 @@
 ﻿$(function () {
-    var url = "../../Controller/register.ashx";
+    var url = "../../Controller/register.ashx?action=register";
+    var userHeaderurl = "../../Controller/register.ashx?action=userheader";
     var flag = true;
     //邮箱验证正则表达式
     var reg_email = new RegExp("^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-z]{2,}$");
@@ -33,12 +34,19 @@
             $("#alerttelenum").html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入正确格式的手机号");
             flag = false;
         }
+        var form = $("#registerform")[0];
+        var formData = new FormData(form);
         if (flag) {
             $.ajax({
                 type:'POST',
                 url: url,
-                data: $('#registerform').serialize(),
-                dataType:'json',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: 'json',
+
                 success: function (data) {
                     if (data.success == "true") {
                         alert("注册成功");
@@ -54,7 +62,6 @@
             只能等到页面第二次加载才能还原了
             */
             flag = true;
-            
         }
     });
     $("#back").click(function () {

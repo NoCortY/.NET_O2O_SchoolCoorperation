@@ -8,20 +8,26 @@ using System.Threading.Tasks;
 
 namespace Dao.Utils
 {
-    class DbUtil
+    public class DbUtil
     {
-        private static SqlConnection conn;
+        
+        public static SqlConnection getConn(String connStr)
+        {
+            SqlConnection conn = new SqlConnection(connStr);
+            return conn;
+        }
         public static SqlCommand getCommand(String sql)
         {
             String connStr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            conn = new SqlConnection(connStr);
+            SqlConnection conn = getConn(connStr);
             conn.Open();
             SqlCommand myCmd = new SqlCommand(sql, conn);
             return myCmd;
         }
-        public static void close()
+        public static void close(SqlCommand cmd)
         {
-            conn.Close();
+            
+            cmd.Connection.Close();
         }
     }
 }

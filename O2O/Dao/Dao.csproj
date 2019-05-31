@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="RequirementDao.cs" />
+=======
+    <Compile Include="CategoryDao.cs" />
+>>>>>>> a7129cf695d64a66313c7723863d7e71af6df859
     <Compile Include="SupplyDao.cs" />
     <Compile Include="UserCompleteRequirementDao.cs" />
     <Compile Include="UserDao.cs" />
