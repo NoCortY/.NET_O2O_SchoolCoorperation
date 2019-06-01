@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Dao
 {
-    class SupplyImgDao
+    public class SupplyImgDao
     {
         public Boolean insertSupplyImg(SupplyImg supplyImg)
         {
             String sql = "INSERT INTO tb_supply_img(img_path,img_status,supply_id) VALUES(@img_path,@img_status,@supply_id)";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@img_path", supplyImg.ImgPath));
-            cmd.Parameters.Add(new SqlParameter("@img_status", supplyImg.ImgStatus));
+            cmd.Parameters.Add(new SqlParameter("@img_status", supplyImg.ImgStatus));//0缩略图,1详情图
             cmd.Parameters.Add(new SqlParameter("@supply_id", supplyImg.Supply.Id));
             int i = cmd.ExecuteNonQuery();
             if (i > 0)

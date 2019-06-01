@@ -29,7 +29,7 @@ namespace Model
             get { return imgStatus; }
             set { imgStatus = value; }
         }
-        private Supply supply;
+        private Supply supply = new Supply();
 
         public Supply Supply
         {

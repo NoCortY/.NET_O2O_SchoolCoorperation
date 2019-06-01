@@ -11,6 +11,22 @@ namespace Dao
 {
     public class SupplyDao
     {
+        public int insertSupply(Supply supply)
+        {
+            String sql = "INSERT tb_supply(supply_name,supply_desc,category_id,priority,user_id,create_time,modify_time,supply_status) VALUES(@supply_name,@supply_desc,@category_id,@priority,@user_id,@create_time,@modify_time,@supply_status);SELECT @@Identity";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            cmd.Parameters.Add(new SqlParameter("@supply_name", supply.SupplyName));
+            cmd.Parameters.Add(new SqlParameter("@supply_desc",supply.SupplyDesc));
+            cmd.Parameters.Add(new SqlParameter("@category_id", supply.SupplyCategory.Id));
+            cmd.Parameters.Add(new SqlParameter("@priority", supply.Priority));
+            cmd.Parameters.Add(new SqlParameter("@user_id", supply.User.Id));
+            cmd.Parameters.Add(new SqlParameter("@create_time", supply.CreateTime));
+            cmd.Parameters.Add(new SqlParameter("@modify_time", supply.ModifyTime));
+            cmd.Parameters.Add(new SqlParameter("@supply_status", supply.SupplyStatus));
+            int i = Convert.ToInt32(cmd.ExecuteScalar());
+            DbUtil.close(cmd);
+            return i;
+        }
         public Boolean updateSupplyByManager(Supply supply)
         {
             String sql = "UPDATE tb_supply SET priority=@priority,modify_time=@modify_time,supply_status=@supply_status WHERE id = @id";

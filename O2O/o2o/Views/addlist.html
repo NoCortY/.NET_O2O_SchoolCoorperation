@@ -97,7 +97,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <form action="" method="post" class="listing__form">
+                    <form action="" method="post" class="listing__form" enctype="multipart/form-data">
                         <div class="dashboardBoxBg mb30">
                             <div class="profileIntro paraMargin">
                                 <h3>上传您的需求或供应</h3>
@@ -105,7 +105,7 @@
                                 <div class="row">
                                     <div class="form-group col-sm-6 col-xs-12">
                                         <label for="listingTitle">标题</label>
-                                        <input type="text" class="form-control" id="supplyName" placeholder="在此输入标题">
+                                        <input type="text" class="form-control" id="Name" placeholder="在此输入标题">
                                     </div>
                                     <div class="form-group col-sm-6 col-xs-12">
                                         <label for="listingCategory">业务分类（下拉选择您想进行的业务）</label>
@@ -114,7 +114,7 @@
                                                 <option value="0">需求</option>
                                                 <option value="1">供应</option>
                                                 <!--   <option value="2">Bar</option>
-               <option value="3">Cafe</option>    -->
+                                <option value="3">Cafe</option>    -->
                                             </select>
                                         </div>
                                     </div>
@@ -122,29 +122,31 @@
                                         <label for="listingCategory">分类</label>
                                         <div class="contactSelect">
                                             <select name="category" id="category" class="select-drop" sb="86069590">
-                                                
+
                                                 <!--   <option value="2">Bar</option>
-                       <option value="3">Cafe</option>    -->
+                                <option value="3">Cafe</option>    -->
                                             </select>
                                         </div>
                                     </div>
+
                                     <div class="form-group col-sm-6 col-xs-12">
                                         <label for="listingCategory">缩略图</label>
-                                        <input class="form-control" type="file"  style="height:40px;"/>
+                                        <input class="form-control" type="file" id="smallImg" style="height:40px;" />
                                     </div>
                                     <div class="form-group col-sm-12 col-xs-12">
                                         <label for="discribeTheListing">详细描述</label>
-                                        <textarea class="form-control" rows="3" placeholder="在此添加描述（上传图片或文件或进行文字描述）"></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="在此添加描述（上传图片或文件或进行文字描述）" id="Desc"></textarea>
                                     </div>
-                                    <div class="form-group col-sm-12 col-xs-12">
+
+                                    <div class="form-group col-sm-12 col-xs-12" id="descImgGroup">
                                         <label for="discribeTheListing">详情图片</label>
-                                        <input class="form-control" type="file" style="height:40px;" />
+                                        <input class="form-control" type="file" id="descImg" style="height:40px;" multiple="multiple" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-footer text-center">
-                            <button id="submitSupply" type="button" class="btn btn-primary" style="width:500px;height:70px;font-size:20px">确认无误后，提交</button>
+                            <button id="submit" type="button" class="btn btn-primary" style="width:500px;height:70px;font-size:20px">确认无误后，提交</button>
                         </div>
                     </form>
                 </div>

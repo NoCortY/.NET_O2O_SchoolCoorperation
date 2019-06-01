@@ -25,9 +25,89 @@ namespace o2o.Controller
                 case "category": listByCategory(context); break;
                 case "name": listByName(context); break;
                 case "listcategory": listCategory(context); break;
+                case "addsupply": addSupply(context); break;
+                case "addsupplyimg": addSupplyImg(context); break;
+                case "addsupplydescimg": addSupplyDescImg(context); break;
                 default:break;            
             }
 
+        }
+        public void addSupplyDescImg(HttpContext context){
+            SupplyImg supplyImg = new SupplyImg();
+            supplyImg.Supply.Id = Convert.ToInt32(context.Request["supplyId"]);
+            Dictionary<String, Object> dictionary = new Dictionary<string, object>();
+            string savepath = "";
+            Boolean flag = false;
+            if (context.Request.Files.Count > 0)
+            {
+                for (int i = 0; i < context.Request.Files.Count; i++)
+                {
+                    HttpPostedFile file1 = context.Request.Files["descImg"+i];
+                    savepath = FileUtil.uploadImg(file1, "../images/");
+                    supplyImg.ImgPath = savepath;
+                    supplyImg.ImgStatus = 1;
+                    flag = supplyService.addSupplyImg(supplyImg);
+                }
+            }
+
+            if (flag)
+            {
+                dictionary.Add("success", "true");
+            }
+            else
+            {
+                dictionary.Add("success", "false");
+            }
+            context.Response.Write(JsonUtil.toJson(dictionary).ToString());
+        }
+        public void addSupplyImg(HttpContext context)
+        {
+            SupplyImg supplyImg = new SupplyImg();
+            supplyImg.Supply.Id = Convert.ToInt32(context.Request["supplyId"]);
+            Dictionary<String, Object> dictionary = new Dictionary<string, object>();
+            string savepath = "";
+            if (context.Request.Files.Count > 0)
+            {
+                HttpPostedFile file1 = context.Request.Files["smallImg"];
+                savepath = FileUtil.uploadImg(file1, "../images/");
+            }
+            supplyImg.ImgPath = savepath;
+            supplyImg.ImgStatus = 0;
+            Boolean flag = supplyService.addSupplyImg(supplyImg);
+
+
+            if (flag)
+            {
+                dictionary.Add("success", "true");
+            }
+            else
+            {
+                dictionary.Add("success", "false");
+            }
+            context.Response.Write(JsonUtil.toJson(dictionary).ToString());
+        }
+        public void addSupply(HttpContext context)
+        {
+            context.Response.ContentType = "text/plain";
+            Supply supply = new Supply();
+            supply.SupplyName = context.Request["Name"];
+            supply.SupplyDesc = context.Request["Desc"];
+            supply.SupplyCategory.Id = Convert.ToInt32(context.Request["CategoryId"]);
+            //supply.User.Id = Convert.ToInt32(context.Session["userId"]);
+            supply.User.Id = 1;//暂时
+            Dictionary<String, Object> dictionary = new Dictionary<string, object>();
+            int id = supplyService.addSupply(supply);
+            if (id>0)
+            {
+                dictionary.Add("supplyId", id);
+                dictionary.Add("success", "true");
+            }
+            else
+            {
+                dictionary.Add("success", "false");
+            }
+            context.Response.Write(JsonUtil.toJson(dictionary).ToString());
+            
         }
         public void allSupplyList(HttpContext context)
         {

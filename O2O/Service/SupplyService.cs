@@ -13,6 +13,20 @@ namespace Service
         SupplyDao supplyDao = new SupplyDao();
         CategoryDao categoryDao = new CategoryDao();
         UserDao userDao = new UserDao();
+        SupplyImgDao supplyImgDao = new SupplyImgDao();
+        public Boolean addSupplyImg(SupplyImg supplyImg)
+        {
+            return supplyImgDao.insertSupplyImg(supplyImg);
+        }
+        public int addSupply(Supply supply)
+        {
+            supply.Priority = 1;
+            supply.CreateTime = DateTime.Now;
+            supply.ModifyTime = DateTime.Now;
+            supply.SupplyStatus = 1;
+            return supplyDao.insertSupply(supply);
+
+        }
         public Boolean updateSupplyByManager(Supply supply)
         {
             return supplyDao.updateSupplyByManager(supply);
