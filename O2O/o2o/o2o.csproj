@@ -129,6 +129,7 @@
     <Content Include="Resources\js\configjs\getfund-nav.min.js" />
     <Content Include="Resources\js\configjs\holder.min.js" />
     <Content Include="Resources\js\configjs\ie10-warning.js" />
+    <Content Include="Resources\js\myjs\addlist.js" />
     <Content Include="Resources\js\myjs\index.js" />
     <Content Include="Resources\js\configjs\jquery-3.4.1.min.js" />
     <Content Include="Resources\js\configjs\jquery.counterup.min.js" />

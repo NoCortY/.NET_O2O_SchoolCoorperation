@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryDao.cs" />
+    <Compile Include="HeadlineImgDao.cs" />
     <Compile Include="RequirementDao.cs" />
     <Compile Include="SupplyDao.cs" />
+    <Compile Include="SupplyImgDao.cs" />
     <Compile Include="UserCompleteRequirementDao.cs" />
     <Compile Include="UserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

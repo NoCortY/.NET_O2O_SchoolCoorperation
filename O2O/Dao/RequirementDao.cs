@@ -38,7 +38,7 @@ namespace Dao
             List<Requirement> list = new List<Requirement>();
             String sql = "SELECT * FROM tb_requirement WHERE user_id = @user_id";
             SqlCommand cmd = DbUtil.getCommand(sql);
-            cmd.Parameters.Add("@user_id", userId);
+            cmd.Parameters.Add(new SqlParameter("@user_id", userId));
             SqlDataReader sdr = cmd.ExecuteReader();
             if (sdr.HasRows)
             {
