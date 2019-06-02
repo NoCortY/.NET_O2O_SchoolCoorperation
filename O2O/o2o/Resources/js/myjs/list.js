@@ -16,6 +16,7 @@
             htmlStr = "";
         }
     });
+
     $.ajax({
         type: 'POST',
         url: allListUrl,
@@ -24,19 +25,19 @@
             var count = 0;
             $.each(data, function (index, item) {
                 count++;
-                htmlStr+="<div class='col-md-12 col-sm-12 col-xs-12'>"
+                htmlStr += "<div class='col-md-12 col-sm-12 col-xs-12'>"
                                             + "<div class='row ListriBox'>"
                                                 + "<div class='col-md-5 col-sm-6 col-xs-12 Nopadding'>"
                                                     + "<figure>"
-                                                        + "<a href='listings-single-page-3.html' class='wishlist_bt'></a> <a href='listings-single-page-3.html'>"
-                                                            + "<img src='images/hotel1.jpg' class='img-fluid' alt=''>"
+                                                        + " <a href='listings-single-page-3.html'>"
+                                                            + "<img src='../images/" + item.supplyFirstImgPath + "' class='img-fluid' alt='图片'>"
                                                             + "<div class='read_more'><span>更多信息</span></div></a></figure></div>"
                                                 + "<div class='col-md-7 col-sm-6 col-xs-12 Nopadding'>"
                                                     + "<div class='ListriBoxmain'>"
-                                                        + "<h3><a href='listings-single-page-3.html'>"+item.supplyName+"</a></h3>"
-                                                        + "<p>"+item.supplyDesc+"</p>"
+                                                        + "<h3><a href='listings-single-page-3.html'>" + item.supplyName + "</a></h3>"
+                                                        + "<p>" + item.supplyDesc + "</p>"
                                                         + ""
-                                                    + "<ul><li><a class='address' href=''>发布人:" + item.nickName + "&nbsp;&nbsp;Tel:" + item.teleNumber + "</a></li></ul></div></div></div>";
+                                                    + "<ul><li><a class='address' href=''>发布人:" + item.nickName + "&nbsp;&nbsp;Tel:" + item.teleNumber + "</a></li></ul></div></div></div></div>";
 
                 $("#RequirementAndSupplyList").html(htmlStr);
             });
@@ -60,15 +61,15 @@
                                                     + "<div class='row ListriBox'>"
                                                         + "<div class='col-md-5 col-sm-6 col-xs-12 Nopadding'>"
                                                             + "<figure>"
-                                                                + "<a href='listings-single-page-3.html' class='wishlist_bt'></a> <a href='listings-single-page-3.html'>"
-                                                                    + "<img src='images/hotel1.jpg' class='img-fluid' alt=''>"
+                                                                + "<a href='listings-single-page-3.html'>"
+                                                                    + "<img src='../images/" + item.supplyFirstImgPath + "' class='img-fluid' alt='图片'>"
                                                                     + "<div class='read_more'><span>更多信息</span></div></a></figure></div>"
                                                         + "<div class='col-md-7 col-sm-6 col-xs-12 Nopadding'>"
                                                             + "<div class='ListriBoxmain'>"
                                                                 + "<h3><a href='listings-single-page-3.html'>" + item.supplyName + "</a></h3>"
                                                                 + "<p>" + item.supplyDesc + "</p>"
                                                                 + ""
-                                                            + "<ul><li><a class='address' href=''>发布人:" + item.nickName + "&nbsp;&nbsp;Tel:" + item.teleNumber + "</a></li></ul></div></div></div>";
+                                                            + "<ul><li><a class='address' href=''>发布人:" + item.nickName + "&nbsp;&nbsp;Tel:" + item.teleNumber + "</a></li></ul></div></div></div></div>";
 
                         $("#RequirementAndSupplyList").html(htmlStr);
                     });
@@ -95,15 +96,15 @@
                                                     + "<div class='row ListriBox'>"
                                                         + "<div class='col-md-5 col-sm-6 col-xs-12 Nopadding'>"
                                                             + "<figure>"
-                                                                + "<a href='listings-single-page-3.html' class='wishlist_bt'></a> <a href='listings-single-page-3.html'>"
-                                                                    + "<img src='images/hotel1.jpg' class='img-fluid' alt=''>"
+                                                                + "<a href='listings-single-page-3.html'>"
+                                                                    + "<img src='../images/" + item.supplyFirstImgPath + "' class='img-fluid' alt='图片'>"
                                                                     + "<div class='read_more'><span>更多信息</span></div></a></figure></div>"
                                                         + "<div class='col-md-7 col-sm-6 col-xs-12 Nopadding'>"
                                                             + "<div class='ListriBoxmain'>"
                                                                 + "<h3><a href='listings-single-page-3.html'>" + item.supplyName + "</a></h3>"
                                                                 + "<p>" + item.supplyDesc + "</p>"
                                                                 + ""
-                                                            + "<ul><li><a class='address' href=''>发布人:" + item.nickName + "&nbsp;&nbsp;Tel:" + item.teleNumber + "</a></li></ul></div></div></div>";
+                                                            + "<ul><li><a class='address' href=''>发布人:" + item.nickName + "&nbsp;&nbsp;Tel:" + item.teleNumber + "</a></li></ul></div></div></div></div>";
 
                         $("#RequirementAndSupplyList").html(htmlStr);
                     });

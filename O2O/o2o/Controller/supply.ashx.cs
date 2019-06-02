@@ -115,9 +115,15 @@ namespace o2o.Controller
             List<Supply> list = supplyService.getAllSupplyListWithoutBanned();
             StringBuilder jsonString = new StringBuilder();
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
+
+            string imgPath = "hotel1.jpg";
             jsonString.Append("[");
             int i = 1;
             foreach(Supply supply in list){
+                SupplyImg supplyImg = supplyService.getSupplyFirstImg(supply.Id);
+                if (supplyImg.ImgPath != null) {
+                    imgPath = System.IO.Path.GetFileName(supplyImg.ImgPath);
+                }
                 dictionary.Add("Id", supply.Id);
                 dictionary.Add("supplyName", supply.SupplyName);
                 dictionary.Add("supplyDesc",supply.SupplyDesc);
@@ -129,6 +135,7 @@ namespace o2o.Controller
                 dictionary.Add("createTime",supply.CreateTime);
                 dictionary.Add("modifyTime", supply.ModifyTime);
                 dictionary.Add("supplyStatus", supply.SupplyStatus);
+                dictionary.Add("supplyFirstImgPath", imgPath);
                 dictionary.Add("success", "true");
                 jsonString.Append(JsonUtil.toJson(dictionary));
                 if (i < list.Count) {
@@ -146,6 +153,7 @@ namespace o2o.Controller
             StringBuilder jsonString = new StringBuilder();
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
             //jsonString.Append("\"supply\":");
+            string imgPath = "hotel1.jpg";
             if (list.Count == 0)
             {
                 context.Response.Write("{\"success\":\"false\"}");
@@ -154,6 +162,10 @@ namespace o2o.Controller
             jsonString.Append("[");
             int i = 1;
             foreach(Supply supply in list){
+                SupplyImg supplyImg = supplyService.getSupplyFirstImg(supply.Id);
+                if (supplyImg.ImgPath != null) {
+                    imgPath = System.IO.Path.GetFileName(supplyImg.ImgPath);
+                }
                 dictionary.Add("Id", supply.Id);
                 dictionary.Add("supplyName", supply.SupplyName);
                 dictionary.Add("supplyDesc",supply.SupplyDesc);
@@ -165,6 +177,7 @@ namespace o2o.Controller
                 dictionary.Add("createTime",supply.CreateTime);
                 dictionary.Add("modifyTime", supply.ModifyTime);
                 dictionary.Add("supplyStatus", supply.SupplyStatus);
+                dictionary.Add("supplyFirstImgPath", imgPath);
                 dictionary.Add("success", "true");
                 jsonString.Append(JsonUtil.toJson(dictionary));
                 if (i < list.Count) {
@@ -185,6 +198,7 @@ namespace o2o.Controller
             StringBuilder jsonString = new StringBuilder();
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
             //jsonString.Append("\"supply\":");
+            string imgPath = "hotel1.jpg";
             if (list.Count == 0)
             {
                 context.Response.Write("{\"success\":\"false\"}");
@@ -194,6 +208,12 @@ namespace o2o.Controller
             int i = 1;
             foreach (Supply supply in list)
             {
+                SupplyImg supplyImg = supplyService.getSupplyFirstImg(supply.Id);
+                if (supplyImg.ImgPath != null)
+                {
+                    imgPath = System.IO.Path.GetFileName(supplyImg.ImgPath);
+                }
+
                 dictionary.Add("Id", supply.Id);
                 dictionary.Add("supplyName", supply.SupplyName);
                 dictionary.Add("supplyDesc", supply.SupplyDesc);
@@ -205,6 +225,7 @@ namespace o2o.Controller
                 dictionary.Add("createTime", supply.CreateTime);
                 dictionary.Add("modifyTime", supply.ModifyTime);
                 dictionary.Add("supplyStatus", supply.SupplyStatus);
+                dictionary.Add("supplyFirstImgPath", imgPath);
                 dictionary.Add("success", "true");
                 jsonString.Append(JsonUtil.toJson(dictionary));
                 if (i < list.Count)

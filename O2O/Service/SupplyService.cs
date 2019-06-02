@@ -14,6 +14,10 @@ namespace Service
         CategoryDao categoryDao = new CategoryDao();
         UserDao userDao = new UserDao();
         SupplyImgDao supplyImgDao = new SupplyImgDao();
+        public SupplyImg getSupplyFirstImg(int supplyId)
+        {
+            return supplyImgDao.querySupplyFirstImgBySupplyId(supplyId);
+        }
         public Boolean addSupplyImg(SupplyImg supplyImg)
         {
             return supplyImgDao.insertSupplyImg(supplyImg);

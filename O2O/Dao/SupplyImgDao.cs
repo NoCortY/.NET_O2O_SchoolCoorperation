@@ -61,30 +61,26 @@ namespace Dao
             return list;
             
         }
-        public List<SupplyImg> querySupplyFirstImgBySupplyId(int supplyId)
+        public SupplyImg querySupplyFirstImgBySupplyId(int supplyId)
         {
-            String sql = "SELECT * FROM tb_supply_img WHERE supply_id = @supplyId AND img_status = 1";
+            String sql = "SELECT * FROM tb_supply_img WHERE supply_id = @supplyId AND img_status = 0";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@supplyId", supplyId));
-            List<SupplyImg> list = new List<SupplyImg>();
             SqlDataReader sdr = cmd.ExecuteReader();
+            SupplyImg supplyImg = new SupplyImg();
             if (sdr.HasRows)
             {
-                while (sdr.Read())
-                {
-                    SupplyImg supplyImg = new SupplyImg();
-                    supplyImg.Id = sdr.GetInt32(0);
-                    supplyImg.ImgPath = sdr.GetString(1);
-                    supplyImg.ImgStatus = sdr.GetInt32(2);
-                    supplyImg.Supply.Id = sdr.GetInt32(3);
-                    list.Add(supplyImg);
-                }
+                sdr.Read();
+                supplyImg.Id = sdr.GetInt32(0);
+                supplyImg.ImgPath = sdr.GetString(1);
+                supplyImg.ImgStatus = sdr.GetInt32(2);
+                supplyImg.Supply.Id = sdr.GetInt32(3);
             }
-            return list;
+            return supplyImg;
         }
         public List<SupplyImg> querySupplyDescImgBySupplyId(int supplyId)
         {
-            String sql = "SELECT * FROM tb_supply_img WHERE supply_id = @supplyId AND img_status = 0";
+            String sql = "SELECT * FROM tb_supply_img WHERE supply_id = @supplyId AND img_status = 1";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@supplyId", supplyId));
             List<SupplyImg> list = new List<SupplyImg>();
