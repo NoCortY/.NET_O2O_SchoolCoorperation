@@ -15,6 +15,7 @@ namespace o2o.Controller
     public class supply : IHttpHandler
     {
         SupplyService supplyService = new SupplyService();
+        UserService userService = new UserService();
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";            
@@ -28,9 +29,66 @@ namespace o2o.Controller
                 case "addsupply": addSupply(context); break;
                 case "addsupplyimg": addSupplyImg(context); break;
                 case "addsupplydescimg": addSupplyDescImg(context); break;
+                case "getsupplydetail": getSupplyDetail(context); break;
+                case "getsupplydescimg": getSupplyDescImg(context); break;
                 default:break;            
             }
 
+        }
+        public void getSupplyDescImg(HttpContext context)
+        {
+            List<SupplyImg> list = supplyService.getSupplyDescImg(Convert.ToInt32(context.Request["supplyId"]));
+            StringBuilder sb = new StringBuilder();
+            Dictionary<String, Object> dictionary = new Dictionary<String, Object>();
+            string imgPath = "";
+            sb.Append("[");
+            int i = 1;
+            foreach (SupplyImg supplyImg in list)
+            {
+                if (supplyImg.ImgPath != null)
+                {
+                    imgPath = System.IO.Path.GetFileName(supplyImg.ImgPath);
+                }
+                dictionary.Add("supplyDescImg", imgPath);
+                sb.Append(JsonUtil.toJson(dictionary));
+                if (i < list.Count)
+                {
+                    sb.Append(",");
+                }
+                dictionary.Clear();
+                i++;
+            }
+            sb.Append("]");
+            context.Response.Write(sb.ToString());
+        }
+        public void getSupplyDetail(HttpContext context)
+        {
+            Dictionary<String, Object> dictionary = new Dictionary<string, object>();
+            Supply supply = supplyService.getSupplyById(Convert.ToInt32(context.Request["supplyId"]));
+            User user = userService.getUserById(supply.User.Id);
+            string imgPath = "";
+            if (user.UserHeader != null)
+            {
+                imgPath = System.IO.Path.GetFileName(user.UserHeader);
+            }
+
+            dictionary.Add("supplyId", supply.Id);
+            dictionary.Add("supplyName", supply.SupplyName);
+            dictionary.Add("supplyDesc", supply.SupplyDesc);
+            dictionary.Add("categoryName", supplyService.getCategoryName(supply.SupplyCategory.Id));
+            dictionary.Add("priority", supply.Priority);
+            dictionary.Add("userName", user.NickName);
+            dictionary.Add("userTeleNum", user.TeleNumber);
+            dictionary.Add("userEMail", user.Username);
+            dictionary.Add("userHeader", imgPath);
+            dictionary.Add("createTime", supply.CreateTime);
+            dictionary.Add("modifyTime", supply.ModifyTime);
+            dictionary.Add("supplyStatus", supply.SupplyStatus);
+            StringBuilder sb = new StringBuilder();
+           
+            sb.Append(JsonUtil.toJson(dictionary));
+            dictionary.Clear();
+            context.Response.Write(sb.ToString());
         }
         public void addSupplyDescImg(HttpContext context){
             SupplyImg supplyImg = new SupplyImg();

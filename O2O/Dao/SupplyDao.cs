@@ -11,6 +11,38 @@ namespace Dao
 {
     public class SupplyDao
     {
+        public String queryCategoryNameById(int id)
+        {
+            String sql = "SELECT category_name FROM tb_category WHERE id = @id";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+            SqlDataReader sdr = cmd.ExecuteReader();
+            sdr.Read();
+            String categoryName = sdr.GetString(0);
+            return categoryName;
+        }
+        public Supply querySupplyById(int id)
+        {
+            String sql = "SELECT * FROM tb_supply WHERE id = @id";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+            SqlDataReader sdr = cmd.ExecuteReader();
+            Supply supply = new Supply();
+            if (sdr.HasRows)
+            {
+                sdr.Read();
+                supply.Id = sdr.GetInt32(0);
+                supply.SupplyName = sdr.GetString(1);
+                supply.SupplyDesc = sdr.GetString(2);
+                supply.SupplyCategory.Id = sdr.GetInt32(3);
+                supply.Priority = sdr.GetInt32(4);
+                supply.User.Id = sdr.GetInt32(5);
+                supply.CreateTime = sdr.GetDateTime(6);
+                supply.ModifyTime = sdr.GetDateTime(7);
+                supply.SupplyStatus = sdr.GetInt32(8);
+            }
+            return supply;
+        }
         public int insertSupply(Supply supply)
         {
             String sql = "INSERT tb_supply(supply_name,supply_desc,category_id,priority,user_id,create_time,modify_time,supply_status) VALUES(@supply_name,@supply_desc,@category_id,@priority,@user_id,@create_time,@modify_time,@supply_status);SELECT @@Identity";

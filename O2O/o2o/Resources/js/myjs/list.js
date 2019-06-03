@@ -1,4 +1,5 @@
 ﻿$(function () {
+
     var allListUrl = "../../Controller/supply.ashx?action=all";
     var categoryListUrl = "../../Controller/supply.ashx?action=category";
     var nameListUrl = "../../Controller/supply.ashx?action=name";
@@ -29,12 +30,12 @@
                                             + "<div class='row ListriBox'>"
                                                 + "<div class='col-md-5 col-sm-6 col-xs-12 Nopadding'>"
                                                     + "<figure>"
-                                                        + " <a href='listings-single-page-3.html'>"
+                                                        + " <a href='detail.html?supplyId=" + item.Id + "'>"
                                                             + "<img src='../images/" + item.supplyFirstImgPath + "' class='img-fluid' alt='图片'>"
                                                             + "<div class='read_more'><span>更多信息</span></div></a></figure></div>"
                                                 + "<div class='col-md-7 col-sm-6 col-xs-12 Nopadding'>"
                                                     + "<div class='ListriBoxmain'>"
-                                                        + "<h3><a href='listings-single-page-3.html'>" + item.supplyName + "</a></h3>"
+                                                        + "<h3><a href='detail.html?supplyId=" + item.Id + "'>" + item.supplyName + "</a></h3>"
                                                         + "<p>" + item.supplyDesc + "</p>"
                                                         + ""
                                                     + "<ul><li><a class='address' href=''>发布人:" + item.nickName + "&nbsp;&nbsp;Tel:" + item.teleNumber + "</a></li></ul></div></div></div></div>";

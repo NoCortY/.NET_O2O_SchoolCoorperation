@@ -14,6 +14,19 @@ namespace Service
         CategoryDao categoryDao = new CategoryDao();
         UserDao userDao = new UserDao();
         SupplyImgDao supplyImgDao = new SupplyImgDao();
+        public String getCategoryName(int id)
+        {
+            return supplyDao.queryCategoryNameById(id);
+        }
+        public Supply getSupplyById(int id)
+        {
+            return supplyDao.querySupplyById(id);
+        }
+        public List<SupplyImg> getSupplyDescImg(int supplyId)
+        {
+            return supplyImgDao.querySupplyDescImgBySupplyId(supplyId);
+        }
+
         public SupplyImg getSupplyFirstImg(int supplyId)
         {
             return supplyImgDao.querySupplyFirstImgBySupplyId(supplyId);

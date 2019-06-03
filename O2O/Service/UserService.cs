@@ -24,6 +24,10 @@ namespace Service
                 return null;
             }
         }
+        public User getUserById(int id)
+        {
+            return userDao.queryUserById(id);
+        }
         /*注册用户*/
         public Boolean register(User user)
         {
