@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EvaluateService.cs" />
+    <Compile Include="IMService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequirementService.cs" />
     <Compile Include="SupplyService.cs" />

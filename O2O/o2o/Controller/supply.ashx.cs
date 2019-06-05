@@ -37,10 +37,10 @@ namespace o2o.Controller
         }
         public void getSupplyDescImg(HttpContext context)
         {
-            List<SupplyImg> list = supplyService.getSupplyDescImg(Convert.ToInt32(context.Request["supplyId"]));
+            List<SupplyImg> list = supplyService.getSupplyDescImg(Convert.ToInt32(context.Request["Id"]));
             StringBuilder sb = new StringBuilder();
             Dictionary<String, Object> dictionary = new Dictionary<String, Object>();
-            string imgPath = "";
+            string imgPath = "defaultImg.jpg";
             sb.Append("[");
             int i = 1;
             foreach (SupplyImg supplyImg in list)
@@ -49,7 +49,7 @@ namespace o2o.Controller
                 {
                     imgPath = System.IO.Path.GetFileName(supplyImg.ImgPath);
                 }
-                dictionary.Add("supplyDescImg", imgPath);
+                dictionary.Add("DescImg", imgPath);
                 sb.Append(JsonUtil.toJson(dictionary));
                 if (i < list.Count)
                 {
@@ -64,26 +64,27 @@ namespace o2o.Controller
         public void getSupplyDetail(HttpContext context)
         {
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
-            Supply supply = supplyService.getSupplyById(Convert.ToInt32(context.Request["supplyId"]));
+            Supply supply = supplyService.getSupplyById(Convert.ToInt32(context.Request["Id"]));
             User user = userService.getUserById(supply.User.Id);
-            string imgPath = "";
+            string imgPath = "defaultImg.jpg";
             if (user.UserHeader != null)
             {
                 imgPath = System.IO.Path.GetFileName(user.UserHeader);
             }
 
-            dictionary.Add("supplyId", supply.Id);
-            dictionary.Add("supplyName", supply.SupplyName);
-            dictionary.Add("supplyDesc", supply.SupplyDesc);
+            dictionary.Add("Id", supply.Id);
+            dictionary.Add("Name", supply.SupplyName);
+            dictionary.Add("Desc", supply.SupplyDesc);
             dictionary.Add("categoryName", supplyService.getCategoryName(supply.SupplyCategory.Id));
             dictionary.Add("priority", supply.Priority);
+            dictionary.Add("userId", supply.User.Id);
             dictionary.Add("userName", user.NickName);
             dictionary.Add("userTeleNum", user.TeleNumber);
             dictionary.Add("userEMail", user.Username);
             dictionary.Add("userHeader", imgPath);
             dictionary.Add("createTime", supply.CreateTime);
             dictionary.Add("modifyTime", supply.ModifyTime);
-            dictionary.Add("supplyStatus", supply.SupplyStatus);
+            dictionary.Add("Status", supply.SupplyStatus);
             StringBuilder sb = new StringBuilder();
            
             sb.Append(JsonUtil.toJson(dictionary));
@@ -92,7 +93,7 @@ namespace o2o.Controller
         }
         public void addSupplyDescImg(HttpContext context){
             SupplyImg supplyImg = new SupplyImg();
-            supplyImg.Supply.Id = Convert.ToInt32(context.Request["supplyId"]);
+            supplyImg.Supply.Id = Convert.ToInt32(context.Request["Id"]);
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
             string savepath = "";
             Boolean flag = false;
@@ -121,7 +122,7 @@ namespace o2o.Controller
         public void addSupplyImg(HttpContext context)
         {
             SupplyImg supplyImg = new SupplyImg();
-            supplyImg.Supply.Id = Convert.ToInt32(context.Request["supplyId"]);
+            supplyImg.Supply.Id = Convert.ToInt32(context.Request["Id"]);
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
             string savepath = "";
             if (context.Request.Files.Count > 0)
@@ -174,7 +175,7 @@ namespace o2o.Controller
             StringBuilder jsonString = new StringBuilder();
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
 
-            string imgPath = "hotel1.jpg";
+            string imgPath = "defaultImg.jpg";
             jsonString.Append("[");
             int i = 1;
             foreach(Supply supply in list){
@@ -183,8 +184,8 @@ namespace o2o.Controller
                     imgPath = System.IO.Path.GetFileName(supplyImg.ImgPath);
                 }
                 dictionary.Add("Id", supply.Id);
-                dictionary.Add("supplyName", supply.SupplyName);
-                dictionary.Add("supplyDesc",supply.SupplyDesc);
+                dictionary.Add("Name", supply.SupplyName);
+                dictionary.Add("Desc",supply.SupplyDesc);
                 dictionary.Add("categoryId", supply.SupplyCategory.Id);
                 dictionary.Add("priority", supply.Priority);
                 dictionary.Add("userId",supply.User.Id);
@@ -192,8 +193,8 @@ namespace o2o.Controller
                 dictionary.Add("teleNumber", supply.User.TeleNumber);
                 dictionary.Add("createTime",supply.CreateTime);
                 dictionary.Add("modifyTime", supply.ModifyTime);
-                dictionary.Add("supplyStatus", supply.SupplyStatus);
-                dictionary.Add("supplyFirstImgPath", imgPath);
+                dictionary.Add("Status", supply.SupplyStatus);
+                dictionary.Add("FirstImgPath", imgPath);
                 dictionary.Add("success", "true");
                 jsonString.Append(JsonUtil.toJson(dictionary));
                 if (i < list.Count) {
@@ -211,7 +212,7 @@ namespace o2o.Controller
             StringBuilder jsonString = new StringBuilder();
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
             //jsonString.Append("\"supply\":");
-            string imgPath = "hotel1.jpg";
+            string imgPath = "defaultImg.jpg";
             if (list.Count == 0)
             {
                 context.Response.Write("{\"success\":\"false\"}");
@@ -225,8 +226,8 @@ namespace o2o.Controller
                     imgPath = System.IO.Path.GetFileName(supplyImg.ImgPath);
                 }
                 dictionary.Add("Id", supply.Id);
-                dictionary.Add("supplyName", supply.SupplyName);
-                dictionary.Add("supplyDesc",supply.SupplyDesc);
+                dictionary.Add("Name", supply.SupplyName);
+                dictionary.Add("Desc",supply.SupplyDesc);
                 dictionary.Add("categoryId", supply.SupplyCategory.Id);
                 dictionary.Add("priority", supply.Priority);
                 dictionary.Add("userId",supply.User.Id);
@@ -234,8 +235,8 @@ namespace o2o.Controller
                 dictionary.Add("teleNumber", supply.User.TeleNumber);
                 dictionary.Add("createTime",supply.CreateTime);
                 dictionary.Add("modifyTime", supply.ModifyTime);
-                dictionary.Add("supplyStatus", supply.SupplyStatus);
-                dictionary.Add("supplyFirstImgPath", imgPath);
+                dictionary.Add("Status", supply.SupplyStatus);
+                dictionary.Add("FirstImgPath", imgPath);
                 dictionary.Add("success", "true");
                 jsonString.Append(JsonUtil.toJson(dictionary));
                 if (i < list.Count) {
@@ -256,7 +257,7 @@ namespace o2o.Controller
             StringBuilder jsonString = new StringBuilder();
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
             //jsonString.Append("\"supply\":");
-            string imgPath = "hotel1.jpg";
+            string imgPath = "defaultImg.jpg";
             if (list.Count == 0)
             {
                 context.Response.Write("{\"success\":\"false\"}");
@@ -273,8 +274,8 @@ namespace o2o.Controller
                 }
 
                 dictionary.Add("Id", supply.Id);
-                dictionary.Add("supplyName", supply.SupplyName);
-                dictionary.Add("supplyDesc", supply.SupplyDesc);
+                dictionary.Add("Name", supply.SupplyName);
+                dictionary.Add("Desc", supply.SupplyDesc);
                 dictionary.Add("categoryId", supply.SupplyCategory.Id);
                 dictionary.Add("priority", supply.Priority);
                 dictionary.Add("userId", supply.User.Id);
@@ -282,8 +283,8 @@ namespace o2o.Controller
                 dictionary.Add("teleNumber", supply.User.TeleNumber);
                 dictionary.Add("createTime", supply.CreateTime);
                 dictionary.Add("modifyTime", supply.ModifyTime);
-                dictionary.Add("supplyStatus", supply.SupplyStatus);
-                dictionary.Add("supplyFirstImgPath", imgPath);
+                dictionary.Add("Status", supply.SupplyStatus);
+                dictionary.Add("FirstImgPath", imgPath);
                 dictionary.Add("success", "true");
                 jsonString.Append(JsonUtil.toJson(dictionary));
                 if (i < list.Count)

@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Dao;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,98 @@ namespace Service
 {
     public class RequirementService
     {
-        /*RequirementDao requirementDao = new RequirementDao();
-        public List<Requirement> getAllRequirement()
+        RequirementDao requirementDao = new RequirementDao();
+        CategoryDao categoryDao = new CategoryDao();
+        UserDao userDao = new UserDao();
+        RequirementImgDao requirementImgDao = new RequirementImgDao();
+        public String getCategoryName(int id)
         {
-            List<Requirement> list = new List<Requirement>();
-            list = requirementDao.queryAllRequirement();
-            if (list != null)
+            return requirementDao.queryCategoryNameById(id);
+
+        }
+        public Requirement getRequirementById(int id)
+        {
+            return requirementDao.queryRequirementById(id);
+        }
+        public List<RequirementImg> getRequirementDescImg(int requirementId)
+        {
+            return requirementImgDao.queryRequirementDescImgByRequirementId(requirementId);
+        }
+        public RequirementImg getRequirementFirstImg(int requirementId)
+        {
+            return requirementImgDao.queryRequirementFirstImgByRequirementId(requirementId);
+        }
+        public Boolean addRequirementImg(RequirementImg requirementImg)
+        {
+            return requirementImgDao.insertRequirementImg(requirementImg);
+        }
+        public int addRequirement(Requirement requirement)
+        {
+            requirement.Priority = 1;
+            requirement.CreateTime = DateTime.Now;
+            requirement.ModifyTime = DateTime.Now;
+            requirement.RequirementStatus = 1;
+            return requirementDao.insertRequirement(requirement);
+
+        }
+        public Boolean updateRequirementByManager(Requirement requirement)
+        {
+            return requirementDao.updateRequirementByManager(requirement);
+        }
+        public List<Requirement> getAllRequirementListWithoutBanned()
+        {
+
+            List<Requirement> listRequirement = requirementDao.queryAllRequirementWithoutBanned();
+
+            for (int i = 0; i < listRequirement.Count; i++)
+            {
+                User user = userDao.queryUserById(listRequirement[i].User.Id);
+                listRequirement[i].User.NickName = user.NickName;
+                listRequirement[i].User.TeleNumber = user.TeleNumber;
+
+            }
+            return listRequirement;
+        }
+        public List<Requirement> getAllRequirementList()
+        {
+
+            List<Requirement> listRequirement = requirementDao.queryAllRequirement();
+
+            for (int i = 0; i < listRequirement.Count; i++)
+            {
+                User user = userDao.queryUserById(listRequirement[i].User.Id);
+                listRequirement[i].User.NickName = user.NickName;
+                listRequirement[i].User.TeleNumber = user.TeleNumber;
+
+            }
+            return listRequirement;
+        }
+        public List<Requirement> getRequirementListByCategory(int categoryId)
+        {
+            List<Requirement> listRequirement = requirementDao.queryRequirementByRequirementCategory(categoryId);
+            for (int i = 0; i < listRequirement.Count; i++)
+            {
+                User user = userDao.queryUserById(listRequirement[i].User.Id);
+                listRequirement[i].User.NickName = user.NickName;
+                listRequirement[i].User.TeleNumber = user.TeleNumber;
+            }
+            return listRequirement;
+        }
+        public List<Requirement> getRequirementListByName(String name)
+        {
+            List<Requirement> listRequirement = requirementDao.queryRequirementByRequirementName(name);
+            for (int i = 0; i < listRequirement.Count; i++)
+            {
+                User user = userDao.queryUserById(listRequirement[i].User.Id);
+                listRequirement[i].User.NickName = user.NickName;
+                listRequirement[i].User.TeleNumber = user.TeleNumber;
+            }
+            return listRequirement;
+        }
+        public List<Category> getAllCategory()
+        {
+            List<Category> list = categoryDao.queryAllCategory();
+            if (list.Count > 0)
             {
                 return list;
             }
@@ -23,32 +110,7 @@ namespace Service
                 return null;
             }
         }
-        public List<Requirement> getRequirementByCategory(Category category)
-        {
-            List<Requirement> list = new List<Requirement>();
-            list = requirementDao.queryRequirementByCategory();
-            if (list != null)
-            {
-                return list;
-            }
-            else
-            {
-                return null;
-            }
-        }
-        public List<Requirement> getRequirementByName(String requirementName)
-        {
-            List<Requirement> list = new List<Requirement>();
-            list = requirementDao.queryRequirementByRequirementName();
-            if (list != null)
-            {
-                return list;
-            }
-            else
-            {
-                return null;
-            }
-        }*/
+
 
     }
 }

@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link href="../Resources/css/list.css" type="text/css" rel="stylesheet" />
-   
+
+    <link href="../Resources/css/chat.css" type="text/css" rel="stylesheet" />
+    <link href="../Resources/font_Icon/iconfont.css" type="text/css" rel="stylesheet" />
     <title>名字-详情</title>
 </head>
 <body>
-    <!-- Start Main Menu Area -->
+    <!--=========================================导航条=========================================-->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,8 +29,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">互助广场</a></li>
+                    <li><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="list.html">互助广场</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -78,7 +80,7 @@
                     <h1 class="text-shadow verified" style="color:black" id="Name">供应&需求名</h1>
                     <p class="mb-0 d-flex align-items-center"><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-gray-200 mr-4"> </i>浏览次数</p>
                 </div>
-                <div class="calltoactions"><a data-toggle="modal" data-target="#exampleModalCenter" class="btn ClaimBtn btn-primary">联系我</a></div>
+                <div class="calltoactions"><a data-toggle="modal" data-target="#exampleModalCenter" class="btn ClaimBtn btn-primary" value="" id="contactMe">联系我</a></div>
             </div>
         </div>
     </section>
@@ -91,7 +93,7 @@
                     <!-- About Listing-->
                     <div class="text-block">
                         <h3 class="mb-3">详细描述</h3>
-                        <p class="text-muted" id="supplyDesc"> 详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息</p>
+                        <p class="text-muted" id="Desc"> 详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息</p>
                     </div>
                     <div class="text-block">
                         <!-- Gallery-->
@@ -115,21 +117,11 @@
                         <div class="rebiew_section">
                             <div id="leaveReview" class="mt-4 collapse show" style="">
                                 <h5 class="mb-4">发表评论</h5>
-                                <form id="contact-form" method="get" action="#" class="form">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" name="name" id="name" placeholder="输入您的姓名" required class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
+                                <form id="evaluateForm" method="get" class="form">
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" placeholder="邮箱" required class="form-control">
+                                        <textarea rows="4" name="review" id="evaluate" placeholder="评论内容" required class="form-control"></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <textarea rows="4" name="review" id="review" placeholder="评论内容" required class="form-control"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">提交</button>
+                                    <button type="button" id="submitEvaluate" class="btn btn-primary">提交</button>
                                 </form>
                             </div>
                         </div>
@@ -143,7 +135,7 @@
 
                         <div class="card border-0 shadow mb-5 author_profileBox">
                             <div class="card-body">
-                                <div class="author_profile"><img src="" alt="发布者头像"></div>
+                                <div class="author_profile" id="publishUserHeader"></div>
 
                                 <h4 id="userNickName">发布者昵称</h4>
 
@@ -227,6 +219,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 
 
@@ -281,8 +274,116 @@
             <p class="pull-right"><a href="#">Back to top</a></p>
             <p>© 2016 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
         </footer>
-    </div>
+        <!--=========================================================登录界面===========================================================-->
+        <div id="login" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-title">
+                        <h2 class="text-center">登录</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-group" id="loginform">
+                            <div class="form-group">
+                                <label for="">邮箱</label><span id="alertloginfail" style="color:red"></span>
+                                <input name="username" class="form-control" id="inputEmail" autofocus="" required="" type="email" placeholder="请输入邮箱">
+                            </div>
+                            <div class="form-group">
+                                <label for="">密码</label>
+                                <input name="password" class="form-control" id="inputPassword" required="" type="password" placeholder="请输入密码">
+                            </div>
+                            <div class="text-right">
+                                <button class="btn btn-primary" type="button" id="loginsubmit">&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</button>
+                                <button class="btn btn-danger" data-dismiss="modal">&nbsp;&nbsp;&nbsp;取消&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                            <a href="register.html">还没有账号？点我注册</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--=========================================================登录===========================================================-->
+        <!--========================================================聊天框=====================================================-->
+        <div class="chatContainer">
+            <div class="chatBtn" id="chatBtn">
+                <i class="iconfont icon-xiaoxi1"></i>
+            </div>
+            <div class="chat-message-num" id="chatMessageNum"></div>
+            <div class="chatBox" ref="chatBox" style="display:none">
+                <div class="chatBox-head">
+                    <div class="chatBox-head-one">
+                        消息列表
+                        <div class="chat-close" style="margin: 10px 10px 0 0;font-size: 14px">关闭</div>
+                    </div>
+                    <div class="chatBox-head-two">
+                        <div class="chat-return">返回</div>
+                        <div class="chat-people">
+                            <div class="ChatInfoHead">
+                                <img src="" alt="头像" />
+                            </div>
+                            <div class="ChatInfoName">这是用户的名字，看看名字到底能有多长</div>
+                        </div>
+                        <div class="chat-close">关闭</div>
+                    </div>
+                </div>
+                <!--消息框-->
+                <div class="chatBox-info">
+                    <div class="chatBox-list" id="chatBoxList" ref="chatBoxlist">
+                        <!--<div class="chat-list-people">
+                        <div><img src="img/icon01.png" alt="头像" /></div>
+                        <div class="chat-name">
+                            <p>自酌一杯酒</p>
+                        </div>
+                        <div class="message-num">10</div>
+                    </div>-->
+                    </div>
 
+
+                    <div class="chatBox-kuang" ref="chatBoxkuang">
+                        <div class="chatBox-content">
+                            <div class="chatBox-content-demo" id="chatBox-content-demo">
+
+                                <!--<div class="clearfloat">
+                                <div class="author-name">
+                                    <small class="chat-date">2017-12-02 14:26:58</small>
+                                </div>
+                                <div class="left">
+                                    <div class="chat-avatars"><img src="img/icon01.png" alt="头像" /></div>
+                                    <div class="chat-message">
+                                        给你看张图
+                                    </div>
+                                </div>
+                            </div>-->
+                                <!--<div class="clearfloat">
+                                <div class="author-name">
+                                    <small class="chat-date">2017-12-02 14:26:58</small>
+                                </div>
+                                <div class="right">
+                                    <div class="chat-message">嗯，适合做壁纸</div>
+                                    <div class="chat-avatars"><img src="img/icon02.png" alt="头像" /></div>
+                                </div>
+                            </div>-->
+
+                            </div>
+                        </div>
+                        <div class="chatBox-send">
+                            <div class="div-textarea" contenteditable="true" id="sendBox"></div>
+                            <div>
+                                <button id="chat-fasong" class="btn-default-styles">
+                                    <i class="iconfont icon-fasong"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
 
 
@@ -309,5 +410,9 @@
     <script src="../Resources/js/configjs/markerclusterer.js" type="text/javascript"></script>
     <script src="../Resources/js/configjs/maps.js" type="text/javascript"></script>
     <script src="../Resources/js/myjs/detail.js" type="text/javascript"></script>
+    <script src="../Resources/js/myjs/chat.js" type="text/javascript"></script>
+    <script src="../Resources/js/myjs/im.js" type="text/javascript"></script>
+    <script src="../Resources/js/myjs/common.js" type="text/javascript"></script>
+    <script src="../Resources/js/myjs/index.js" type="text/javascript"></script>
 </body>
 </html>

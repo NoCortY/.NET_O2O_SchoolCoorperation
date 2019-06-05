@@ -42,12 +42,15 @@
   <ItemGroup>
     <Compile Include="CategoryDao.cs" />
     <Compile Include="HeadlineImgDao.cs" />
+    <Compile Include="IMDao.cs" />
     <Compile Include="RequirementDao.cs" />
+    <Compile Include="RequirementImgDao.cs" />
     <Compile Include="SupplyDao.cs" />
     <Compile Include="SupplyImgDao.cs" />
     <Compile Include="UserCompleteRequirementDao.cs" />
     <Compile Include="UserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserEvaluateDao.cs" />
     <Compile Include="Utils\DbUtil.cs" />
   </ItemGroup>
   <ItemGroup>
