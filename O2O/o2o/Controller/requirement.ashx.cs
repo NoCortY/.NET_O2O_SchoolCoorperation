@@ -6,13 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.SessionState;
 
 namespace o2o.Controller
 {
     /// <summary>
     /// Summary description for requirement
     /// </summary>
-    public class requirement : IHttpHandler
+    public class requirement : IHttpHandler, IRequiresSessionState
     {
         RequirementService requirementService = new RequirementService();
         UserService userService = new UserService();
@@ -38,7 +39,7 @@ namespace o2o.Controller
 
         public void getRequirementDescImg(HttpContext context)
         {
-            List<RequirementImg> list = requirementService.getRequirementDescImg(Convert.ToInt32(context.Request["requirementId"]));
+            List<RequirementImg> list = requirementService.getRequirementDescImg(Convert.ToInt32(context.Request["Id"]));
             StringBuilder sb = new StringBuilder();
             Dictionary<String, Object> dictionary = new Dictionary<String, Object>();
             string imgPath = "defaultImg.jpg";
@@ -85,6 +86,7 @@ namespace o2o.Controller
             dictionary.Add("modifyTime",requirement.ModifyTime);
             dictionary.Add("Status",requirement.RequirementStatus);
             StringBuilder sb = new StringBuilder();
+            sb.Append(JsonUtil.toJson(dictionary));
             dictionary.Clear();
             context.Response.Write(sb.ToString());
         }

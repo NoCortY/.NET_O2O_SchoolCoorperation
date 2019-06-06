@@ -83,7 +83,7 @@ namespace Dao
         {
             String sql = "SELECT * FROM tb_requirement_img WHERE requirement_id = @requirement_id AND img_status = 1";
             SqlCommand cmd = DbUtil.getCommand(sql);
-            cmd.Parameters.Add(new SqlParameter("@supplyId", requirementId));
+            cmd.Parameters.Add(new SqlParameter("@requirement_id", requirementId));
             List<RequirementImg> list = new List<RequirementImg>();
             SqlDataReader sdr = cmd.ExecuteReader();
             if (sdr.HasRows)

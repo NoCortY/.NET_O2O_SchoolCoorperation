@@ -2,7 +2,8 @@
     var supplyListManageUrl = "../../Controller/SupplyManagementController.ashx?action=supplyListManagement";
     var updateSupplyUrl = "../../Controller/SupplyManagementController.ashx?action=updateSupply";
     var listUserManageUrl = "../../Controller/UserManagementController.ashx?action=listUsers";
-    $("#supplyManagement").click(function () { 
+    $("#supplyManagement").click(function () {
+        $("#supplyManagementLi").attr("class", "active");
         var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>优先级</th><th>Status</th><th>操作</th></tr></thead>";
             $.ajax({
                 type: "POST",

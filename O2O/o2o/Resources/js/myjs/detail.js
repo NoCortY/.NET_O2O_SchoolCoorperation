@@ -7,10 +7,17 @@
              var r= window.location.search.substr(1).match(reg);
              if (r != null) return unescape(r[2]); return null;
          }})(jQuery);
-        var getSupplyDetailUrl = "../../Controller/supply.ashx?action=getsupplydetail&Id="+$.getUrlParam('Id');
-        var getSupplyDescImgUrl = "../../Controller/supply.ashx?action=getsupplydescimg&Id="+$.getUrlParam('Id');
+    if ($.getUrlParam("classify") == 0) {
+        var getSupplyDetailUrl = "../../Controller/supply.ashx?action=getsupplydetail&Id=" + $.getUrlParam('Id');
+        var getSupplyDescImgUrl = "../../Controller/supply.ashx?action=getsupplydescimg&Id=" + $.getUrlParam('Id');
         var submitEvaluate = "../../Controller/EvaluateController.ashx?action = createuserevaluate";
-        var receiveUserId ;
+        var receiveUserId;
+    } else {
+        var getSupplyDetailUrl = "../../Controller/requirement.ashx?action=getrequirementdetail&Id=" + $.getUrlParam('Id');
+        var getSupplyDescImgUrl = "../../Controller/requirement.ashx?action=getrequirementdescimg&Id=" + $.getUrlParam('Id');
+        var submitEvaluate = "../../Controller/EvaluateController.ashx?action = createuserevaluate";
+        var receiveUserId;
+    }
         $.ajax({
         type: "POST",
         url:getSupplyDetailUrl,

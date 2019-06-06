@@ -27,6 +27,8 @@ namespace o2o.Controller
             {
                 context.Session["userId"] = user.Id;
                 context.Session["nickname"] = user.NickName;
+                context.Session["userStatus"] = user.UserStatus;
+                dictionary.Add("userStatus", user.UserStatus);
                 dictionary.Add("success", "true");
             }
             else

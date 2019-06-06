@@ -22,6 +22,7 @@ namespace o2o.Controller
             {
                 //dictionary.Add("userId", context.Session["userId"].ToString());
                 dictionary.Add("nickname", context.Session["nickname"].ToString());
+                dictionary.Add("userStatus", context.Session["userStatus"].ToString());
                 dictionary.Add("success", "true");
             }
             else

@@ -92,7 +92,7 @@ namespace Dao
         {
             User user = new User();
             StringBuilder password = new StringBuilder();
-            String sql = "SELECT id,password,nickname FROM tb_user WHERE username = @username";
+            String sql = "SELECT id,password,nickname,userstatus FROM tb_user WHERE username = @username";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@username", username));
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -102,7 +102,7 @@ namespace Dao
                 user.Id = sdr.GetInt32(0);
                 user.Password = sdr.GetString(1);
                 user.NickName = sdr.GetString(2);
-
+                user.UserStatus = sdr.GetInt32(3);
                 sdr.Close();
                 DbUtil.close(cmd);
                 return user;

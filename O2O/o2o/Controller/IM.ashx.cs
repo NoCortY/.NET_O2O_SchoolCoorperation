@@ -9,11 +9,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.SessionState;
 using System.Web.WebSockets;
 
 namespace o2o
 {
-    public class IM : IHttpHandler
+    public class IM : IHttpHandler, IRequiresSessionState
     {
         IMService imService = new IMService();
         public void ProcessRequest(HttpContext context)
@@ -83,7 +84,10 @@ namespace o2o
         /*只显示消息数量*/
         public void messageCount(HttpContext context)
         {
-            int count = imService.getMessageCount(Convert.ToInt32(context.Session["userId"]));
+            int count = 0;
+            if (context.Session["userId"] != null) { 
+                count = imService.getMessageCount(Convert.ToInt32(context.Session["userId"]));
+            }
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
             dictionary.Add("count", count);
             StringBuilder sb = JsonUtil.toJson(dictionary);

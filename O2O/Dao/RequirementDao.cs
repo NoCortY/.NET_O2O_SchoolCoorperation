@@ -47,14 +47,14 @@ namespace Dao
         //添加需求
         public int insertRequirement(Requirement requirement)
         {
-            String sql = "INSERT INTO tb_requirement(requirement_name,requirement_desc,priority,user_id,category_id,creat_time,modify_time,requirement_status) VALUES(@requirement_name,@requirement_desc,@priority,@user_id,@category_id,@creat_time,@modify_time,@requirement_status)";
+            String sql = "INSERT INTO tb_requirement(requirement_name,requirement_desc,priority,user_id,category_id,create_time,modify_time,requirement_status) VALUES(@requirement_name,@requirement_desc,@priority,@user_id,@category_id,@create_time,@modify_time,@requirement_status);SELECT @@Identity";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@requirement_name", requirement.RequirementName));
             cmd.Parameters.Add(new SqlParameter("@requirement_desc", requirement.RequirementDesc));
             cmd.Parameters.Add(new SqlParameter("@priority", requirement.Priority));
-            cmd.Parameters.Add(new SqlParameter("@user_id", requirement.User));
-            cmd.Parameters.Add(new SqlParameter("@category_id", requirement.RequirementCategory));
-            cmd.Parameters.Add(new SqlParameter("@creat_time", requirement.CreateTime));
+            cmd.Parameters.Add(new SqlParameter("@user_id", requirement.User.Id));
+            cmd.Parameters.Add(new SqlParameter("@category_id", requirement.RequirementCategory.Id));
+            cmd.Parameters.Add(new SqlParameter("@create_time", requirement.CreateTime));
             cmd.Parameters.Add(new SqlParameter("@modify_time", requirement.ModifyTime));
             cmd.Parameters.Add(new SqlParameter("@requirement_status", requirement.RequirementStatus));
             int i = Convert.ToInt32(cmd.ExecuteScalar());

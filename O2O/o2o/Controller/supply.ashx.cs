@@ -158,7 +158,7 @@ namespace o2o.Controller
             int id = supplyService.addSupply(supply);
             if (id>0)
             {
-                dictionary.Add("supplyId", id);
+                dictionary.Add("Id", id);
                 dictionary.Add("success", "true");
             }
             else

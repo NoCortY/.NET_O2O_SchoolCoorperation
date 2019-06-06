@@ -97,6 +97,7 @@
     <Content Include="Resources\font_Icon\iconfont.ttf" />
     <Content Include="Resources\font_Icon\iconfont.woff" />
     <Content Include="Controller\IM.ashx" />
+    <Content Include="Controller\ordinaryUserManagement.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -165,6 +166,7 @@
     <Content Include="Views\management.html" />
     <Content Include="Views\register.html" />
     <Content Include="Views\list.html" />
+    <Content Include="Views\usermanagement.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +178,9 @@
     </Compile>
     <Compile Include="Controller\loginstatus.ashx.cs">
       <DependentUpon>loginstatus.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\ordinaryUserManagement.ashx.cs">
+      <DependentUpon>ordinaryUserManagement.ashx</DependentUpon>
     </Compile>
     <Compile Include="Controller\register.ashx.cs">
       <DependentUpon>register.ashx</DependentUpon>

@@ -1,5 +1,9 @@
 ﻿$(function () {
+    var addUrl = "../../Controller/supply.ashx?action=addsupply";
+    var addImgUrl = "../../Controller/supply.ashx?action=addsupplyimg";
+    var addDescImgUrl = "../../Controller/supply.ashx?action=addsupplydescimg"
     var getCategoryUrl = "../../Controller/supply.ashx?action=listcategory";
+    
     $.ajax({
         type: "POST",
         url: getCategoryUrl,
@@ -20,14 +24,20 @@
 
         }
     });*/
-    var supplyId;
-    var addUrl = "../../Controller/supply.ashx?action=addsupply";
-    var addImgUrl = "../../Controller/supply.ashx?action=addsupplyimg";
-    var addDescImgUrl = "../../Controller/supply.ashx?action=addsupplydescimg"
+    var Id;
     $("#submit").click(function () {
         /*if ($("#requirementOrSupply").find("option:selected").val() == 0) {
             addSupplyUrl = "../../Controller/";
         }*/
+        if ($("#requirementOrSupply option:selected").val() == 1) {
+            var addUrl = "../../Controller/supply.ashx?action=addsupply";
+            var addImgUrl = "../../Controller/supply.ashx?action=addsupplyimg";
+            var addDescImgUrl = "../../Controller/supply.ashx?action=addsupplydescimg";
+        } else {
+            addUrl = "../../Controller/requirement.ashx?action=addrequirement";
+            addImgUrl = "../../Controller/requirement.ashx?action=addrequirementimg";
+            addDescImgUrl = "../../Controller/requirement.ashx?action=addrequirementdescimg";
+        }
         $.ajax({
             type: "POST",
             url: addUrl,
@@ -35,13 +45,13 @@
             dataType: "json",
             success: function (data) {
                 if (data.success == "true") {
-                    supplyId = data.supplyId;
+                    Id = data.Id;
                     alert("添加成功");
                     /*多个ajax之间是并行的,所以这里用嵌套的结构*/
 
 
                     var formData = new FormData();
-                    formData.append("supplyId", supplyId);
+                    formData.append("Id", Id);
                     formData.append("smallImg", $('#smallImg')[0].files[0]);
                     $.ajax({
                         type: "POST",
@@ -53,14 +63,11 @@
                         cache: false,
                         success: function (data) {
                             if (data.success == "true") {
-
-
-
                                 var formData2 = new FormData();
                                 for (var i = 0; i < $("#descImg")[0].files.length; i++) {
                                     formData2.append("descImg" + i, $("#descImg")[0].files[i]);
                                 }
-                                formData2.append("supplyId", supplyId);
+                                formData2.append("Id", Id);
                                 $.ajax({
                                     type: "POST",
                                     url: addDescImgUrl,
