@@ -23,8 +23,10 @@
             url:url,
             data: $("#loginform").serialize(),
             dataType:'json',
-            success:function(data){
-                if (data.success == "true") {
+            success: function (data) {
+                if (data.success == "banned") {
+                    $("#alertloginfail").html("&nbsp;&nbsp&nbsp;账号被封禁,如有疑问请联系我们");
+                }else if (data.success == "true"&&data.success!="banned") {
                     flag = true;
                     alert("登录成功");
                     append();

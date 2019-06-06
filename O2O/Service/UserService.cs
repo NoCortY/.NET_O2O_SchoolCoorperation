@@ -11,6 +11,9 @@ namespace Service
     public class UserService
     {
         UserDao userDao = new UserDao();
+        public Boolean updateUserStatus(User user) {
+            return userDao.updateUserStatus(user);
+        }
         /*查询所有用户*/
         public List<User> listAllUsers()
         {

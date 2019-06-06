@@ -21,8 +21,27 @@ namespace o2o.Controller
             switch (mapping)
             {
                 case "listUsers": listUsers(context); break;
+                case "updateUserStatus": updateUserStatus(context); break;
                 default: break;
             }
+        }
+        public void updateUserStatus(HttpContext context)
+        {
+            context.Response.ContentType = "text/plain";
+            User user = new User();
+            user.Id = Convert.ToInt32((context.Request["Id"]));
+            user.UserStatus = Convert.ToInt32(context.Request["status"]);
+            Dictionary<String, Object> dictionary = new Dictionary<string, object>();
+            if (userService.updateUserStatus(user))
+            {
+                dictionary.Add("success", "true");
+            }
+            else
+            {
+                dictionary.Add("success", "false");
+            }
+            StringBuilder jsonString = JsonUtil.toJson(dictionary);
+            context.Response.Write(jsonString.ToString());
         }
         public void listUsers(HttpContext context)
         {

@@ -193,9 +193,9 @@ namespace Dao
                     requirement.Id = sdr.GetInt32(0);
                     requirement.RequirementName = sdr.GetString(1);
                     requirement.RequirementDesc = sdr.GetString(2);
-                    requirement.RequirementCategory.Id = sdr.GetInt32(3);
-                    requirement.Priority = sdr.GetInt32(4);
-                    requirement.User.Id = sdr.GetInt32(5);
+                    requirement.Priority = sdr.GetInt32(3);
+                    requirement.User.Id = sdr.GetInt32(4);
+                    requirement.RequirementCategory.Id = sdr.GetInt32(5);
                     //requirement.CreateTime = sdr.GetDateTime(6);
                     //requirement.ModifyTime = sdr.GetDateTime(7);
                     requirement.RequirementStatus = sdr.GetInt32(8);

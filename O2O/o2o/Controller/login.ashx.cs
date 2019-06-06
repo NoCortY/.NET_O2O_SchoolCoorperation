@@ -23,7 +23,11 @@ namespace o2o.Controller
             String username = context.Request["username"];
             String password = context.Request["password"];
             user = userService.userLogin(username, password);
-            if (user!=null)
+            if (user.UserStatus == -1)
+            {
+                dictionary.Add("success", "banned");
+            }
+            else if (user != null && user.UserStatus != -1)
             {
                 context.Session["userId"] = user.Id;
                 context.Session["nickname"] = user.NickName;

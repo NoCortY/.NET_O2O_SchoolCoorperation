@@ -98,6 +98,8 @@
     <Content Include="Resources\font_Icon\iconfont.woff" />
     <Content Include="Controller\IM.ashx" />
     <Content Include="Controller\ordinaryUserManagement.ashx" />
+    <Content Include="Controller\RequirementManagementController.ashx" />
+    <Content Include="Controller\CategoryManagementController.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -170,6 +172,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CategoryManagementController.ashx.cs">
+      <DependentUpon>CategoryManagementController.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Controller\EvaluateController.ashx.cs">
       <DependentUpon>EvaluateController.ashx</DependentUpon>
     </Compile>
@@ -187,6 +192,9 @@
     </Compile>
     <Compile Include="Controller\requirement.ashx.cs">
       <DependentUpon>requirement.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\RequirementManagementController.ashx.cs">
+      <DependentUpon>RequirementManagementController.ashx</DependentUpon>
     </Compile>
     <Compile Include="Controller\supply.ashx.cs">
       <DependentUpon>supply.ashx</DependentUpon>

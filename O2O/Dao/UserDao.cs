@@ -12,7 +12,23 @@ namespace Dao
 {
     public class UserDao
     {
-
+        //更新用户状态
+        public Boolean updateUserStatus(User user)
+        {
+            String sql = "UPDATE tb_user SET userstatus = @userStatus WHERE id = @id";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            cmd.Parameters.Add(new SqlParameter("@userStatus", user.UserStatus));
+            cmd.Parameters.Add(new SqlParameter("@id", user.Id));
+            int i = cmd.ExecuteNonQuery();
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public List<User> queryAllUser()
         {
             List<User> list = new List<User>();
