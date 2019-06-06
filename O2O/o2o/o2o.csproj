@@ -100,6 +100,7 @@
     <Content Include="Controller\ordinaryUserManagement.ashx" />
     <Content Include="Controller\RequirementManagementController.ashx" />
     <Content Include="Controller\CategoryManagementController.ashx" />
+    <Content Include="Controller\quitLogin.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -183,6 +184,9 @@
     </Compile>
     <Compile Include="Controller\ordinaryUserManagement.ashx.cs">
       <DependentUpon>ordinaryUserManagement.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\quitLogin.ashx.cs">
+      <DependentUpon>quitLogin.ashx</DependentUpon>
     </Compile>
     <Compile Include="Controller\register.ashx.cs">
       <DependentUpon>register.ashx</DependentUpon>

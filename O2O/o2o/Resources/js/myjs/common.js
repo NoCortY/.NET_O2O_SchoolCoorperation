@@ -17,18 +17,29 @@
     });
     function append(nickname) {
         $("#useritem").text(nickname);
-        $("#dropdownhaslogin").html("<li><a href='#'>账户管理</a></li>" +
-                            "<li><a href='#'>我的发布</a></li>" +
-                            "<li><a href='#'>我的评价</a></li>" +
+        $("#dropdownhaslogin").html("<li><a href='../../Views/usermanagement.html'>账户管理</a></li>" +
+                            "<li><a href='../../Views/usermanagement.html'>我的发布</a></li>" +
+                            "<li><a href='../../Views/usermanagement.html'>我的评价</a></li>" +
                             "<li role='separator' class='divider'></li>" +
-                            "<li><a href='#'>退出登录</a></li>");
+                            "<li><a href='' id='quitLogin'>退出登录</a></li>");
         if (userStatus == "1") {
             $("#dropdownhaslogin").html("<li><a href='#'>账户管理</a></li>" +
-                            "<li><a href='#'>我的发布</a></li>" +
-                            "<li><a href='#'>我的评价</a></li>" +
+                            "<li><a href='../../Views/usermanagement.html'>我的发布</a></li>" +
+                            "<li><a href='../../Views/usermanagement.html'>我的评价</a></li>" +
                             "<li role='separator' class='divider'></li>" +
-                            "<li><a href='#'>管理员模式</a></li>"+
-                            "<li><a href='#'>退出登录</a></li>");
+                            "<li><a href='../../Views/management.html'>管理员模式</a></li>" +
+                            "<li><a href='' id='quitLogin'>退出登录</a></li>");
         }
     }
+    $("#dropdownhaslogin").on("click", "#quitLogin", function () {
+        $.ajax({
+            type: "POST",
+            url: "../../Controller/quitLogin.ashx",
+            dataType: "json",
+            success: function (data) {
+                if (data.success == "true") {
+                }
+            }
+        });
+    });
 });

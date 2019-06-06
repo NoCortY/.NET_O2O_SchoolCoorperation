@@ -23,26 +23,29 @@ namespace o2o.Controller
             String username = context.Request["username"];
             String password = context.Request["password"];
             user = userService.userLogin(username, password);
-            if (user.UserStatus == -1)
-            {
-                dictionary.Add("success", "banned");
-            }
-            else if (user != null && user.UserStatus != -1)
-            {
-                context.Session["userId"] = user.Id;
-                context.Session["nickname"] = user.NickName;
-                context.Session["userStatus"] = user.UserStatus;
-                dictionary.Add("userStatus", user.UserStatus);
-                dictionary.Add("success", "true");
+            if (user != null) { 
+                if (user.UserStatus == -1)
+                {
+                    dictionary.Add("success", "banned");
+                }
+                else
+                {
+                    context.Session["userId"] = user.Id;
+                    context.Session["nickname"] = user.NickName;
+                    context.Session["userStatus"] = user.UserStatus;
+                    dictionary.Add("userStatus", user.UserStatus);
+                    dictionary.Add("success", "true");
+                }
+
             }
             else
             {
                 dictionary.Add("success", "false");
             }
+
             StringBuilder sb = JsonUtil.toJson(dictionary);
             context.Response.Write(sb.ToString());
         }
-
         public bool IsReusable
         {
             get
