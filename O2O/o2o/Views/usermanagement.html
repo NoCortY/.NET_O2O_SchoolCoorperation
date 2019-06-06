@@ -85,39 +85,15 @@
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar" style="float:left">
                 <ul class="nav nav-sidebar">
-                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#" id="supplyManagement">我的供应</a></li>
-                    <li><a href="#">我的需求</a></li>
-                </ul>
+                    <li id="mySupplyManagementLi"><a href="#" id="mySupplyManagement">我的供应</a></li>
+                    <li id="myRequirementManagementLi"><a href="#" id="myRequirementManagement">我的需求</a></li>
+</ul>
                 <ul class="nav nav-sidebar">
-                    <li><a href="#" id="userManagement">账户管理</a></li>
-                    <li><a href="">我的评价</a></li>
+                    <li id="myAccountManagementLi"><a href="#" id="myAccountManagement">个人信息管理</a></li>
+                    <li id="myEvaluateManagementLi"><a href="" id="myEvaluateManagement">我的评价</a></li>
                 </ul>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="float:right">
-                <h1 class="page-header">Dashboard</h1>
-                <!--<div class="row placeholders">
-                    <div class="col-xs-6 col-sm-3 placeholder">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                        <h4>Label</h4>
-                        <span class="text-muted">Something else</span>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 placeholder">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                        <h4>Label</h4>
-                        <span class="text-muted">Something else</span>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 placeholder">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                        <h4>Label</h4>
-                        <span class="text-muted">Something else</span>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 placeholder">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                        <h4>Label</h4>
-                        <span class="text-muted">Something else</span>
-                    </div>
-                </div>-->
                 <h2 class="sub-header">列表</h2>
                 <div class="table-responsive">
                     <table class="table table-striped" id="managelist">
@@ -136,10 +112,11 @@
                                 <td>Lorem</td>
                                 <td>推荐/正常</td>
                                 <td>正常/禁用</td>
-                                <td><input type="button" class="btn btn-danger" value="删除" />
-                                    <input type="button" class="btn btn-success" value="修改" /></td>
-</tr>
-
+                                <td>
+                                <input type="button" class="btn btn-success" id="update" value="修改" />
+                                <input type="button" class="btn btn-danger" id="delete" value="删除" />
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -190,6 +167,6 @@
     <script src="../Resources/js/configjs/ie10-warning.js"></script>
     <script type="text/javascript" src="../Resources/js/myjs/common.js"></script>
     <script type="text/javascript" src="../Resources/js/myjs/index.js"></script>
-
+    <script type="text/javascript" src="../Resources/js/myjs/usermanagement.js"></script>
 </body>
 </html>

@@ -11,6 +11,65 @@ namespace Dao
 {
     public class SupplyDao
     {
+        public Boolean updateSupplyById(Supply supply)
+        {
+            String sql = "UPDATE tb_supply SET supply_name = @supplyName,category_id = @categoryId,modify_time = @modifyTime WHERE id = @id";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            cmd.Parameters.Add(new SqlParameter("@supplyName", supply.SupplyName));
+            cmd.Parameters.Add(new SqlParameter("@categoryId", supply.SupplyCategory.Id));
+            cmd.Parameters.Add(new SqlParameter("@modifyTime", supply.ModifyTime));
+            cmd.Parameters.Add(new SqlParameter("@id", supply.Id));
+            int i = cmd.ExecuteNonQuery();
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public Boolean deleteSupplyById(int id)
+        {
+            String sql = "DELETE FROM tb_supply WHERE id = @id";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            cmd.Parameters.Add(new SqlParameter("@id", id));
+            int i = cmd.ExecuteNonQuery();
+            DbUtil.close(cmd);
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public List<Supply> querySupplyByUserId(int userId)
+        {
+            List<Supply> list = new List<Supply>();
+            String sql = "SELECT * FROM tb_supply WHERE user_id = @userId";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            cmd.Parameters.Add(new SqlParameter("@userId", userId));
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    Supply supply = new Supply();
+                    supply.Id = sdr.GetInt32(0);
+                    supply.SupplyName = sdr.GetString(1);
+                    supply.Priority = sdr.GetInt32(3);
+                    supply.CreateTime = sdr.GetDateTime(6);
+                    supply.ModifyTime = sdr.GetDateTime(7);
+                    supply.SupplyStatus = sdr.GetInt32(8);
+                    list.Add(supply);
+                }
+            }
+            sdr.Close();
+            DbUtil.close(cmd);
+            return list;
+        }
         public String queryCategoryNameById(int id)
         {
             String sql = "SELECT category_name FROM tb_category WHERE id = @id";
@@ -19,6 +78,8 @@ namespace Dao
             SqlDataReader sdr = cmd.ExecuteReader();
             sdr.Read();
             String categoryName = sdr.GetString(0);
+            DbUtil.close(cmd);
+            sdr.Close();
             return categoryName;
         }
         public Supply querySupplyById(int id)
@@ -41,6 +102,8 @@ namespace Dao
                 supply.ModifyTime = sdr.GetDateTime(7);
                 supply.SupplyStatus = sdr.GetInt32(8);
             }
+            sdr.Close();
+            DbUtil.close(cmd);
             return supply;
         }
         public int insertSupply(Supply supply)

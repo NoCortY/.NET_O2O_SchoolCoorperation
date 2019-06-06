@@ -14,6 +14,17 @@ namespace Service
         CategoryDao categoryDao = new CategoryDao();
         UserDao userDao = new UserDao();
         RequirementImgDao requirementImgDao = new RequirementImgDao();
+        public Boolean removeRequirementById(int requirementId)
+        {
+            Boolean flagRequirementImg = requirementImgDao.deleteRequirementImgByRequirementId(requirementId);
+            Boolean flagRequirement = requirementDao.deleteRequirementById(requirementId);
+            return flagRequirement;
+        }
+        public List<Requirement> getMyRequirement(int userId)
+        {
+            List<Requirement> list = requirementDao.queryRequirementByUserId(userId);
+            return list;
+        }
         public String getCategoryName(int id)
         {
             return requirementDao.queryCategoryNameById(id);

@@ -69,6 +69,8 @@ namespace Dao
                     list.Add(userEvaluate);
                 }
             }
+            sdr.Close();
+            DbUtil.close(cmd);
             return list;
         }
         //根据发送方 id查询用户评价
@@ -91,6 +93,8 @@ namespace Dao
                     list.Add(userEvaluate);
                 }
             }
+            sdr.Close();
+            DbUtil.close(cmd);
             return list;
         }
         //发出方修改评价

@@ -47,6 +47,7 @@ namespace Dao
             cmd.Parameters.Add(new SqlParameter("@createTime", category.CreateTime));
             cmd.Parameters.Add(new SqlParameter("@modifyTime", category.ModifyTime));
             int i = cmd.ExecuteNonQuery();
+            DbUtil.close(cmd);
             if (i > 0)
             {
                 return true;
@@ -62,6 +63,7 @@ namespace Dao
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add("@categoryId", categoryId);
             int i = cmd.ExecuteNonQuery();
+            DbUtil.close(cmd);
             if (i > 0)
             {
                 return true;

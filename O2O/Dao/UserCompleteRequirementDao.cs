@@ -46,6 +46,8 @@ namespace Dao
                     list.Add(completerequirement);
                 }
             }
+            sdr.Close();
+            DbUtil.close(cmd);
             return list;
         }
     }

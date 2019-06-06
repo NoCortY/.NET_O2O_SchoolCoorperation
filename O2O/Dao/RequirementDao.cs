@@ -12,6 +12,49 @@ namespace Dao
 {
     public class RequirementDao
     {
+        public Boolean updateRequirementById(Requirement requirement)
+        {
+            String sql = "UPDATE tb_requirement SET requirement_name = @requirementName,category_id = @categoryId,modify_time = @modifyTime WHERE id = @id";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            cmd.Parameters.Add(new SqlParameter("@requirementName", requirement.RequirementName));
+            cmd.Parameters.Add(new SqlParameter("@categoryId", requirement.RequirementCategory.Id));
+            cmd.Parameters.Add(new SqlParameter("@modifyTime", requirement.ModifyTime));
+            cmd.Parameters.Add(new SqlParameter("@id", requirement.Id));
+            int i = cmd.ExecuteNonQuery();
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /*public List<Requirement> queryRequirementByUserId(int userId)
+        {
+            String sql = "SELECT * FROM tb_requirement WHERE user_id = @userId";
+            SqlCommand cmd = DbUtil.getCommand(sql);
+            List<Requirement> list = new List<Requirement>();
+            cmd.Parameters.Add(new SqlParameter("@userId", userId));
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    Requirement requirement = new Requirement();
+                    requirement.Id = sdr.GetInt32(0);
+                    requirement.RequirementName = sdr.GetString(1);
+                    requirement.Priority = sdr.GetInt32(3);
+                    requirement.CreateTime = sdr.GetDateTime(6);
+                    requirement.ModifyTime = sdr.GetDateTime(7);
+                    requirement.RequirementStatus = sdr.GetInt32(8);
+                    list.Add(requirement);
+                }
+            }
+            sdr.Close();
+            DbUtil.close(cmd);
+            return list;
+        }*/
         public String queryCategoryNameById(int id)
         {
             String sql = "SELECT category_name FROM tb_category WHERE id = @id";
@@ -20,6 +63,8 @@ namespace Dao
             SqlDataReader sdr = cmd.ExecuteReader();
             sdr.Read();
             String categoryName = sdr.GetString(0);
+            sdr.Close();
+            DbUtil.close(cmd);
             return categoryName;
         }
         public Requirement queryRequirementById(int id)
@@ -42,6 +87,8 @@ namespace Dao
                 requirement.ModifyTime = sdr.GetDateTime(7);
                 requirement.RequirementStatus = sdr.GetInt32(8);
             }
+            sdr.Close();
+            DbUtil.close(cmd);
             return requirement;
         }
         //添加需求
@@ -91,12 +138,13 @@ namespace Dao
             return list;
         }
         //删除需求
-        public Boolean deleteUser(User user)
+        public Boolean deleteRequirementById(int id)
         {
             String sql = "DELETE FROM tb_requirement WHERE id = @id";
             SqlCommand cmd = DbUtil.getCommand(sql);
-            cmd.Parameters.Add(new SqlParameter("@id", user.Id));
+            cmd.Parameters.Add(new SqlParameter("@id", id));
             int i = cmd.ExecuteNonQuery();
+            DbUtil.close(cmd);
             if (i > 0)
                 return true;
             else

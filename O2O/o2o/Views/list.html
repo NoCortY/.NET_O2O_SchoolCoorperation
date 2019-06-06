@@ -82,61 +82,61 @@
 
     <section class="Gmap GmapInner">
         <div class="map-container fw-map">
-            <div id="map-main"> </div>
+            <div id="">
+                <img src="../Resources/images/imagelist.jpg" /> 
+            </div>
         </div>
         <div class="d-table">
             <div class="d-table-cell">
+                <!--=======================================================================搜索框==================================================================-->
+                <div class="container" style="filter:alpha(Opacity=80);-moz-opacity:0.5;opacity: 0.9;">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="search-bar mt-5 p-3 p-lg-1 pl-lg-4">
+                                <form id="searchsubmit">
+                                    <div class="row">
+                                        <div class="col-lg-4 d-flex align-items-center form-group">
+                                            <input type="text" name="searchname" placeholder="输入您想查找的内容" class="form-control border-0 shadow-0">
+                                        </div>
+                                        <div class="col-lg-3 d-flex align-items-center form-group">
+                                            <div class=" bootstrap-select">
+                                                <select title="RequirementOrSupply" id="RequirementOrSupply" data-style="btn-form-control" class="selectpicker" tabindex="-98">
+                                                    <option class="bs-title-option" value="0">供应</option>
+                                                    <option value="1">需求</option>
+                                                </select>
+                                                <div class="dropdown-menu " role="combobox">
+                                                    <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                                                        <ul class="dropdown-menu inner show"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 d-flex align-items-center form-group no-divider">
+                                            <div class=" bootstrap-select">
+                                                <select id="categoryselect" title="categories" data-style="btn-form-control" class="selectpicker" tabindex="-98"></select>
+                                                <div class="dropdown-menu " role="combobox">
+                                                    <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                                                        <ul class="dropdown-menu inner show"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <button type="button" id="search" class="btn btn-primary btn-block rounded-xl h-100">搜索 </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--=======================================================================搜索框==================================================================-->
 
             </div>
         </div>
     </section>
 
 
-   <!--=======================================================================搜索框==================================================================-->
-    <div class="container">
-        <div class="row h-100 align-items-center">
-            <div class="col-lg-12 col-md-12">
-                <div class="search-bar mt-5 p-3 p-lg-1 pl-lg-4">
-                    <form id="searchsubmit">
-                        <div class="row">
-                            <div class="col-lg-4 d-flex align-items-center form-group">
-                                <input type="text" name="searchname" placeholder="输入您想查找的内容" class="form-control border-0 shadow-0">
-                            </div>
-                            <div class="col-lg-3 d-flex align-items-center form-group">
-                                <div class=" bootstrap-select">
-                                    <select title="RequirementOrSupply" id="RequirementOrSupply" data-style="btn-form-control" class="selectpicker" tabindex="-98">
-                                        <option class="bs-title-option" value="0">供应</option>
-                                        <option value="1">需求</option>
-                                    </select>
-                                    <div class="dropdown-menu " role="combobox">
-                                        <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
-                                            <ul class="dropdown-menu inner show"></ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 d-flex align-items-center form-group no-divider">
-                                <div class=" bootstrap-select">
-                                    <select id="categoryselect" title="categories" data-style="btn-form-control" class="selectpicker" tabindex="-98">
-                                        
-                                    </select>
-                                    <div class="dropdown-menu " role="combobox">
-                                        <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
-                                            <ul class="dropdown-menu inner show"></ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <button type="button" id="search" class="btn btn-primary btn-block rounded-xl h-100">搜索 </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-<!--=======================================================================搜索框==================================================================-->
 
 
                 <section class="Campaigns pt80 pb80 ListingList">

@@ -10,7 +10,7 @@
         $("#requirementManagementLi").attr("class", "");
         $("#categoryManagementLi").attr("class", "");
         $("#userManagementLi").attr("class", "");
-        var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>优先级</th><th>Status</th><th>操作</th></tr></thead>";
+        var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>优先级</th><th>Status</th><th>操作</th></tr></thead><tbody>";
             $.ajax({
                 type: "POST",
                 url: supplyListManageUrl,
@@ -27,14 +27,15 @@
                             status ="禁用";
                             manage = "<a href='#' class='btn btn-success' role='button' name='btmanage' id='btmanage'>解除禁用";
                         }
-                        htmlStr+=      "<tbody><tr>"
+                        htmlStr+=      "<tr>"
                                 +      "<td id = 'Id'>" + item.Id + "</td>"
                                 +      "<td id = 'name'>" +item.supplyName+"</td>"
                                 +      "<td id = 'priority' value='"+item.priority+"'>" + priority + "</td>"
                                 +      "<td id = 'status' value='"+ item.supplyStatus + "' >" + status + "</td>"
-                                +      "<td id = 'manage'>"+manage+"</td></tr></tbody>"
+                                +      "<td id = 'manage'>"+manage+"</td></tr>"
                         
                     });
+                    htmlStr += "</tbody>";
                     $("#managelist").html(htmlStr);
                     $("#addButton").html("");
                     htmlStr = "";
@@ -46,7 +47,7 @@
         $("#requirementManagementLi").attr("class", "active");
         $("#supplyManagementLi").attr("class", "");
         $("#userManagementLi").attr("class", "");
-        var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>优先级</th><th>Status</th><th>操作</th></tr></thead>";
+        var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>优先级</th><th>Status</th><th>操作</th></tr></thead><tbody>";
         $.ajax({
             type: "POST",
             url: requirementListManageUrl,
@@ -63,14 +64,15 @@
                         status = "禁用";
                         manage = "<a href='#' class='btn btn-success' role='button' name='btmanage' id='btmanage'>解除禁用";
                     }
-                    htmlStr += "<tbody><tr>"
+                    htmlStr += "<tr>"
                             + "<td id = 'Id'>" + item.Id + "</td>"
                             + "<td id = 'name'>" + item.requirementName + "</td>"
                             + "<td id = 'priority' value='" + item.priority + "'>" + priority + "</td>"
                             + "<td id = 'status' value='" + item.requirementStatus + "' >" + status + "</td>"
-                            + "<td id = 'manage'>" + manage + "</td></tr></tbody>"
+                            + "<td id = 'manage'>" + manage + "</td></tr>"
 
                 });
+                htmlStr += "</tbody>";
                 $("#managelist").html(htmlStr);
                 $("#addButton").html("");
                 htmlStr = "";
@@ -88,7 +90,7 @@
         $("#requirementManagementLi").attr("class", "");
         $("#supplyManagementLi").attr("class", "");
         $("#userManagementLi").attr("class", "");
-        var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>创建时间</th><th>修改时间</th><th>操作</th></tr></thead>";
+        var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>创建时间</th><th>修改时间</th><th>操作</th></tr></thead><tbody>";
         $.ajax({
             type: "POST",
             url: categoryListManageUrl,
@@ -97,14 +99,15 @@
                 $.each(data, function (index, item) {
                     var manage = "<button  class='btn btn-danger' role='button' name='btmanage' id='btmanage'>删除";
                     
-                    htmlStr += "<tbody><tr>"
+                    htmlStr += "<tr>"
                             + "<td id = 'Id'>" + item.categoryId + "</td>"
                             + "<td id = 'name'>" + item.categoryName + "</td>"
                             + "<td id = 'createTime' value='" + item.createTime + "'>" + item.createTime + "</td>"
                             + "<td id = 'modifyTime' value='" + item.modifyTime + "' >" + item.modifyTime + "</td>"
-                            + "<td id = 'manage'>" + manage + "</td></tr></tbody>"
+                            + "<td id = 'manage'>" + manage + "</td></tr>"
                     
                 });
+                htmlStr += "</tbody>";
                 $("#addButton").html("<input type='button' class='btn btn-success' value='新增分类' />");
                 $("#managelist").html(htmlStr);
                 htmlStr = "";
@@ -120,7 +123,7 @@
             dataType:"json",
             success: function (data) {
                 if (data.success == "true") {
-                    var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>创建时间</th><th>修改时间</th><th>操作</th></tr></thead>";
+                    var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>创建时间</th><th>修改时间</th><th>操作</th></tr></thead><tbody>";
                     $.ajax({
                         type: "POST",
                         url: categoryListManageUrl,
@@ -129,14 +132,15 @@
                             $.each(data, function (index, item) {
                                 var manage = "<button  class='btn btn-danger' role='button' name='categorymanage' id='categorymanage'>删除";
 
-                                htmlStr += "<tbody><tr>"
+                                htmlStr += "<tr>"
                                         + "<td id = 'Id'>" + item.categoryId + "</td>"
                                         + "<td id = 'name'>" + item.categoryName + "</td>"
                                         + "<td id = 'createTime' value='" + item.createTime + "'>" + item.createTime + "</td>"
                                         + "<td id = 'modifyTime' value='" + item.modifyTime + "' >" + item.modifyTime + "</td>"
-                                        + "<td id = 'manage'>" + manage + "</td></tr></tbody>"
+                                        + "<td id = 'manage'>" + manage + "</td></tr>"
 
                             });
+                            htmlStr += "</tbody>";
                             $("#managelist").html(htmlStr);
                             htmlStr = "";
                         }
@@ -156,7 +160,7 @@
             dataType:"json",
             success: function (data) {
                 if (data.success = "true") {
-                    var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>创建时间</th><th>修改时间</th><th>操作</th></tr></thead>";
+                    var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>创建时间</th><th>修改时间</th><th>操作</th></tr></thead><tbody>";
                     $.ajax({
                         type: "POST",
                         url: categoryListManageUrl,
@@ -165,14 +169,15 @@
                             $.each(data, function (index, item) {
                                 var manage = "<button  class='btn btn-danger' role='button' name='categorymanage' id='categorymanage'>删除";
 
-                                htmlStr += "<tbody><tr>"
+                                htmlStr += "<tr>"
                                         + "<td id = 'Id'>" + item.categoryId + "</td>"
                                         + "<td id = 'name'>" + item.categoryName + "</td>"
                                         + "<td id = 'createTime' value='" + item.createTime + "'>" + item.createTime + "</td>"
                                         + "<td id = 'modifyTime' value='" + item.modifyTime + "' >" + item.modifyTime + "</td>"
-                                        + "<td id = 'manage'>" + manage + "</td></tr></tbody>"
+                                        + "<td id = 'manage'>" + manage + "</td></tr>"
 
                             });
+                            htmlStr += "</tbody>";
                             $("#managelist").html(htmlStr);
                             htmlStr = "";
                         }
@@ -229,7 +234,7 @@
         $("#requirementManagementLi").attr("class", "");
         $("#supplyManagementLi").attr("class", "");
         $("#userManagementLi").attr("class", "active");
-        var htmlStr = "<thead><tr><th>Id</th><th>用户名</th><th>性别</th><th>昵称</th><th>真实姓名</th><th>用户状态</th><th>注册时间</th><th>操作</th></tr></thead>";
+        var htmlStr = "<thead><tr><th>Id</th><th>用户名</th><th>性别</th><th>昵称</th><th>真实姓名</th><th>用户状态</th><th>注册时间</th><th>操作</th></tr></thead><tbody>";
         $.ajax({
             type: "POST",
             url: listUserManageUrl,
@@ -246,7 +251,7 @@
                         status = "超级管理员"
                         manage = "";
                     }
-                    htmlStr += "<tbody><tr>"
+                    htmlStr += "<tr>"
                             + "<td id = 'Id'>" + item.Id + "</td>"
                             + "<td id = 'name'>" + item.username + "</td>"
                             + "<td id = 'gender'>" + item.gender + "</td>"
@@ -254,9 +259,10 @@
                             + "<td id = 'realName'>" + item.realName + "</td>"
                             + "<td id = 'status' value='" + item.userStatus + "' >" + status + "</td>"
                             + "<td id = 'registerTime'>" + item.registerTime + "</td>"
-                            + "<td id = 'manage'>" + manage + "</td></tr></tbody>"
+                            + "<td id = 'manage'>" + manage + "</td></tr>"
 
                 });
+                htmlStr += "</tbody>";
                 $("#managelist").html(htmlStr);
                 $("#addButton").html("");
                 htmlStr = "";

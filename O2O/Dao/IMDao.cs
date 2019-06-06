@@ -54,6 +54,7 @@ namespace Dao
                     list.Add(im);
                 }
             }
+            sdr.Close();
             DbUtil.close(cmd);
             return list;
         }
@@ -85,6 +86,7 @@ namespace Dao
                 sdr.Read();
                 count = sdr.GetInt32(0);
             }
+            sdr.Close();
             DbUtil.close(cmd);
             return count;
         }

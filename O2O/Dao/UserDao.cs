@@ -20,6 +20,7 @@ namespace Dao
             cmd.Parameters.Add(new SqlParameter("@userStatus", user.UserStatus));
             cmd.Parameters.Add(new SqlParameter("@id", user.Id));
             int i = cmd.ExecuteNonQuery();
+            DbUtil.close(cmd);
             if (i > 0)
             {
                 return true;
@@ -53,6 +54,7 @@ namespace Dao
                     list.Add(user);
                 }
             }
+            sdr.Close();
             DbUtil.close(cmd);
             return list;
         }

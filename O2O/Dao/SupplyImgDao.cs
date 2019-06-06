@@ -19,6 +19,7 @@ namespace Dao
             cmd.Parameters.Add(new SqlParameter("@img_status", supplyImg.ImgStatus));//0缩略图,1详情图
             cmd.Parameters.Add(new SqlParameter("@supply_id", supplyImg.Supply.Id));
             int i = cmd.ExecuteNonQuery();
+            DbUtil.close(cmd);
             if (i > 0)
             {
                 return true;
@@ -34,6 +35,7 @@ namespace Dao
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@supplyId", supplyId));
             int i = cmd.ExecuteNonQuery();
+            DbUtil.close(cmd);
             if (i > 0)
                 return true;
             else
@@ -58,6 +60,8 @@ namespace Dao
                     list.Add(supplyImg);
                 }
             }
+            sdr.Close();
+            DbUtil.close(cmd);
             return list;
             
         }
@@ -76,6 +80,8 @@ namespace Dao
                 supplyImg.ImgStatus = sdr.GetInt32(2);
                 supplyImg.Supply.Id = sdr.GetInt32(3);
             }
+            sdr.Close();
+            DbUtil.close(cmd);
             return supplyImg;
         }
         public List<SupplyImg> querySupplyDescImgBySupplyId(int supplyId)
@@ -97,6 +103,8 @@ namespace Dao
                     list.Add(supplyImg);
                 }
             }
+            sdr.Close();
+            DbUtil.close(cmd);
             return list;
         }
     }
