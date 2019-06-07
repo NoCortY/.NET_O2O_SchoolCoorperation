@@ -7,7 +7,10 @@
              var reg = new RegExp("(^|&)" +name + "=([^&]*)(&|$)");
              var r= window.location.search.substr(1).match(reg);
              if (r != null) return unescape(r[2]); return null;
-         }})(jQuery);
+        }
+    })(jQuery);
+
+    var getAllUserEvaluateUrl = "../../Controller/EvaluateController.ashx?action=getalluserevaluate";
     if ($.getUrlParam("classify") == 0) {
         var getSupplyDetailUrl = "../../Controller/supply.ashx?action=getsupplydetail&Id=" + $.getUrlParam('Id');
         var getSupplyDescImgUrl = "../../Controller/supply.ashx?action=getsupplydescimg&Id=" + $.getUrlParam('Id');
@@ -18,6 +21,8 @@
         var getSupplyDescImgUrl = "../../Controller/requirement.ashx?action=getrequirementdescimg&Id=" + $.getUrlParam('Id');
         
     }
+
+
         $.ajax({
         type: "POST",
         url:getSupplyDetailUrl,
@@ -39,20 +44,38 @@
                 type: "POST",
                 url:getSupplyDescImgUrl,
                 dataType: "json",
-                success:function(data){
+                success: function (data) {
+                    $.ajax({
+                        type: "POST",
+                        url: getAllUserEvaluateUrl,
+                        data: { "receiveUserId": receiveUserId },
+                        dataType: "json",
+                        success: function (data) {
+                            var htmlStr = "";
+                            $.each(data, function (index, item) {
+                                htmlStr += "<div class='media-body'>"
+                                        + "<h5 class='mt-2 mb-1'>" + item.sendUserName + "</h5>"
+                                        + "<div class='mb-2'><i class='fa fa-xs fa-star text-primary'></i><i class='fa fa-xs fa-star text-primary'></i><i class='fa fa-xs fa-star text-primary'></i><i class='fa fa-xs fa-star text-primary'></i><i class='fa fa-xs fa-star text-primary'></i> </div>"
+                                        + "<p class='text-muted text-sm'>" + item.content + "</p></div><br/><hr class='featurette-divider'>";
+                            });
+                            $("#userEvaluate").html(htmlStr);
+                            htmlStr = "";
+                        }
+                    });
                     $.each(data, function (index, item) {
                         htmlStr += "<div class='col-lg-4 col-6 px-1 mb-2'><a href='../images/" + item.supplyDescImg + "'><img src='../images/" + item.DescImg + "' alt='详情图' class='img-fluid'></a></div>";
                     });
                     $("#descImg").html(htmlStr)
+                    htmlStr = "";
                 }
             });
         }
     });
 
-       
+        
         
         $("#submitEvaluate").click(function () {
-            var evaluateText = $("#evaluate").val();
+            var evaluateText = $("#evaluate").text();
             if (evaluateText != "") {
                 $.ajax({
                     type: "POST",
@@ -61,6 +84,23 @@
                     dataType: "json",
                     success: function (data) {
                         if (data.success == "true") {
+                            var htmlStr = "";
+                            $.ajax({
+                                type: "POST",
+                                url: getAllUserEvaluateUrl,
+                                data:{"receiveUserId":receiveUserId},
+                                dataType: "json",
+                                success: function (data) {
+                                    $.each(data, function (index, item) {
+                                        htmlStr += "<div class='media-body'>"
+                                                +"<h6 class='mt-2 mb-1'>"+item.sendUserName+"</h6>"
+                                                +"<div class='mb-2'><i class='fa fa-xs fa-star text-primary'></i><i class='fa fa-xs fa-star text-primary'></i><i class='fa fa-xs fa-star text-primary'></i><i class='fa fa-xs fa-star text-primary'></i><i class='fa fa-xs fa-star text-primary'></i> </div>"
+                                                +"<p class='text-muted text-sm'>"+item.content+"</p></div><br/><hr class='featurette-divider'>";
+                                    });
+                                    $("#userEvaluate").html(htmlStr);
+                                    htmlStr = "";
+                                }
+                            });
                             alert("评论成功");
                         } else {
                             alect("请先登录");

@@ -15,5 +15,10 @@ namespace Service
         {
             return userEvaluateDao.insertUserEvaluate(userEvaluate);
         }
+        public List<UserEvaluate> getAllEvaluate(int receiveUserId)
+        {
+            List<UserEvaluate> list = userEvaluateDao.queryUserEvaluateByReceiveId(receiveUserId);
+            return list;
+        }
     }
 }
