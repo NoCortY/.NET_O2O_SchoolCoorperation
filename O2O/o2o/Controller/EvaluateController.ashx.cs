@@ -6,13 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.SessionState;
 
 namespace o2o.Controller
 {
     /// <summary>
     /// Summary description for EvaluateController
     /// </summary>
-    public class EvaluateController : IHttpHandler
+    public class EvaluateController : IHttpHandler, IRequiresSessionState
     {
         EvaluateService evaluateService = new EvaluateService();
         public void ProcessRequest(HttpContext context)
@@ -32,19 +33,23 @@ namespace o2o.Controller
             StringBuilder jsonString  = new StringBuilder();
             if (context.Session["userId"] != null) { 
                  userEvaluate.SendUser.Id = Convert.ToInt32(context.Session["userId"]);
-            }
-            userEvaluate.ReceiveUser.Id = Convert.ToInt32(context.Request["receiveUser"]);
-            userEvaluate.EvaluateContent = context.Request["evaluateContent"];
-            if (evaluateService.addEvaluate(userEvaluate) && context.Session["userId"]!=null)
-            {
-                dictionary.Add("success", "true");
+                 userEvaluate.ReceiveUser.Id = Convert.ToInt32(context.Request["receiveUser"]);
+                 userEvaluate.EvaluateContent = context.Request["evaluateContent"];
+                 if (evaluateService.addEvaluate(userEvaluate) && context.Session["userId"] != null)
+                 {
+                     dictionary.Add("success", "true");
+                 }
+                 else
+                 {
+                     dictionary.Add("success", "false");
+                 }
+                 jsonString = JsonUtil.toJson(dictionary);
+                 context.Response.Write(jsonString.ToString());
             }
             else
             {
-                dictionary.Add("success", "false");
+                context.Response.Write("<script>alert('请先登录')</script>");
             }
-            jsonString = JsonUtil.toJson(dictionary);
-            context.Response.Write(jsonString.ToString());
 
         }
         public bool IsReusable

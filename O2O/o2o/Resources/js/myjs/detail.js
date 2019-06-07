@@ -1,5 +1,6 @@
 ﻿$(function () {
-    
+    var receiveUserId;
+    var submitEvaluate = "../../Controller/EvaluateController.ashx?action=createuserevaluate";
     /*获取地址栏参数*/
     (function ($) {
         $.getUrlParam = function (name) {
@@ -10,13 +11,12 @@
     if ($.getUrlParam("classify") == 0) {
         var getSupplyDetailUrl = "../../Controller/supply.ashx?action=getsupplydetail&Id=" + $.getUrlParam('Id');
         var getSupplyDescImgUrl = "../../Controller/supply.ashx?action=getsupplydescimg&Id=" + $.getUrlParam('Id');
-        var submitEvaluate = "../../Controller/EvaluateController.ashx?action = createuserevaluate";
-        var receiveUserId;
+        
+        
     } else {
         var getSupplyDetailUrl = "../../Controller/requirement.ashx?action=getrequirementdetail&Id=" + $.getUrlParam('Id');
         var getSupplyDescImgUrl = "../../Controller/requirement.ashx?action=getrequirementdescimg&Id=" + $.getUrlParam('Id');
-        var submitEvaluate = "../../Controller/EvaluateController.ashx?action = createuserevaluate";
-        var receiveUserId;
+        
     }
         $.ajax({
         type: "POST",
@@ -49,20 +49,18 @@
         }
     });
 
-        var form = $("#evaluateForm")[0];
-        var formData = new FormData(form);
-        formData.append("receiveUserId",receiveUserId);
+       
+        
         $("#submitEvaluate").click(function () {
-            var evaluateText = evaluate.val();
+            var evaluateText = $("#evaluate").val();
             if (evaluateText != "") {
                 $.ajax({
                     type: "POST",
                     url: submitEvaluate,
-                    data:formData,
+                    data: {"receiveUserId":receiveUserId,"evaluateContext":evaluateText},
                     dataType: "json",
                     success: function (data) {
-                        if (data.success = "true") {
-
+                        if (data.success == "true") {
                             alert("评论成功");
                         } else {
                             alect("请先登录");

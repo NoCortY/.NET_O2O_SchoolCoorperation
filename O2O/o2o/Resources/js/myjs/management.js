@@ -10,7 +10,7 @@
         $("#requirementManagementLi").attr("class", "");
         $("#categoryManagementLi").attr("class", "");
         $("#userManagementLi").attr("class", "");
-        var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>优先级</th><th>Status</th><th>操作</th></tr></thead><tbody>";
+        var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>优先级</th><th>Status</th><th>发布人</th><th>操作</th></tr></thead><tbody>";
             $.ajax({
                 type: "POST",
                 url: supplyListManageUrl,
@@ -32,6 +32,7 @@
                                 +      "<td id = 'name'>" +item.supplyName+"</td>"
                                 +      "<td id = 'priority' value='"+item.priority+"'>" + priority + "</td>"
                                 +      "<td id = 'status' value='"+ item.supplyStatus + "' >" + status + "</td>"
+                                +      "<td id = 'nickName value='" + item.nickName+"'>"+item.nickName+"</td>"
                                 +      "<td id = 'manage'>"+manage+"</td></tr>"
                         
                     });
@@ -47,7 +48,7 @@
         $("#requirementManagementLi").attr("class", "active");
         $("#supplyManagementLi").attr("class", "");
         $("#userManagementLi").attr("class", "");
-        var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>优先级</th><th>Status</th><th>操作</th></tr></thead><tbody>";
+        var htmlStr = "<thead><tr><th>Id</th><th>名称</th><th>优先级</th><th>Status</th><th>发布人</th><th>操作</th></tr></thead><tbody>";
         $.ajax({
             type: "POST",
             url: requirementListManageUrl,
@@ -69,6 +70,7 @@
                             + "<td id = 'name'>" + item.requirementName + "</td>"
                             + "<td id = 'priority' value='" + item.priority + "'>" + priority + "</td>"
                             + "<td id = 'status' value='" + item.requirementStatus + "' >" + status + "</td>"
+                            + "<td id = 'nickName value='" + item.nickName + "'>" + item.nickName + "</td>"
                             + "<td id = 'manage'>" + manage + "</td></tr>"
 
                 });

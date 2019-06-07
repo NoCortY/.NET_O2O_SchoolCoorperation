@@ -61,7 +61,7 @@
         });
     })
     $("#managelist").on("click", "#updateSupply", function () {
-
+        window.location("../../Views/addlist.html?Id=" + $(this).parent().parent().children("#Id").text() + "&classify=0");
     });
 
 
@@ -129,6 +129,6 @@
         });
     })
     $("#managelist").on("click", "#updateRequirement", function () {
-
+        window.location("../../Views/addlist.html?Id=" + $(this).parent().parent().children("#Id").text()+"&classify=1");
     });
 });

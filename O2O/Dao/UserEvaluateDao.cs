@@ -17,8 +17,8 @@ namespace Dao
         {
             String sql = "INSERT INTO tb_user_evaluate(receive_user_id,send_user_id,evaluate_content) VALUES(@receive_user_id,@send_user_id,@evaluate_content)";
             SqlCommand cmd = DbUtil.getCommand(sql);
-            cmd.Parameters.Add(new SqlParameter("@receive_user_id", userEvaluate.ReceiveUser));
-            cmd.Parameters.Add(new SqlParameter("@send_user_id", userEvaluate.SendUser));
+            cmd.Parameters.Add(new SqlParameter("@receive_user_id", userEvaluate.ReceiveUser.Id));
+            cmd.Parameters.Add(new SqlParameter("@send_user_id", userEvaluate.SendUser.Id));
             cmd.Parameters.Add(new SqlParameter("@evaluate_content", userEvaluate.EvaluateContent));
             int i = cmd.ExecuteNonQuery();
             DbUtil.close(cmd);

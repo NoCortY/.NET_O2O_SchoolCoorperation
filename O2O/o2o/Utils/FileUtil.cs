@@ -9,7 +9,17 @@ namespace o2o.Utils
 {
     public class FileUtil
     {
-
+        public static void deleteImg(String imgUrl)
+        {
+            try{
+                String path = imgUrl;
+                File.Delete(path);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static string uploadImg(HttpPostedFile file, string virpath)
         {
             if (file.ContentLength > 1024 * 1024 * 4)

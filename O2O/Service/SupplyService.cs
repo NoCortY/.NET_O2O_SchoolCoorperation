@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,45 @@ namespace Service
         CategoryDao categoryDao = new CategoryDao();
         UserDao userDao = new UserDao();
         SupplyImgDao supplyImgDao = new SupplyImgDao();
+        public Boolean updateSupply(Supply supply,List<SupplyImg> list)
+        {
+            supply.ModifyTime = DateTime.Now;
+            if (list.Count != 0) {
+                //删除原有的图片
+                SupplyImg supplyImg = supplyImgDao.querySupplyFirstImgBySupplyId(supply.Id);
+                List<SupplyImg> listExsit = supplyImgDao.querySupplyDescImgBySupplyId(supply.Id);
+                listExsit.Add(supplyImg);
+                foreach (SupplyImg s in listExsit)
+                {
+                    if (s.ImgPath != null)
+                    {
+                        File.Delete(s.ImgPath);
+                    }
+                }
+                supplyImgDao.deleteSupplyImgBySupplyId(supply.Id);
+                
+                //插入新图片
+                foreach (SupplyImg s in list)
+                {
+                    supplyImgDao.insertSupplyImg(s);
+                }
+            }
+            return supplyDao.updateSupplyById(supply);
+        }
         public Boolean removeSupplyById(int supplyId)
         {
+            SupplyImg supplyImg = supplyImgDao.querySupplyFirstImgBySupplyId(supplyId);
+            List<SupplyImg> list = supplyImgDao.querySupplyDescImgBySupplyId(supplyId);
+            list.Add(supplyImg);
+            foreach (SupplyImg s in list)
+            {
+                if (s.ImgPath != null&&s.ImgPath!="")
+                {
+                    File.Delete(s.ImgPath);
+                }
+            }
             Boolean flagSupplyImg = supplyImgDao.deleteSupplyImgBySupplyId(supplyId);
+            
             Boolean flagSupply = supplyDao.deleteSupplyById(supplyId);
             return flagSupply;
         }

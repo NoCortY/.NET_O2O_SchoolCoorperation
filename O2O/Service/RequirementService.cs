@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,44 @@ namespace Service
         CategoryDao categoryDao = new CategoryDao();
         UserDao userDao = new UserDao();
         RequirementImgDao requirementImgDao = new RequirementImgDao();
+        public Boolean updateRequirement(Requirement requirement, List<RequirementImg> list)
+        {
+            requirement.ModifyTime = DateTime.Now;
+            if (list.Count != 0)
+            {
+                //删除原有的图片
+                RequirementImg requirementImg = requirementImgDao.queryRequirementFirstImgByRequirementId(requirement.Id);
+                List<RequirementImg> listExsit = requirementImgDao.queryRequirementDescImgByRequirementId(requirement.Id);
+                listExsit.Add(requirementImg);
+                foreach (RequirementImg s in listExsit)
+                {
+                    if (s.ImgPath != null)
+                    {
+                        File.Delete(s.ImgPath);
+                    }
+                }
+                requirementImgDao.deleteRequirementImgByRequirementId(requirement.Id);
+
+                //插入新图片
+                foreach (RequirementImg s in list)
+                {
+                    requirementImgDao.insertRequirementImg(s);
+                }
+            }
+            return requirementDao.updateRequirementById(requirement);
+        }
         public Boolean removeRequirementById(int requirementId)
         {
+            RequirementImg requirementImg = requirementImgDao.queryRequirementFirstImgByRequirementId(requirementId);
+            List<RequirementImg> list = requirementImgDao.queryRequirementDescImgByRequirementId(requirementId);
+            list.Add(requirementImg);
+            foreach (RequirementImg s in list)
+            {
+                if (s.ImgPath != null)
+                {
+                    File.Delete(s.ImgPath);
+                }
+            }
             Boolean flagRequirementImg = requirementImgDao.deleteRequirementImgByRequirementId(requirementId);
             Boolean flagRequirement = requirementDao.deleteRequirementById(requirementId);
             return flagRequirement;

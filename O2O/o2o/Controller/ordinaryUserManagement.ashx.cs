@@ -29,8 +29,82 @@ namespace o2o.Controller
                 case "evaluatemanage": evaluateManage(context); break;
                 case "deletemysupply": deleteMySupply(context); break;
                 case "deletemyrequirement": deleteMyRequirement(context); break;
+                case "updatemysupply": updateMySupply(context); break;
+                case "updatemyrequirement":updateMyRequirement(context); break;
                 default: break;
             }
+        }
+        public void updateMyRequirement(HttpContext context)
+        {
+            context.Response.ContentType = "text/plain";
+            Requirement requirement = new Requirement();
+            requirement.Id = Convert.ToInt32(context.Request["Id"]);
+            requirement.RequirementName = context.Request["Name"];
+            requirement.RequirementDesc = context.Request["Desc"];
+            requirement.RequirementCategory.Id = Convert.ToInt32(context.Request["CategoryId"]);
+            Dictionary<String, Object> dictionary = new Dictionary<string, object>();
+            string savepath = "";
+            List<RequirementImg> list = new List<RequirementImg>();
+            if (context.Request.Files.Count > 0)
+            {
+                for (int i = 0; i < context.Request.Files.Count; i++)
+                {
+                    RequirementImg requirementImg = new RequirementImg();
+                    requirementImg.Requirement.Id = Convert.ToInt32(context.Request["Id"]);
+                    HttpPostedFile file1 = context.Request.Files["descImg" + i];
+                    requirementImg.ImgStatus = Convert.ToInt32(context.Request["status" + i]);
+                    savepath = FileUtil.uploadImg(file1, "../images/");
+                    requirementImg.ImgPath = savepath;
+                    list.Add(requirementImg);
+                }
+            }
+
+            Boolean flag = requirementService.updateRequirement(requirement, list);
+            if (flag)
+            {
+                dictionary.Add("success", "true");
+            }
+            else
+            {
+                dictionary.Add("success", "false");
+            }
+            context.Response.Write(JsonUtil.toJson(dictionary).ToString());
+        }
+        public void updateMySupply(HttpContext context)
+        {
+            context.Response.ContentType = "text/plain";
+            Supply supply = new Supply();
+            supply.Id = Convert.ToInt32(context.Request["Id"]);
+            supply.SupplyName = context.Request["Name"];
+            supply.SupplyDesc = context.Request["Desc"];
+            supply.SupplyCategory.Id = Convert.ToInt32(context.Request["CategoryId"]);
+            Dictionary<String, Object> dictionary = new Dictionary<string, object>();
+            string savepath = "";
+            List<SupplyImg> list = new List<SupplyImg>();
+            if (context.Request.Files.Count > 0)
+            {
+                for (int i = 0; i < context.Request.Files.Count; i++)
+                {
+                    SupplyImg supplyImg = new SupplyImg();
+                    supplyImg.Supply.Id = Convert.ToInt32(context.Request["Id"]);
+                    HttpPostedFile file1 = context.Request.Files["descImg" + i];
+                    supplyImg.ImgStatus = Convert.ToInt32(context.Request["status"+i]);
+                    savepath = FileUtil.uploadImg(file1, "../images/");
+                    supplyImg.ImgPath = savepath;
+                    list.Add(supplyImg);
+                }
+            }
+
+            Boolean flag = supplyService.updateSupply(supply,list);
+            if (flag)
+            {
+                dictionary.Add("success", "true");
+            }
+            else
+            {
+                dictionary.Add("success", "false");
+            }
+            context.Response.Write(JsonUtil.toJson(dictionary).ToString());
         }
         public void deleteMyRequirement(HttpContext context)
         {
