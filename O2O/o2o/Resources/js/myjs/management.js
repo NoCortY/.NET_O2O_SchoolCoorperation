@@ -99,7 +99,7 @@
             dataType: 'json',
             success: function (data) {
                 $.each(data, function (index, item) {
-                    var manage = "<button  class='btn btn-danger' role='button' name='btmanage' id='btmanage'>删除";
+                    var manage = "<button  class='btn btn-danger' role='button' name='categorymanage' id='categorymanage'>删除";
                     
                     htmlStr += "<tr>"
                             + "<td id = 'Id'>" + item.categoryId + "</td>"

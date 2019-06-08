@@ -6,13 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.SessionState;
 
 namespace o2o.Controller
 {
     /// <summary>
     /// Summary description for supply
     /// </summary>
-    public class supply : IHttpHandler
+    public class supply : IHttpHandler, IRequiresSessionState
     {
         SupplyService supplyService = new SupplyService();
         UserService userService = new UserService();
@@ -152,8 +153,8 @@ namespace o2o.Controller
             supply.SupplyName = context.Request["Name"];
             supply.SupplyDesc = context.Request["Desc"];
             supply.SupplyCategory.Id = Convert.ToInt32(context.Request["CategoryId"]);
-            //supply.User.Id = Convert.ToInt32(context.Session["userId"]);
-            supply.User.Id = 1;//暂时
+            supply.User.Id = Convert.ToInt32(context.Session["userId"]);
+            //supply.User.Id = 1;//暂时
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
             int id = supplyService.addSupply(supply);
             if (id>0)
@@ -180,7 +181,7 @@ namespace o2o.Controller
             int i = 1;
             foreach(Supply supply in list){
                 SupplyImg supplyImg = supplyService.getSupplyFirstImg(supply.Id);
-                if (supplyImg.ImgPath != null) {
+                if (supplyImg.ImgPath != null&&supplyImg.ImgPath!="") {
                     imgPath = System.IO.Path.GetFileName(supplyImg.ImgPath);
                 }
                 dictionary.Add("Id", supply.Id);

@@ -32,6 +32,7 @@
             $("#contactMe").attr("value", data.userId);
             $("#categoryName").text(data.categoryName);
             $("#Name").text(data.Name);
+            $("title").html(data.Name + "-详情");
             $("#Desc").text(data.Desc);
             $("#userNickName").text(data.userName);
             $("#teleNum").text(data.userTeleNum);
@@ -63,7 +64,7 @@
                         }
                     });
                     $.each(data, function (index, item) {
-                        htmlStr += "<div class='col-lg-4 col-6 px-1 mb-2'><a href='../images/" + item.supplyDescImg + "'><img src='../images/" + item.DescImg + "' alt='详情图' class='img-fluid'></a></div>";
+                        htmlStr += "<div class='col-lg-4 col-6 px-1 mb-2'><a href='../images/" + item.DescImg + "'><img src='../images/" + item.DescImg + "' alt='详情图' class='img-fluid'></a></div>";
                     });
                     $("#descImg").html(htmlStr)
                     htmlStr = "";

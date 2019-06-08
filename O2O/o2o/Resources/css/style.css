@@ -3263,7 +3263,6 @@ h5, .h5 {
 
 .breadcromb-top {
 	position: relative;
-	background: url(../images/breadcromb_bg.png) no-repeat scroll center center /cover;
 	padding: 80px 0;
 }
 .breadcromb-top:before {

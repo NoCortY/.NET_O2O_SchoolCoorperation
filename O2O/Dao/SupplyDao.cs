@@ -13,9 +13,10 @@ namespace Dao
     {
         public Boolean updateSupplyById(Supply supply)
         {
-            String sql = "UPDATE tb_supply SET supply_name = @supplyName,category_id = @categoryId,modify_time = @modifyTime WHERE id = @id";
+            String sql = "UPDATE tb_supply SET supply_name = @supplyName,supply_desc = @supplyDesc,category_id = @categoryId,modify_time = @modifyTime WHERE id = @id";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@supplyName", supply.SupplyName));
+            cmd.Parameters.Add(new SqlParameter("@supplyDesc", supply.SupplyDesc));
             cmd.Parameters.Add(new SqlParameter("@categoryId", supply.SupplyCategory.Id));
             cmd.Parameters.Add(new SqlParameter("@modifyTime", supply.ModifyTime));
             cmd.Parameters.Add(new SqlParameter("@id", supply.Id));
@@ -59,7 +60,7 @@ namespace Dao
                     Supply supply = new Supply();
                     supply.Id = sdr.GetInt32(0);
                     supply.SupplyName = sdr.GetString(1);
-                    supply.Priority = sdr.GetInt32(3);
+                    supply.Priority = sdr.GetInt32(4);
                     supply.CreateTime = sdr.GetDateTime(6);
                     supply.ModifyTime = sdr.GetDateTime(7);
                     supply.SupplyStatus = sdr.GetInt32(8);
@@ -156,8 +157,8 @@ namespace Dao
                     supply.SupplyCategory.Id = sdr.GetInt32(3);
                     supply.Priority = sdr.GetInt32(4);
                     supply.User.Id = sdr.GetInt32(5);
-                    //supply.CreateTime = sdr.GetDateTime(6);
-                    // supply.ModifyTime = sdr.GetDateTime(7);
+                    supply.CreateTime = sdr.GetDateTime(6);
+                    supply.ModifyTime = sdr.GetDateTime(7);
                     supply.SupplyStatus = sdr.GetInt32(8);
                     list.Add(supply);
                 }
@@ -187,8 +188,8 @@ namespace Dao
                     supply.SupplyCategory.Id = sdr.GetInt32(3);
                     supply.Priority = sdr.GetInt32(4);
                     supply.User.Id = sdr.GetInt32(5);
-                    //supply.CreateTime = sdr.GetDateTime(6);
-                    //supply.ModifyTime = sdr.GetDateTime(7);
+                    supply.CreateTime = sdr.GetDateTime(6);
+                    supply.ModifyTime = sdr.GetDateTime(7);
                     supply.SupplyStatus = sdr.GetInt32(8);
                     //sdr.NextResult();
                     list.Add(supply);
@@ -216,8 +217,8 @@ namespace Dao
                     supply.SupplyCategory.Id = sdr.GetInt32(3);
                     supply.Priority = sdr.GetInt32(4);
                     supply.User.Id = sdr.GetInt32(5);
-                    //supply.CreateTime = sdr.GetDateTime(6);
-                    //supply.ModifyTime = sdr.GetDateTime(7);
+                    supply.CreateTime = sdr.GetDateTime(6);
+                    supply.ModifyTime = sdr.GetDateTime(7);
                     supply.SupplyStatus = sdr.GetInt32(8);
                     //sdr.NextResult();
                     list.Add(supply);
@@ -246,8 +247,8 @@ namespace Dao
                     supply.SupplyCategory.Id = sdr.GetInt32(3);
                     supply.Priority = sdr.GetInt32(4);
                     supply.User.Id = sdr.GetInt32(5);
-                    //supply.CreateTime = sdr.GetDateTime(6);
-                    //supply.ModifyTime = sdr.GetDateTime(7);
+                    supply.CreateTime = sdr.GetDateTime(6);
+                    supply.ModifyTime = sdr.GetDateTime(7);
                     supply.SupplyStatus = sdr.GetInt32(8);
                     //sdr.NextResult();
                     list.Add(supply);

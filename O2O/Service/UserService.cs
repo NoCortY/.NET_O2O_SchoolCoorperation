@@ -47,7 +47,7 @@ namespace Service
                 user.TeleNumber = "";
             }
             user.RegisterTime = DateTime.Now;
-            user.UserStatus = 1;
+            user.UserStatus = 0;
             Boolean flag = userDao.insertUser(user);
             return flag;
         }

@@ -69,10 +69,11 @@
                 addDescImgUrl = "../../Controller/requirement.ashx?action=addrequirementdescimg";
                 updateUrl = "../../Controller/ordinaryUserManagement.ashx?action=updatemyrequirement";
             }
+            var desc = $("#Desc").val().replace(/[\n\r]/g, ".");
             var formData = new FormData();
             formData.append("Id", $.getUrlParam('Id'));
             formData.append("Name",$("#Name").val());
-            formData.append("Desc",$("#Desc").text());
+            formData.append("Desc",desc);
             formData.append("categoryId",$("#category").find("option:selected").val());
             formData.append("descImg0", $('#smallImg')[0].files[0]);
             formData.append("status0","0");
@@ -101,7 +102,7 @@
                     }
                 }
             });
-        }
+        }else{
         if ($("#requirementOrSupply option:selected").val() == 1) {
             addUrl = "../../Controller/supply.ashx?action=addsupply";
             addImgUrl = "../../Controller/supply.ashx?action=addsupplyimg";
@@ -112,10 +113,11 @@
             addImgUrl = "../../Controller/requirement.ashx?action=addrequirementimg";
             addDescImgUrl = "../../Controller/requirement.ashx?action=addrequirementdescimg";
         }
+        var desc = $("#Desc").val().replace(/[\n\r]/g, ".");
         $.ajax({
             type: "POST",
             url: addUrl,
-            data: { Name: $("#Name").val(), Desc: $("#Desc").text(), CategoryId: $("#category").find("option:selected").val() },
+            data: { Name: $("#Name").val(), Desc: desc, CategoryId: $("#category").find("option:selected").val() },
             dataType: "json",
             success: function (data) {
                 if (data.success == "true") {
@@ -163,8 +165,6 @@
                 }
             }
         });
-       
-        
-
+        }
     });
 });

@@ -14,9 +14,10 @@ namespace Dao
     {
         public Boolean updateRequirementById(Requirement requirement)
         {
-            String sql = "UPDATE tb_requirement SET requirement_name = @requirementName,category_id = @categoryId,modify_time = @modifyTime WHERE id = @id";
+            String sql = "UPDATE tb_requirement SET requirement_name = @requirementName,requirement_desc = @requirementDesc,category_id = @categoryId,modify_time = @modifyTime WHERE id = @id";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@requirementName", requirement.RequirementName));
+            cmd.Parameters.Add(new SqlParameter("@requirementDesc", requirement.RequirementDesc));
             cmd.Parameters.Add(new SqlParameter("@categoryId", requirement.RequirementCategory.Id));
             cmd.Parameters.Add(new SqlParameter("@modifyTime", requirement.ModifyTime));
             cmd.Parameters.Add(new SqlParameter("@id", requirement.Id));
@@ -80,9 +81,9 @@ namespace Dao
                 requirement.Id = sdr.GetInt32(0);
                 requirement.RequirementName = sdr.GetString(1);
                 requirement.RequirementDesc = sdr.GetString(2);
-                requirement.RequirementCategory.Id = sdr.GetInt32(3);
-                requirement.Priority = sdr.GetInt32(4);
-                requirement.User.Id = sdr.GetInt32(5);
+                requirement.Priority = sdr.GetInt32(3);
+                requirement.User.Id = sdr.GetInt32(4);
+                requirement.RequirementCategory.Id = sdr.GetInt32(5);
                 requirement.CreateTime = sdr.GetDateTime(6);
                 requirement.ModifyTime = sdr.GetDateTime(7);
                 requirement.RequirementStatus = sdr.GetInt32(8);
@@ -168,8 +169,8 @@ namespace Dao
                     requirement.Priority = sdr.GetInt32(3);
                     requirement.User.Id = sdr.GetInt32(4);
                     requirement.RequirementCategory.Id = sdr.GetInt32(5);
-                    //requirement.CreateTime = sdr.GetDateTime(6);
-                    //requirement.ModifyTime = sdr.GetDateTime(7);
+                    requirement.CreateTime = sdr.GetDateTime(6);
+                    requirement.ModifyTime = sdr.GetDateTime(7);
                     requirement.RequirementStatus = sdr.GetInt32(8);
                     list.Add(requirement);
                 }
@@ -197,8 +198,8 @@ namespace Dao
                     requirement.Priority = sdr.GetInt32(3);
                     requirement.User.Id = sdr.GetInt32(4);
                     requirement.RequirementCategory.Id = sdr.GetInt32(5);
-                    //requirement.CreateTime = sdr.GetDateTime(6);
-                    //requirement.ModifyTime = sdr.GetDateTime(7);
+                    requirement.CreateTime = sdr.GetDateTime(6);
+                    requirement.ModifyTime = sdr.GetDateTime(7);
                     requirement.RequirementStatus = sdr.GetInt32(8);
                     list.Add(requirement);
                 }
@@ -244,8 +245,8 @@ namespace Dao
                     requirement.Priority = sdr.GetInt32(3);
                     requirement.User.Id = sdr.GetInt32(4);
                     requirement.RequirementCategory.Id = sdr.GetInt32(5);
-                    //requirement.CreateTime = sdr.GetDateTime(6);
-                    //requirement.ModifyTime = sdr.GetDateTime(7);
+                    requirement.CreateTime = sdr.GetDateTime(6);
+                    requirement.ModifyTime = sdr.GetDateTime(7);
                     requirement.RequirementStatus = sdr.GetInt32(8);
                     //sdr.NextResult();
                     list.Add(requirement);
@@ -271,11 +272,11 @@ namespace Dao
                     requirement.Id = sdr.GetInt32(0);
                     requirement.RequirementName = sdr.GetString(1);
                     requirement.RequirementDesc = sdr.GetString(2);
-                    requirement.RequirementCategory.Id = sdr.GetInt32(3);
-                    requirement.Priority = sdr.GetInt32(4);
-                    requirement.User.Id = sdr.GetInt32(5);
-                    //requirement.CreateTime = sdr.GetDateTime(6);
-                    //requirement.ModifyTime = sdr.GetDateTime(7);
+                    requirement.Priority = sdr.GetInt32(3);
+                    requirement.User.Id = sdr.GetInt32(4);
+                    requirement.RequirementCategory.Id = sdr.GetInt32(5);
+                    requirement.CreateTime = sdr.GetDateTime(6);
+                    requirement.ModifyTime = sdr.GetDateTime(7);
                     requirement.RequirementStatus = sdr.GetInt32(8);
                     //sdr.NextResult();
                     list.Add(requirement);

@@ -149,7 +149,7 @@ namespace o2o.Controller
             requirement.RequirementName = context.Request["Name"];
             requirement.RequirementDesc = context.Request["Desc"];
             requirement.RequirementCategory.Id = Convert.ToInt32(context.Request["CategoryId"]);
-            requirement.User.Id = 1;
+            requirement.User.Id = Convert.ToInt32(context.Session["userId"]);
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
             int id = requirementService.addRequirement(requirement);
             if (id > 0)
@@ -170,13 +170,13 @@ namespace o2o.Controller
             StringBuilder jsonString = new StringBuilder();
             Dictionary<String, Object> dictionary = new Dictionary<string, object>();
 
-            string imgPath = "defaultImg.jpg";
             jsonString.Append("[");
             int i = 1;
             foreach (Requirement requirement in list)
             {
+                string imgPath = "defaultImg.jpg";
                 RequirementImg requirementImg = requirementService.getRequirementFirstImg(requirement.Id);
-                if (requirementImg.ImgPath != null)
+                if (requirementImg.ImgPath != null&&requirementImg.ImgPath!="")
                 {
                     imgPath = System.IO.Path.GetFileName(requirementImg.ImgPath);
                 }

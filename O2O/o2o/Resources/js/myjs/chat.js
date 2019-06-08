@@ -1,5 +1,4 @@
-﻿
-screenFuc();
+﻿screenFuc();
 function screenFuc() {
     var topHeight = $(".chatBox-head").innerHeight();//聊天头部高度
     //屏幕小于768px时候,布局change
@@ -41,9 +40,9 @@ $(".message-num").each(function () {
 
 
 //打开/关闭聊天框
-$(".chatBtn").click(function () {
+/*$(".chatBtn").click(function () {
     $(".chatBox").toggle(10);
-})
+})*/
 $(".chat-close").click(function () {
     $(".chatBox").toggle(10);
 })
@@ -76,15 +75,27 @@ $(".chat-return").click(function () {
     $(".chatBox-list").fadeToggle(1);
     $(".chatBox-kuang").fadeToggle(1);
 });
+function getNow(s) {
+    return s < 10 ? '0' + s: s;
+}
+var myDate = new Date();             
 
+var year=myDate.getFullYear();        //获取当前年
+var month=myDate.getMonth()+1;   //获取当前月
+var date=myDate.getDate();            //获取当前日
+
+var h=myDate.getHours();              //获取当前小时数(0-23)
+var m=myDate.getMinutes();          //获取当前分钟数(0-59)
+var s=myDate.getSeconds(); 
+var now=year+'/'+getNow(month)+"/"+getNow(date)+" "+getNow(h)+':'+getNow(m)+":"+getNow(s);
 //      发送信息
 $("#chat-fasong").click(function () {
     var textContent = $(".div-textarea").html().replace(/[\n\r]/g, '<br>')
     if (textContent != "") {
         $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
-            "<div class=\"author-name\"><small class=\"chat-date\">2017-12-02 14:26:58</small> </div> " +
+            "<div class=\"author-name\"><small class=\"chat-date\">" + now + "</small> </div> " +
             "<div class=\"right\"> <div class=\"chat-message\"> " + textContent + " </div> " +
-            "<div class=\"chat-avatars\"><img src=\"img/icon01.png\" alt=\"头像\" /></div> </div> </div>");
+            "<div class=\"chat-avatars\"><img src=\"\" alt=\"头像\" /></div> </div> </div>");
         //发送后清空输入框
         //聊天框默认最底部
         $(document).ready(function () {

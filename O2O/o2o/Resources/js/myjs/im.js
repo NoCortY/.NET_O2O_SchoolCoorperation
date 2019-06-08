@@ -6,6 +6,11 @@
     var messageCount;
     setInterval(function () { receiveMessageCount() }, 5000);
     $("#chatBtn").click(function () {
+        $(".chatBox").toggle(10);
+        $(".chatBox-head-one").hide();
+        $(".chatBox-head-two").show();
+        $(".chatBox-list").hide();
+        $(".chatBox-kuang").show();
         $("#chatMessageNum").text("");
         $.ajax({
             url:receiveMessageUrl,
@@ -13,6 +18,8 @@
             dataType: "json",
             success: function (data) {
                 $.each(data, function (index, item) {
+                    $(".ChatInfoName").text(item.sendUserName);
+                    $(".ChatInfoName").attr("value", item.sendUserId);
                     htmlStr+="<div class='clearfloat'>"
                               +  "<div class='author-name'>"
                               +   "  <small class='chat-date'>"+item.sendTime+"</small></div>"
@@ -39,12 +46,12 @@
     $("#contactMe").click(function () {
         $(".chatBox").toggle(10);
         var n = $(this).index();
-        $(".chatBox-head-one").toggle();
-        $(".chatBox-head-two").toggle();
-        $(".chatBox-list").fadeToggle();
-        $(".chatBox-kuang").fadeToggle();
+        $(".chatBox-head-one").hide();
+        $(".chatBox-head-two").show();
+        $(".chatBox-list").hide();
+        $(".chatBox-kuang").show();
 
-
+        $(".ChatInfoName").attr("value", $("#contactMe").attr("value"));
         //传名字
         $(".ChatInfoName").text($("#userNickName").text());
 
@@ -57,12 +64,12 @@
         });
     });
     $("#chat-fasong").click(function () {
-        var content = $(".div-textarea").html().replace(/[\n\r]/g, '<br>');
+        var content = $(".div-textarea").html().replace(/[\n\r]/g, '');
         $("#sendBox").html("");
         var formData = new FormData();
-        var receiveUserId = $("#contactMe").attr("value");
+        var receiveUserId = $(".ChatInfoName").attr("value");
         var sendUserName = $("#useritem").text();
-        var receiveUserName = $("#userNickName").text();
+        var receiveUserName = $(".ChatInfoName").html();
         formData.append("sendUserName", sendUserName);
         formData.append("receiveUserId", receiveUserId);
         formData.append("receiveUserName", receiveUserName);
@@ -76,7 +83,6 @@
             processData: false,
             cache: false,
             success: function (data) {
-                alert("成功");
             }
         });
     });

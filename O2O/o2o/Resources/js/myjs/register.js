@@ -30,7 +30,7 @@
             $("#alertconfirmpassword").html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;两次密码不一致");
             flag = false;
         }
-        if ($("#InputTeleNumber").val() != "" && !(reg_telenum.test($("#inputTeleNumber").val()))) {
+        if ($("#InputTeleNumber").val() != "" && !(reg_telenum.test($("#InputTeleNumber").val()))) {
             $("#alerttelenum").html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入正确格式的手机号");
             flag = false;
         }
