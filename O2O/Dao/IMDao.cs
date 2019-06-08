@@ -13,7 +13,7 @@ namespace Dao
     {
         public Boolean insertContent(IM im)
         {
-            String sql = "INSERT INTO tb_IM(send_user_id,receive_user_id,send_user_name,receive_user_name,content,send_time) VALUES(@sendUserId,@receiveUserId,@sendUserName,@receiveUserName,@content,@sendTime";
+            String sql = "INSERT INTO tb_IM(send_user_id,receive_user_id,send_user_name,receive_user_name,content,send_time) VALUES(@sendUserId,@receiveUserId,@sendUserName,@receiveUserName,@content,@sendTime)";
             SqlCommand cmd = DbUtil.getCommand(sql);
             cmd.Parameters.Add(new SqlParameter("@sendUserId", im.SendUserId));
             cmd.Parameters.Add(new SqlParameter("@receiveUserId", im.ReceiveUserId));

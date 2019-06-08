@@ -24,19 +24,41 @@
                 });
                 $("#chatBox-content-demo").html(htmlStr);
                 htmlStr = "";
-                htmlStr +="<div class='chat-list-people'>"
+                /*htmlStr +="<div class='chat-list-people'>"
                         +"<div><img src='' alt='头像' /></div>"
                         +"<div class='chat-name'>"
                         +    "<p>"+data.senUserName+"</p>"
                         +"</div>"
-                        +"<div class='message-num'>"+messageCount+"</div></div>"
+                        +"<div class='message-num'>"+messageCount+"</div></div>"*/
                     
             }
         });
-        $("#chatBoxList").html(htmlStr);
+        //  $("#chatBoxList").html(htmlStr);
+    });
+
+    $("#contactMe").click(function () {
+        $(".chatBox").toggle(10);
+        var n = $(this).index();
+        $(".chatBox-head-one").toggle();
+        $(".chatBox-head-two").toggle();
+        $(".chatBox-list").fadeToggle();
+        $(".chatBox-kuang").fadeToggle();
+
+
+        //传名字
+        $(".ChatInfoName").text($("#userNickName").text());
+
+        //传头像
+        $(".ChatInfoHead>img").attr("src", $(this).children().eq(0).children("img").attr("src"));
+
+        //聊天框默认最底部
+        $(document).ready(function () {
+            $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+        });
     });
     $("#chat-fasong").click(function () {
-        var content = $("#sendBox").html();
+        var content = $(".div-textarea").html().replace(/[\n\r]/g, '<br>');
+        $("#sendBox").html("");
         var formData = new FormData();
         var receiveUserId = $("#contactMe").attr("value");
         var sendUserName = $("#useritem").text();

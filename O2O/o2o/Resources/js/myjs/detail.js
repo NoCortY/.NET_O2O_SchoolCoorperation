@@ -98,6 +98,7 @@
                                                 +"<p class='text-muted text-sm'>"+item.content+"</p></div><br/><hr class='featurette-divider'>";
                                     });
                                     $("#userEvaluate").html(htmlStr);
+                                    $(".div-textarea").html("");
                                     htmlStr = "";
                                 }
                             });

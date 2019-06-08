@@ -86,7 +86,6 @@ $("#chat-fasong").click(function () {
             "<div class=\"right\"> <div class=\"chat-message\"> " + textContent + " </div> " +
             "<div class=\"chat-avatars\"><img src=\"img/icon01.png\" alt=\"头像\" /></div> </div> </div>");
         //发送后清空输入框
-        $(".div-textarea").html("");
         //聊天框默认最底部
         $(document).ready(function () {
             $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
